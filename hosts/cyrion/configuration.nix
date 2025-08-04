@@ -32,6 +32,11 @@
       users.jonny = import ../../modules/home/default.nix;
     };
 
+    # packages installed in system profile
+    environment.systemPackages = [
+      pkgs.brightnessctl # brightness
+    ];
+
     # do not touch
     system.stateVersion = "25.05";
   };
