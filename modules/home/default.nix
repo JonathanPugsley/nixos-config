@@ -17,5 +17,14 @@
       homeDirectory = "/home/jonny";
       stateVersion = "25.05"; # do not change
     };
+
+    # temporary dark-theme fix for librewolf/wofi
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
   };
 }
