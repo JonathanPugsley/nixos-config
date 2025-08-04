@@ -77,6 +77,7 @@
         };
 
         env = [
+          # ignore
           "WLR_NO_HARDWARE_CURSORS,1"
 
           "XDG_CURRENT_DESKTOP,Hyprland"

@@ -4,6 +4,7 @@
     ./fastfetch.nix
     ./git.nix
     ./hyprland.nix
+    ./cursor.nix
     ./librewolf.nix
     ./playerctl.nix
     ./wofi.nix
@@ -19,7 +20,7 @@
       stateVersion = "25.05"; # do not change
     };
 
-    # temporary dark-theme fix for librewolf/wofi
+    # gtk theming
     gtk = {
       enable = true;
       theme = {
@@ -27,6 +28,5 @@
         package = pkgs.gnome-themes-extra;
       };
     };
-
   };
 }
