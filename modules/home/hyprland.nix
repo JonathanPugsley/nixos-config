@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./hyprshot.nix
     ./keybinds.nix
   ];
 
@@ -64,7 +65,6 @@
           repeat_rate = 35;
           repeat_delay = 200;
           touchpad.natural_scroll = true;
-          touchpad.drag_lock = 2;
         };
 
         cursor = {
