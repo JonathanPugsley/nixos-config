@@ -56,8 +56,8 @@
       "$mod SHIFT, 5, movetoworkspacesilent, 5"
 
       # screenshots
-      "$mod SHIFT, S, exec hyprshot -m region --clipboard-only -z -s"
-      "$mod SHIFT, F, exec hyprshot -m output --clipboard-only -z -s"
+      "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only -z -s"
+      "$mod SHIFT, F, exec, hyprshot -m output --clipboard-only -z -s"
     ];
 
     # mouse binds
