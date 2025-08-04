@@ -33,8 +33,9 @@
     };
 
     # packages installed in system profile
-    environment.systemPackages = [
-      pkgs.brightnessctl # brightness
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+      playerctl
     ];
 
     # do not touch
