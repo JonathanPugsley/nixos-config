@@ -5,6 +5,7 @@
     ./git.nix
     ./hyprland.nix
     ./librewolf.nix
+    ./playerctl.nix
     ./wofi.nix
   ];
 
@@ -26,5 +27,6 @@
         package = pkgs.gnome-themes-extra;
       };
     };
+
   };
 }

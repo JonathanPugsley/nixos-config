@@ -35,7 +35,6 @@
     # packages installed in system profile
     environment.systemPackages = with pkgs; [
       brightnessctl
-      playerctl
     ];
 
     # do not touch
