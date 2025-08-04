@@ -1,16 +1,13 @@
-{ config, lib, pkgs, inputs, ... }:
-
-{
-  imports =
-    [
-      ./gc.nix
-      ./sops.nix
-      inputs.sops-nix.nixosModules.sops
-      inputs.home-manager.nixosModules.default
-    ];
+{ config, lib, pkgs, inputs, ... }: {
+  imports = [
+    ./ly.nix
+    ./gc.nix
+    ./sops.nix
+    inputs.sops-nix.nixosModules.sops
+    inputs.home-manager.nixosModules.default
+  ];
   
   config = {
-
     # bootloader
     boot.loader = {
       systemd-boot = {
