@@ -1,5 +1,6 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [
+      ../../modules/system/bluetooth.nix
       ../../modules/system/fs-options.nix
       ../../modules/system/hyprland.nix
       ../../modules/system/default.nix

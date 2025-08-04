@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./alacritty.nix
+    ./bluetui.nix
     ./btop.nix
     ./fastfetch.nix
     ./git.nix
