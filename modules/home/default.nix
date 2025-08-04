@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./alacritty.nix
+    ./btop.nix
     ./fastfetch.nix
     ./git.nix
     ./hyprland.nix
