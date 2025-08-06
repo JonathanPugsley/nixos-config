@@ -1,14 +1,13 @@
 { config, pkgs, inputs, ... }: {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-    ./features/default.nix
+    ./theming/default.nix
     ./alacritty.nix
     ./bluetui.nix
     ./btop.nix
+    ./cursor.nix
     ./fastfetch.nix
     ./git.nix
     ./hyprland.nix
-    ./cursor.nix
     ./librewolf.nix
     ./playerctl.nix
     ./wofi.nix
@@ -22,18 +21,6 @@
       username = "jonny";
       homeDirectory = "/home/jonny";
       stateVersion = "25.05"; # do not change
-    };
-
-    # nix-colors
-    colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
-
-    # gtk theming
-    gtk = {
-      enable = true;
-      theme = {
-        name = "gruvbox-dark";
-        package = pkgs.gruvbox-dark-gtk;
-      };
     };
   };
 }
