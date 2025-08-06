@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }: {
   imports = [
-    ./theming/default.nix
+    ./theme/default.nix
     ./alacritty.nix
     ./bluetui.nix
     ./btop.nix
