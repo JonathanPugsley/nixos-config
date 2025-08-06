@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./librewolf.nix
     ./playerctl.nix
+    ./tree.nix
     ./wofi.nix
   ];
 
