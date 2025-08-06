@@ -1,5 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ./features/default.nix
     ./alacritty.nix
     ./bluetui.nix
     ./btop.nix
@@ -22,12 +24,15 @@
       stateVersion = "25.05"; # do not change
     };
 
+    # nix-colors
+    colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+
     # gtk theming
     gtk = {
       enable = true;
       theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
+        name = "gruvbox-dark";
+        package = pkgs.gruvbox-dark-gtk;
       };
     };
   };
