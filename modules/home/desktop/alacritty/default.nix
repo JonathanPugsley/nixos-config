@@ -1,4 +1,7 @@
 { config, ... }: {
+  imports = [
+    ./style.nix
+  ];
   config.programs.alacritty = {
     enable = true;
     settings = {

@@ -1,23 +1,18 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [
-    ./ly.nix
+    ./bluetooth.nix
+    ./fs-options.nix
     ./gc.nix
+    ./hyprland.nix
+    ./ly.nix
     ./sops.nix
+    ./systemd-boot.nix
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.default
   ];
   
   config = {
-    # bootloader
-    boot.loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        configurationLimit = 60;
-      };
-      efi.canTouchEfiVariables = true;
-    };
-
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     # nix settings
     nixpkgs.config.allowUnfree = true;
     nix.settings = {

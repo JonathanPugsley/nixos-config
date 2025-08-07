@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   config.colorScheme = {
     name = "gruvbox";
     author = "morhetz (https://github.com/morhetz/gruvbox)";

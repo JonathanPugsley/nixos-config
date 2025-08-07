@@ -1,9 +1,4 @@
 { config, ... }: {
-  imports = [
-    ./hyprshot.nix
-    ./keybinds.nix
-  ];
-
   config = {
     wayland.windowManager.hyprland = {
       enable = true;

@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   config.programs.wofi = {
     enable = true;
-    style = builtins.readFile ./theme/wofi-style.css;
+    style = builtins.readFile ./style.css;
     settings = {
       mode = "drun";
       height = 200;
