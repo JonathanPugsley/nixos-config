@@ -46,6 +46,7 @@
         "media.eme.enabled" = true;
 
         # performance
+        "media.ffmpeg.vaapi.enabled" = true;
         "widget.dmabuf.force-enabled" = true; # required in recent firefoxes
 
         # blank new tabs and windows
