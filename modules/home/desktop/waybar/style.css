@@ -1,0 +1,76 @@
+@define-color  bg0  #282828;
+@define-color  bg1  #3c3836;
+@define-color  fg0  #fbf1c7;
+@define-color  fg1  #ebdbb2;
+
+* {
+  min-height: 0;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+window#waybar {
+  background-color: @bg0;
+}
+
+/*LEFT*/
+#workspaces {
+  margin-left: 4px;
+}
+
+#workspaces button {
+  margin: 4px 0px;
+  padding: 0px 4px;
+  color: @fg1;
+}
+
+#workspaces button.active {
+  border-radius: 4;
+  background-color: @bg1;
+  color: @fg0;
+}
+
+#workspaces button.urgent {
+  color: #f38ba8;
+}
+
+/*CENTER*/
+#window {
+  color: @fg1;
+  background-color: transparent;
+}
+
+/*RIGHT*/
+#tray {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  background-color: @bg1;
+}
+
+#tray * {
+  padding: 0px 6px;
+  border-left: 1px;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#network, #bluetooth, #wireplumber, #backlight, #battery, #clock {
+  margin: 4px 2px;
+  padding: 0px 6px;
+  color: @fg1;
+  background-color: @bg1;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#clock {
+  margin-right: 4px;
+  background-color: transparent;
+}

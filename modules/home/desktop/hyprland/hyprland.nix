@@ -11,8 +11,7 @@
         ];
 
         exec-once = [
-          #"waybar"
-          #"hyprpaper"
+          "waybar"
         ];
 
         general = {
