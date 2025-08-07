@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [
     ./bluetooth.nix
+    ./fonts.nix
     ./fs-options.nix
     ./gc.nix
     ./hyprland.nix

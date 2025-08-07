@@ -12,16 +12,7 @@
     # packages installed in system profile
     environment.systemPackages = with pkgs; [
       brightnessctl
-    ];
-
-    # fonts
-    fonts.packages = with pkgs; [
-      jetbrains-mono
-      liberation_ttf
-      nerd-fonts.symbols-only
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
+      vim
     ];
 
     # do not touch
