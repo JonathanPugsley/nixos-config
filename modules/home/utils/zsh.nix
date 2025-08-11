@@ -6,7 +6,7 @@
       # settings
       autocd = true;
       autosuggestion.enable = true;
-      dotDir = ".config/zsh";
+      dotDir = "${config.home.homeDirectory}/.config/zsh";
       enableCompletion = true;
       enableVteIntegration = true;
       syntaxHighlighting.enable = true;
