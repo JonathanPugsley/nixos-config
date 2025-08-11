@@ -1,5 +1,5 @@
 RPROMPT='[%*]'
-PROMPT='%{$fg_no_bold[default]%}%n@%m %{$fg_no_bold[green]%}%6~ $(git_prompt_info)%{$reset_color%} 
+PROMPT='%{$fg_no_bold[green]%}%n@%m %{$fg_no_bold[default]%}%6~ $(git_prompt_info)%{$reset_color%} 
 » '
 
 
