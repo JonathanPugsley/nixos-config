@@ -6,5 +6,6 @@
     ./git.nix
     ./hyprshot.nix
     ./tree.nix
+    ./zsh.nix
   ];
 }

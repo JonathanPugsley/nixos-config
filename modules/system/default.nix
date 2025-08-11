@@ -8,6 +8,7 @@
     ./ly.nix
     ./sops.nix
     ./systemd-boot.nix
+    ./zsh.nix
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.default
   ];
