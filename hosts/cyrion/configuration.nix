@@ -12,6 +12,7 @@
     # packages installed in system profile
     environment.systemPackages = with pkgs; [
       brightnessctl
+      cifs-utils
       vim
     ];
 
