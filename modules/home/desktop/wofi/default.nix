@@ -1,7 +1,13 @@
 { config, pkgs, ... }: {
   config.programs.wofi = {
     enable = true;
-    style = builtins.readFile ./style.css;
+    style = pkgs.replaceVars ./style.css {
+      bg0 = "#${config.colorScheme.palette.bg0}";
+      bg1 = "#${config.colorScheme.palette.bg1}";
+      fg0 = "#${config.colorScheme.palette.fg0}";
+      fg1 = "#${config.colorScheme.palette.fg1}";
+    };
+
     settings = {
       mode = "drun";
       height = 200;

@@ -1,7 +1,14 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   config.programs.waybar = {
     enable = true;
-    style = builtins.readFile ./style.css;
+    style = pkgs.replaceVars ./style.css {
+      bg0 = "#${config.colorScheme.palette.bg0}";
+      bg1 = "#${config.colorScheme.palette.bg1}";
+      fg0 = "#${config.colorScheme.palette.fg0}";
+      fg1 = "#${config.colorScheme.palette.fg1}";
+      red = "#${config.colorScheme.palette.red}";
+    };
+
     settings.mainBar = {
 
       layer = "top";
