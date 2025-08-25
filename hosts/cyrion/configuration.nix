@@ -17,6 +17,7 @@
     ];
 
     # do not touch
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";
   };
 }

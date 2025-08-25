@@ -1,4 +1,8 @@
 { config, pkgs, lib, inputs, ... }: {
+  imports = [
+    inputs.home-manager.nixosModules.default
+  ];
+
   config = {
     # user
     users.users.jonny = {
