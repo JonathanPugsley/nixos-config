@@ -2,9 +2,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
   ];
-
   config = {
-    # user
     users.users.jonny = {
       uid = 1000;
       isNormalUser = true;
@@ -17,10 +15,19 @@
       ];
     };
 
-    # home
     home-manager = {
       extraSpecialArgs = { inherit inputs; };
-      users.jonny = import ../home/default.nix;
+      users.jonny = { pkgs, ... }: {
+        imports = [ ../home/default.nix ];
+
+        programs.home-manager.enable = true;
+
+        home = {
+          username = "jonny";
+          homeDirectory = "/home/jonny";
+          stateVersion = "25.05"; # do not change
+        };
+      };
     };
   };
 }
