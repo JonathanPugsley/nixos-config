@@ -4,18 +4,18 @@
 
     "$browser" = "librewolf";
     #"$editor" = "nvim";
-    #"$fileManager" = "$terminal -e $termFileManager $HOME";
+    "$fileManager" = "$terminal -e $termFileManager $HOME";
     #"$lock" = "hyprlock";
     "$menu" = "wofi";
     #"$music" = "spotify-launcher";
     #"$notes" = "obsidian";
-    #"$termFileManager" = "yazi";
+    "$termFileManager" = "yazi";
     "$terminal" = "alacritty";
     #"$top" = "$terminal -e btop";
 
     bind = [
       "$mod, Q, killactive,"
-      #"$mod, E, exec, $fileManager"
+      "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
       "$mod, RETURN, exec, $terminal"
       "$mod, F, fullscreen"

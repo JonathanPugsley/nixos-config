@@ -7,6 +7,7 @@
     ./hyprshot.nix
     ./tmux.nix
     ./tree.nix
+    ./yazi.nix
     ./zsh.nix
   ];
 }
