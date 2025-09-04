@@ -4,6 +4,7 @@
     ./fs-options.nix
     ./gc.nix
     ./locale.nix
+    ./nameservers.nix
     ./networkmanager.nix
     ./nixsettings.nix
     ./sops.nix
