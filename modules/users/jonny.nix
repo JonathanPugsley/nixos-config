@@ -17,11 +17,11 @@
 
     home-manager = {
       extraSpecialArgs = { inherit inputs; };
+      useGlobalPkgs = true;
+      sharedModules = [ inputs.nixcord.homeModules.nixcord ];
       users.jonny = { pkgs, ... }: {
         imports = [ ../home/default.nix ];
-
         programs.home-manager.enable = true;
-
         home = {
           username = "jonny";
           homeDirectory = "/home/jonny";
