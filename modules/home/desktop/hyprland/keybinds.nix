@@ -3,7 +3,7 @@
     "$mod" = "SUPER";
 
     "$browser" = "librewolf";
-    #"$editor" = "nvim";
+    "$editor" = "codium";
     "$fileManager" = "$terminal -e $termFileManager $HOME";
     #"$lock" = "hyprlock";
     "$menu" = "wofi";
@@ -18,9 +18,14 @@
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
       "$mod, RETURN, exec, $terminal"
+
+      "$mod, S, exec, steam"
+      "$mod, D, exec, discord"
       "$mod, F, fullscreen"
       "$mod, G, togglefloating"
+
       "$mod, X, exec, $browser"
+      "$mod, C, exec, $editor"
       "$mod ALT SHIFT, H, exit" # close hyprland
 
       # focus window

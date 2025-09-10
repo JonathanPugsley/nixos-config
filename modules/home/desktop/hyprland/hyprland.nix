@@ -79,6 +79,7 @@
           "XDG_SESSION_DESKTOP,Hyprland"
 
           "GBM_BACKEND,intel"
+          "__GLX_VENDOR_LIBRARY_NAME,intel"
         ];
       };
     };
