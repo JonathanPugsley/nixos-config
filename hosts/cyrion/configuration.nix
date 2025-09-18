@@ -9,6 +9,8 @@
     # hostname
     networking.hostName = "cyrion";
 
+    services.xserver.xkb.layout = "gb";
+
     # packages installed in system profile
     environment.systemPackages = with pkgs; [
       brightnessctl

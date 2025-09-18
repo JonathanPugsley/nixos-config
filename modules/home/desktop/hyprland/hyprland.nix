@@ -1,5 +1,7 @@
-{ config, ... }: {
-  config = {
+{ config, lib, osConfig, ... }: {
+  options.modules.hyprland.enable = lib.mkEnableOption "enable hyprland";
+
+  config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -8,6 +10,7 @@
 
         monitor = [
           "eDP-1, 1920x1080@60, 0x0, 1"
+          "DP-3, 3440x1440@100, 0x0, 1"
         ];
 
         exec-once = [
@@ -21,7 +24,7 @@
           #"col.active_border" = "";
           #"col.inactive_border" = "";
           resize_on_border = false;
-          allow_tearing = false;          
+          allow_tearing = false;
           layout = "master";
         };
 
@@ -29,7 +32,7 @@
           blur.enabled = false;
           shadow.enabled = false;
         };
-        
+
         misc = {
           force_default_wallpaper = 0;
           disable_hyprland_logo = true;
@@ -51,7 +54,7 @@
         };
 
         input = {
-          kb_layout = "gb";
+          kb_layout = osConfig.services.xserver.xkb.layout;
           kb_options = "caps:escape";
           follow_mouse = 2;
           sensitivity = 0.15;
@@ -70,16 +73,27 @@
           no_donation_nag = true;
         };
 
-        env = [
-          # ignore
-          "WLR_NO_HARDWARE_CURSORS,1"
+        env = builtins.concatLists [
+          [
+            "WLR_RENDERER_ALLOW_SOFTWARE,1"
+            "WLR_NO_HARDWARE_CURSORS,1"
 
-          "XDG_CURRENT_DESKTOP,Hyprland"
-          "XDG_SESSION_TYPE,wayland"
-          "XDG_SESSION_DESKTOP,Hyprland"
-
-          "GBM_BACKEND,intel"
-          "__GLX_VENDOR_LIBRARY_NAME,intel"
+            "XDG_CURRENT_DESKTOP,Hyprland"
+            "XDG_SESSION_TYPE,wayland"
+            "XDG_SESSION_DESKTOP,Hyprland"
+          ]
+          # nvidia
+          (lib.optionals osConfig.modules.nvidia.enable [
+            "GBM_BACKEND,nvidia-drm"
+            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+            "LIBVA_DRIVER_NAME,nvidia"
+            "NVD_BACKEND,direct"
+          ])
+          # intel
+          (lib.optionals (!osConfig.modules.nvidia.enable) [
+            "GBM_BACKEND,intel"
+            "__GLX_VENDOR_LIBRARY_NAME,intel"
+          ])
         ];
       };
     };

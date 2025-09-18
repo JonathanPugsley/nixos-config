@@ -34,6 +34,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      hearth = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/hearth/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
