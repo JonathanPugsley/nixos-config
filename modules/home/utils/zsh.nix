@@ -1,5 +1,7 @@
-{ config, pkgs, ... }: {
-  config = {
+{ config, lib, pkgs, ... }: {
+  options.modules.zsh.enable = lib.mkEnableOption "enable zsh";
+
+  config = lib.mkIf config.modules.zsh.enable {
     programs.zsh = {
       enable = true;
 
@@ -16,7 +18,6 @@
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
 
-      
       # oh my zsh
       oh-my-zsh = {
         enable = true;
@@ -30,7 +31,7 @@
       };
 
     };
-    
+
     home.file.".oh-my-zsh-custom/themes/zenline.zsh-theme".source = ./zenline.zsh-theme;
 
   };

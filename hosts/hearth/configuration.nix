@@ -8,10 +8,11 @@
     ../../modules/users/jonny.nix
     ./hardware-configuration.nix
   ];
+
   config = {
     # hostname
     networking.hostName = "hearth";
-
+    # keyboard layout
     services.xserver.xkb.layout = "us";
 
     # packages installed in system profile

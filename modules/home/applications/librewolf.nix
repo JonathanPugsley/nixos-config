@@ -1,13 +1,15 @@
-{ config, pkgs, inputs, ... }: {
-  config.programs.librewolf = {
+{ config, lib, pkgs, inputs, ... }: {
+  options.modules.librewolf.enable = lib.mkEnableOption "enable librewolf";
+
+  config.programs.librewolf = lib.mkIf config.modules.librewolf.enable {
     enable = true;
 
     profiles.default = {
-      
+
       id = 0;
       name = "default";
       isDefault = true;
-      
+
       extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         consent-o-matic
         darkreader
@@ -15,7 +17,7 @@
         proton-pass
         ublock-origin
       ];
-      
+
       search = {
         force = true;
         default = "ddg";

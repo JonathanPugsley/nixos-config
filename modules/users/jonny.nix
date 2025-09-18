@@ -19,13 +19,23 @@
       extraSpecialArgs = { inherit inputs; };
       useGlobalPkgs = true;
       sharedModules = [ inputs.nixcord.homeModules.nixcord ];
-      users.jonny = { pkgs, ... }: {
-        imports = [ ../home/default.nix ];
-        programs.home-manager.enable = true;
-        home = {
-          username = "jonny";
-          homeDirectory = "/home/jonny";
-          stateVersion = "25.05"; # do not change
+      users.jonny = { lib, pkgs, ... }: {
+        imports = [
+          ../home/default.nix
+        ];
+
+        config = {
+          groups = {
+            home.enable = true;
+          };
+
+          programs.home-manager.enable = true;
+
+          home = {
+            username = "jonny";
+            homeDirectory = "/home/jonny";
+            stateVersion = "25.05"; # do not change
+          };
         };
       };
     };

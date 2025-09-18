@@ -1,5 +1,7 @@
-{ config, pkgs, inputs, ... }: {
-  config.programs.vscode = {
+{ config, lib, pkgs, inputs, ... }: {
+  options.modules.vscodium.enable = lib.mkEnableOption "enable vscodium";
+
+  config.programs.vscode = lib.mkIf config.modules.vscodium.enable {
     enable = true;
     package = pkgs.vscodium;
     mutableExtensionsDir = true;

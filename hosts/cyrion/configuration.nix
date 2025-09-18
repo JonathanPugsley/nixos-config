@@ -8,7 +8,7 @@
   config = {
     # hostname
     networking.hostName = "cyrion";
-
+    # keyboard layout
     services.xserver.xkb.layout = "gb";
 
     # packages installed in system profile

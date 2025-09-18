@@ -1,7 +1,7 @@
-{ config, pkgs, ... }: {
-  config.gtk = {
+{ config, lib, pkgs, ... }: {
+  config.gtk = lib.mkIf config.modules.theming.enable {
     enable = true;
-    theme = { 
+    theme = {
       name = "gruvbox-dark";
       package = pkgs.gruvbox-dark-gtk;
     };

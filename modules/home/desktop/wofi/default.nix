@@ -1,5 +1,7 @@
-{ config, pkgs, ... }: {
-  config.programs.wofi = {
+{ config, lib, pkgs, ... }: {
+  options.modules.wofi.enable = lib.mkEnableOption "enable wofi";
+
+  config.programs.wofi = lib.mkIf config.modules.wofi.enable {
     enable = true;
     style = pkgs.replaceVars ./style.css {
       bg0 = "#${config.colorScheme.palette.bg0}";

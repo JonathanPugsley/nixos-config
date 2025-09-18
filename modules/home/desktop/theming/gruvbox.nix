@@ -1,5 +1,5 @@
-{ config, ... }: {
-  config.colorScheme = {
+{ config, lib, ... }: {
+  config.colorScheme = lib.mkIf config.modules.theming.enable {
     name = "gruvbox";
     author = "morhetz (https://github.com/morhetz/gruvbox)";
     variant = "dark";
@@ -15,7 +15,7 @@
       fg1 = "ebdbb2"; # ++++
       fg0 = "fbf1c7"; # +++++ h:"f9f5d7", m:"fbf1c7", s:"f2e5bc"
       # colours
-      bright_red = "fb4934"; 
+      bright_red = "fb4934";
       red = "cc241d";
       bright_orange = "fe8019";
       orange = "d65d0e";

@@ -1,5 +1,5 @@
-{ config, ... }: {
-  config.wayland.windowManager.hyprland.settings = {
+{ config, lib, ... }: {
+  config.wayland.windowManager.hyprland.settings = lib.mkIf config.modules.hyprland.enable {
     "$mod" = "SUPER";
 
     "$browser" = "librewolf";

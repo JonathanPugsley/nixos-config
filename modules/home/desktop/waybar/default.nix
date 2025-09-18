@@ -1,5 +1,7 @@
-{ config, pkgs, ... }: {
-  config.programs.waybar = {
+{ config, lib, pkgs, ... }: {
+  options.modules.waybar.enable = lib.mkEnableOption "enable waybar";
+
+  config.programs.waybar = lib.mkIf config.modules.waybar.enable {
     enable = true;
     style = pkgs.replaceVars ./style.css {
       bg0 = "#${config.colorScheme.palette.bg0}";
@@ -20,7 +22,7 @@
         "hyprland/workspaces"
       ];
       modules-center = [
-        "hyprland/window"        
+        "hyprland/window"
       ];
       modules-right = [
         "tray"

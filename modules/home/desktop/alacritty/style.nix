@@ -1,5 +1,5 @@
-{ config, pkgs, ... }: {
-  config.programs.alacritty.settings = {
+{ config, lib, pkgs, ... }: {
+  config.programs.alacritty.settings = lib.mkIf config.modules.alacritty.enable {
     colors = with config.colorScheme.palette; {
       bright = {
         black = "0x${bg0}";

@@ -5,6 +5,5 @@
     ./keybinds.nix
   ];
 
-  config.modules.hyprland.enable = lib.mkDefault true;
-
+  options.modules.hyprland.enable = lib.mkEnableOption "enable hyprland";
 }
