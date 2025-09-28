@@ -7,7 +7,7 @@
     "$fileManager" = "$terminal -e $termFileManager $HOME";
     #"$lock" = "hyprlock";
     "$menu" = "wofi";
-    #"$music" = "spotify-launcher";
+    "$music" = "spotify";
     #"$notes" = "obsidian";
     "$termFileManager" = "yazi";
     "$terminal" = "alacritty";
@@ -17,6 +17,7 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
+      "$mod SHIFT, T, exec, toggleres"
       "$mod, RETURN, exec, $terminal"
 
       "$mod, S, exec, steam"
@@ -26,6 +27,7 @@
 
       "$mod, X, exec, $browser"
       "$mod, C, exec, $editor"
+      "$mod, M, exec, $music"
       "$mod ALT SHIFT, H, exit" # close hyprland
 
       # focus window
