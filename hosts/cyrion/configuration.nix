@@ -3,7 +3,7 @@
       ../../modules/system/default.nix
       ../../modules/users/jonny.nix
       ./hardware-configuration.nix
-    ];
+  ];
 
   config = {
     # hostname
