@@ -5,13 +5,10 @@
     "$browser" = "librewolf";
     "$editor" = "codium";
     "$fileManager" = "$terminal -e $termFileManager $HOME";
-    #"$lock" = "hyprlock";
     "$menu" = "wofi";
     "$music" = "spotify";
-    #"$notes" = "obsidian";
     "$termFileManager" = "yazi";
     "$terminal" = "alacritty";
-    #"$top" = "$terminal -e btop";
 
     bind = [
       "$mod, Q, killactive,"
@@ -19,6 +16,7 @@
       "$mod, R, exec, $menu"
       "$mod SHIFT, T, exec, change_resolution"
       "$mod, RETURN, exec, $terminal"
+      "$mod, P, exec, wofi-power-menu"
 
       "$mod, S, exec, steam"
       "$mod, D, exec, discord"
@@ -28,7 +26,7 @@
       "$mod, X, exec, $browser"
       "$mod, C, exec, $editor"
       "$mod, M, exec, $music"
-      "$mod ALT SHIFT, H, exit" # close hyprland
+      "$mod ALT SHIFT, H, exit"
 
       # focus window
       "$mod, h, movefocus, l"
@@ -83,6 +81,7 @@
       "$mod, XF86MonBrightnessUp, exec, brightnessctl s 120000"
       "$mod, XF86MonBrightnessDown, exec, brightnessctl s 1"
     ];
+
     bindl = [
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPause, exec, playerctl play-pasue"

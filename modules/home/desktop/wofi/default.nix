@@ -1,26 +1,30 @@
 { config, lib, pkgs, ... }: {
   options.modules.wofi.enable = lib.mkEnableOption "enable wofi";
 
-  config.programs.wofi = lib.mkIf config.modules.wofi.enable {
-    enable = true;
-    style = pkgs.replaceVars ./style.css {
-      bg0 = "#${config.colorScheme.palette.bg0}";
-      bg1 = "#${config.colorScheme.palette.bg1}";
-      fg0 = "#${config.colorScheme.palette.fg0}";
-      fg1 = "#${config.colorScheme.palette.fg1}";
-    };
+  config = lib.mkIf config.modules.wofi.enable {
+    home.packages = [ pkgs.wofi-power-menu ];
 
-    settings = {
-      mode = "drun";
-      height = 200;
-      width = 400;
-      allow_markup = false;
-      allow_images = false;
-      term = "alacritty";
-      layer = "top";
-      insensitive = true;
-      hide_scroll = true;
-      no_actions = true;
+    programs.wofi =  {
+      enable = true;
+      style = pkgs.replaceVars ./style.css {
+        bg0 = "#${config.colorScheme.palette.bg0}";
+        bg1 = "#${config.colorScheme.palette.bg1}";
+        fg0 = "#${config.colorScheme.palette.fg0}";
+        fg1 = "#${config.colorScheme.palette.fg1}";
+      };
+
+      settings = {
+        mode = "drun";
+        height = 200;
+        width = 400;
+        allow_markup = false;
+        allow_images = false;
+        term = "alacritty";
+        layer = "top";
+        insensitive = true;
+        hide_scroll = true;
+        no_actions = true;
+      };
     };
   };
 }
