@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  toggleres_script = pkgs.writeScriptBin "toggleres" (builtins.readFile ./toggleres.sh);
+  change_resolution_script = pkgs.writeScriptBin "change_resolution" (builtins.readFile ./change_resolution.sh);
 in {
-  config.environment.systemPackages = [ toggleres_script ];
+  config.environment.systemPackages = [ change_resolution_script ];
 }

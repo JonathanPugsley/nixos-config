@@ -17,7 +17,7 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
-      "$mod SHIFT, T, exec, toggleres"
+      "$mod SHIFT, T, exec, change_resolution"
       "$mod, RETURN, exec, $terminal"
 
       "$mod, S, exec, steam"
