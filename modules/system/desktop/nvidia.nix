@@ -12,18 +12,14 @@
         Option       "TripleBuffering" "on"
       '';
     };
-
     hardware.nvidia = {
       modesetting.enable = true;
-
       powerManagement = {
         enable = true;
         finegrained = false;
       };
-
       open = true;
       nvidiaSettings = true;
-
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };

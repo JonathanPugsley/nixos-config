@@ -4,6 +4,7 @@
     ./core/default.nix
     ./desktop/default.nix
     ./shells/default.nix
+    ./utils/default.nix
   ];
 
   config.groups = {
@@ -11,5 +12,6 @@
     core.enable = true;
     desktop.enable = true;
     shells.enable = true;
+    utils.enable = true;
   };
 }

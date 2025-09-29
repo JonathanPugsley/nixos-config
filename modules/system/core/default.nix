@@ -7,9 +7,9 @@
     ./nameservers.nix
     ./networkmanager.nix
     ./nixsettings.nix
-    ./nvidia.nix
     ./sops.nix
     ./systemd-boot.nix
+    ./vim.nix
   ];
 
   options.groups.core.enable = lib.mkEnableOption "enable core";
@@ -22,8 +22,8 @@
     nameservers.enable = lib.mkDefault config.groups.core.enable;
     networkmanager.enable = lib.mkDefault config.groups.core.enable;
     nixsettings.enable = lib.mkDefault config.groups.core.enable;
-    nvidia.enable = lib.mkDefault config.groups.core.enable;
     sops.enable = lib.mkDefault config.groups.core.enable;
     systemd-boot.enable = lib.mkDefault config.groups.core.enable;
+    vim.enable = lib.mkDefault config.groups.core.enable;
   };
 }

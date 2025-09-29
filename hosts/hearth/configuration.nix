@@ -12,12 +12,6 @@
     # keyboard layout
     services.xserver.xkb.layout = "us";
 
-    # packages installed in system profile
-    environment.systemPackages = with pkgs; [
-      cifs-utils
-      vim
-    ];
-
     # modules
     modules = {
       nvidia.enable = true;

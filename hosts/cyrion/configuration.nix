@@ -11,13 +11,6 @@
     # keyboard layout
     services.xserver.xkb.layout = "gb";
 
-    # packages installed in system profile
-    environment.systemPackages = with pkgs; [
-      brightnessctl
-      cifs-utils
-      vim
-    ];
-
     # modules
     modules = {
       nvidia.enable = false;
