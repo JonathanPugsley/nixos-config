@@ -5,6 +5,7 @@
     ./fastfetch.nix
     ./git.nix
     ./hyprshot.nix
+    ./playerctl.nix
     ./tmux.nix
     ./tree.nix
     ./yazi.nix
@@ -19,9 +20,10 @@
     fastfetch.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
     hyprshot.enable = lib.mkDefault config.groups.utils.enable;
+    playerctl.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;
     tree.enable = lib.mkDefault config.groups.utils.enable;
     yazi.enable = lib.mkDefault config.groups.utils.enable;
     zsh.enable = lib.mkDefault config.groups.utils.enable;
-};
+  };
 }
