@@ -48,7 +48,7 @@ window {
 }
 
 #entry {
-  background-color: #@bg0@;
+  background-color: @bg0@;
 }
 
 #entry arrow{
