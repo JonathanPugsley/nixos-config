@@ -2,8 +2,15 @@
   options.modules.wofi.enable = lib.mkEnableOption "enable wofi";
 
   config = lib.mkIf config.modules.wofi.enable {
+    # power menu
     home.packages = [ pkgs.wofi-power-menu ];
+    xdg.configFile."wofi-power-menu.toml" = {
+      enable = true;
+      executable = false;
+      text = builtins.readFile ./wofi-power-menu.toml;
+    };
 
+    # wofi
     programs.wofi =  {
       enable = true;
       style = pkgs.replaceVars ./style.css {

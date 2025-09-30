@@ -2,6 +2,7 @@
   imports = [
     ./cursor.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./keybinds.nix
   ];
 

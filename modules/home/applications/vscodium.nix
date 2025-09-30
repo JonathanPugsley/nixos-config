@@ -8,7 +8,11 @@
 
     profiles.default = {
       userSettings = {
+        "editor.minimap.enabled" = false;
+        "editor.scrollbar.horizontal" = "hidden";
+        "editor.scrollbar.vertical" = "hidden";
         "editor.smoothScrolling" = true;
+        "editor.tabSize" = 2;
         "files.autoSaveWhenNoErrors" = true;
         "files.insertFinalNewline" = true;
         "files.trimFinalNewlines" = true;
@@ -17,6 +21,7 @@
         "gitlens.showWhatsNewAfterUpgrade" = false;
         "terminal.integrated.scrollback" = 1000;
         "update.showReleaseNotes" = false;
+        "workbench.colorTheme" = "Gruvbox Dark Medium";
         "workbench.iconTheme" = "catppuccin-frappe";
         "workbench.sideBar.location" = "right";
         "workbench.startupEditor" = "none";
