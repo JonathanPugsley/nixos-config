@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+# resolution changing wofi menu
 
 RESOLUTIONS=(3440x1440@100 2560x1440@100 1920x1080@100 1920x1080@60)
 
@@ -13,7 +14,7 @@ fi
 SELECTED_RESOLUTION=$(echo "${RESOLUTIONS[@]}" | tr ' ' '\n' | wofi --dmenu --prompt="Select Resolution:")
 
 if [ -z "$SELECTED_RESOLUTION" ]; then
-    echo "No monitor selected, exiting..."
+    echo "No resolution selected, exiting..."
     exit 1
 fi
 
