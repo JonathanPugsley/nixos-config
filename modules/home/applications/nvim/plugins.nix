@@ -10,6 +10,9 @@
       # Telescope - Fuzzy Finder
       telescope.enable = true;
 
+      # Bufferline - tab-like buffer display
+      bufferline.enable = true;
+
       # Icons
       web-devicons.enable = true;
 
