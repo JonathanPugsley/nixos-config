@@ -3,9 +3,11 @@
     ./bluetui.nix
     ./btop.nix
     ./fastfetch.nix
+    ./fzf.nix
     ./git.nix
     ./hyprshot.nix
     ./playerctl.nix
+    ./ripgrep.nix
     ./tmux.nix
     ./tree.nix
     ./yazi.nix
@@ -18,9 +20,11 @@
     bluetui.enable = lib.mkDefault config.groups.utils.enable;
     btop.enable = lib.mkDefault config.groups.utils.enable;
     fastfetch.enable = lib.mkDefault config.groups.utils.enable;
+    fzf.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
     hyprshot.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;
+    ripgrep.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;
     tree.enable = lib.mkDefault config.groups.utils.enable;
     yazi.enable = lib.mkDefault config.groups.utils.enable;
