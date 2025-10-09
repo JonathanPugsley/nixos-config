@@ -4,6 +4,7 @@
     ./libreoffice.nix
     ./librewolf.nix
     ./nixcord.nix
+    ./prismlauncher.nix
     ./steam.nix
     ./vscodium.nix
   ];
@@ -15,6 +16,7 @@
     libreoffice.enable = lib.mkDefault config.groups.applications.enable;
     librewolf.enable = lib.mkDefault config.groups.applications.enable;
     nixcord.enable = lib.mkDefault config.groups.applications.enable;
+    prismlauncher.enable = lib.mkDefault config.groups.applications.enable;
     steam.enable = lib.mkDefault config.groups.applications.enable;
     vscodium.enable = lib.mkDefault config.groups.applications.enable;
   };
