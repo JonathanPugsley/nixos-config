@@ -1,8 +1,6 @@
 { config, lib, inputs, ... }: {
   imports = [
-    ./keymaps.nix
-    ./lsp.nix
-    ./plugins.nix
+    ./plugins/default.nix
     ./settings.nix
     inputs.nixvim.homeModules.nixvim
   ];
