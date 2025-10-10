@@ -16,6 +16,7 @@
       "$mod, R, exec, $menu"
       "$mod SHIFT, T, exec, change_resolution"
       "$mod, RETURN, exec, $terminal"
+      "$mod, O, exec, hyprctl dispatch tagwindow opacity"
       "$mod, P, exec, wofi-power-menu"
 
       "$mod, S, exec, steam"

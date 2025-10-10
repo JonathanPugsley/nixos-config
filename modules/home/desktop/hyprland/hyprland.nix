@@ -11,22 +11,24 @@
       ];
 
       exec-once = [
+        "hyprpaper"
+        "hyprsunset"
         "waybar"
       ];
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 2;
-        #"col.active_border" = "";
-        #"col.inactive_border" = "";
+        "col.active_border" = "rgb(${config.colorScheme.palette.fg1})";
+        "col.inactive_border" = "rgb(${config.colorScheme.palette.bg0})";
         resize_on_border = false;
         allow_tearing = false;
         layout = "master";
       };
 
       decoration = {
-        blur.enabled = false;
+        blur.enabled = true;
         shadow.enabled = false;
       };
 
@@ -69,6 +71,8 @@
         no_update_news = true;
         no_donation_nag = true;
       };
+
+      windowrule = "opacity 0.97 0.93, tag:opacity";
 
       env = builtins.concatLists [
         [
