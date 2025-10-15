@@ -11,9 +11,9 @@
       ];
 
       exec-once = [
-        "hyprpaper"
         "hyprsunset"
         "waybar"
+        "systemctl --user start hyprpaper" # no idea why this full cmd is needed
       ];
 
       general = {

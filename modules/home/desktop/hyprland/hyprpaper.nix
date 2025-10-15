@@ -6,8 +6,8 @@
       ipc = "on";
       splash = "false";
 
-      preload = [ "/home/jonny/Pictures/wallpaper.jpg" ];
-      wallpaper = [ ", /home/jonny/Pictures/wallpaper.jpg" ];
+      preload = [ "/home/${config.home.username}/Pictures/wallpaper.jpg" ];
+      wallpaper = [ ",/home/${config.home.username}/Pictures/wallpaper.jpg" ];
     };
   };
 }

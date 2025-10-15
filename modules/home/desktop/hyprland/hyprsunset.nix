@@ -4,12 +4,13 @@
     settings.profile = [
       {
         time = "8:00";
-        identity = true;
+        temperature = 6000; # default
+        gamma = 1.0;
       }
       {
         time = "21:00";
-        temperature = 6000; # default = 6500
-        gamma = 90;
+        temperature = 5000;
+        gamma = 0.9;
       }
     ];
   };
