@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # resolution changing wofi menu
 
-RESOLUTIONS=(3440x1440@100 2560x1440@100 1920x1080@100 1920x1080@60)
+RESOLUTIONS=(3440x1440@100 2560x1440@100 1920x1080@100 3840x2160@60 1920x1080@60)
 
 MONITORS=$(hyprctl monitors | grep -oP 'Monitor \K[^\s]+' )
 SELECTED_MONITOR=$(echo "$MONITORS" | wofi --dmenu --prompt="Select Monitor:")

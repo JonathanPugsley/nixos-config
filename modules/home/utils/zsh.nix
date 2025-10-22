@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options.modules.zsh.enable = lib.mkEnableOption "enable zsh";
 
   config = lib.mkIf config.modules.zsh.enable {
@@ -28,6 +28,7 @@
       # aliases
       shellAliases = {
         bt = "systemctl start bluetooth.service";
+        sshg = "ssh_github";
       };
 
     };

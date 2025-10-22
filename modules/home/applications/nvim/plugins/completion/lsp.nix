@@ -8,6 +8,12 @@
           nixd.enable = true;
           # c/c++ lsp
           clangd.enable = true;
+          # rust lsp
+          rust_analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
         };
       };
 

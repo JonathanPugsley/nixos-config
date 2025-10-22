@@ -10,7 +10,7 @@
         };
 
         renderer = {
-          special_files = [ "Makefile" "README.md" "readme.md" "LICENSE" ".gitignore" ];
+          special_files = [ "Makefile" "README.md" "readme.md" "LICENSE" ".gitignore" "Cargo.toml" "Cargo.lock" ];
           indent_markers.enable = true;
           icons = {
             git_placement = "after";
@@ -25,7 +25,7 @@
         filters.dotfiles = true;
       };
     };
-    
+
     keymaps = [
       {
         mode = "n";

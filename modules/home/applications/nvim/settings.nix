@@ -17,16 +17,16 @@
       number = true;
       relativenumber = true;
       scrolloff = 6;
-      shiftwidth = 2;
-      showtabline = 2;
+      shiftwidth = 4;
+      showtabline = 4;
       signcolumn = "yes";
       smartcase = true;
       smartindent = true;
       smarttab = true;
-      softtabstop = 2;
+      softtabstop = 4;
       splitright = true;
       swapfile = false;
-      tabstop = 2;
+      tabstop = 4;
       wrap = false;
 
       fillchars = {
