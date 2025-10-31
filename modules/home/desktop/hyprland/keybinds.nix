@@ -14,10 +14,10 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
-      "$mod SHIFT, T, exec, change_resolution"
+      "$mod SHIFT, T, exec, changeres"
       "$mod, RETURN, exec, $terminal"
       "$mod, O, exec, hyprctl dispatch tagwindow opacity"
-      "$mod, P, exec, wofi-power-menu"
+      "$mod, P, exec, sysmenu"
 
       "$mod, S, exec, steam"
       "$mod, D, exec, discord"

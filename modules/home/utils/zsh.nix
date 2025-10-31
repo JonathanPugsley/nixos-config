@@ -28,7 +28,6 @@
       # aliases
       shellAliases = {
         bt = "systemctl start bluetooth.service";
-        sshg = "ssh_github";
       };
 
     };
