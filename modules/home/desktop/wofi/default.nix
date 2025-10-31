@@ -15,22 +15,27 @@
       enable = true;
       style = pkgs.replaceVars ./style.css {
         bg0 = "#${config.colorScheme.palette.bg0}";
-        bg1 = "#${config.colorScheme.palette.bg1}";
-        fg0 = "#${config.colorScheme.palette.fg0}";
         fg1 = "#${config.colorScheme.palette.fg1}";
       };
 
       settings = {
         mode = "drun";
+        prompt = "";
         height = 200;
         width = 400;
         allow_markup = false;
-        allow_images = false;
+        allow_images = true;
         term = "alacritty";
         layer = "top";
         insensitive = true;
         hide_scroll = true;
+        hide_search = true;
         no_actions = true;
+        image_size = 20;
+
+        key_down = "Ctrl-j";
+        key_up = "Ctrl-k";
+        key_hide_search = "space";
       };
     };
   };
