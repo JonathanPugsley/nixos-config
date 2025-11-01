@@ -3,9 +3,9 @@
     "$mod" = "SUPER";
 
     "$browser" = "librewolf";
-    "$editor" = "codium";
+    "$editor" = "nvim";
     "$fileManager" = "$terminal -e $termFileManager $HOME";
-    "$menu" = "wofi";
+    "$menu" = "wofi -j";
     "$music" = "spotify";
     "$termFileManager" = "yazi";
     "$terminal" = "alacritty";
@@ -14,7 +14,7 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
-      "$mod SHIFT, T, exec, changeres"
+      "$mod, T, exec, changeres"
       "$mod, RETURN, exec, $terminal"
       "$mod, O, exec, hyprctl dispatch tagwindow opacity"
       "$mod, P, exec, sysmenu"
@@ -26,6 +26,7 @@
 
       "$mod, X, exec, $browser"
       "$mod, C, exec, $editor"
+      "$mod, N, exec, notes"
       "$mod, M, exec, $music"
       "$mod ALT SHIFT, H, exit"
 
@@ -40,12 +41,6 @@
       "$mod SHIFT, j, movewindow, d"
       "$mod SHIFT, k, movewindow, u"
       "$mod SHIFT, l, movewindow, r"
-
-      # resize window
-      "$mod ALT, h, resizeactive, -30 0"
-      "$mod ALT, j, resizeactive, 0 30"
-      "$mod ALT, k, resizeactive, 0 -30"
-      "$mod ALT, l, resizeactive, 30 0"
 
       # focus workspace
       "$mod, 1, workspace, 1"
@@ -64,6 +59,14 @@
       # screenshots
       "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only -z -s"
       "$mod SHIFT, F, exec, hyprshot -m output --clipboard-only -z -s"
+    ];
+
+    binde = [
+      # resize window
+      "$mod ALT, h, resizeactive, -30 0"
+      "$mod ALT, j, resizeactive, 0 30"
+      "$mod ALT, k, resizeactive, 0 -30"
+      "$mod ALT, l, resizeactive, 30 0"
     ];
 
     # mouse binds

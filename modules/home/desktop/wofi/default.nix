@@ -20,7 +20,6 @@
         layer = "top";
         insensitive = true;
         hide_scroll = true;
-        hide_search = true;
         no_actions = true;
         image_size = 30;
 

@@ -1,5 +1,3 @@
-@define-color  white  #ffffff;
-
 * {
   font-weight: 500;
   font-size: 21px;
@@ -14,16 +12,18 @@ window {
 
 #input {
   margin: 4px;
+  background-color: @bg0@;
   border: none;
-  background: @bg0@;
 }
 
 #input image.left{
-  color: @bg0@;
+  padding-right: 11px;
+  color: @fg1@;
 }
 
 #input image.right{
-  color: @bg0@;
+  padding-left: 11px;
+  color: @fg1@;
 }
 
 #text {
