@@ -14,6 +14,7 @@ window {
   margin: 4px;
   background-color: @bg0@;
   border: none;
+  color: @fg1@;
 }
 
 #input image.left{
