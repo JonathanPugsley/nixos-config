@@ -8,6 +8,12 @@
           nixd.enable = true;
           # c/c++ lsp
           clangd.enable = true;
+          # css
+          cssls.enable = true;
+          # html
+          html.enable = true;
+          # python
+          pylsp.enable = true;
           # rust lsp
           rust_analyzer = {
             enable = true;
