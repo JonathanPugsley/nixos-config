@@ -19,5 +19,4 @@ if [[ "$SELECTED_NOTE" == " Create New" ]]; then
     SELECTED_NOTE="untitled"
 fi
 
-# setsid -f alacritty -e cd "$NOTES_DIR" && nvim "$SELECTED_NOTE" >/dev/null 2>&1
 setsid -f alacritty -e zsh -c "cd \"$NOTES_DIR\" && nvim \"$SELECTED_NOTE.md\"">/dev/null 2>&1
