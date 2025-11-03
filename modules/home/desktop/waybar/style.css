@@ -1,6 +1,6 @@
 * {
-  min-height: 0;
-  min-width: 0;
+  min-height: 0px;
+  min-width: 0px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -21,7 +21,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  border-radius: 4;
+  border-radius: 4px;
   background-color: @bg1@;
   color: @fg0@;
 }
@@ -37,22 +37,7 @@ window#waybar {
 }
 
 /*RIGHT*/
-#tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @bg1@;
-}
-
-#tray * {
-  padding: 0px 6px;
-  border-left: 1px;
-}
-
-#tray *:first-child {
-  border-left: none;
-}
-
-#network, #bluetooth, #wireplumber, #backlight, #battery, #clock {
+#network, #bluetooth, #wireplumber, #backlight, #battery, #clock, #custom-timer{
   margin: 4px 2px;
   padding: 0px 6px;
   color: @fg1@;

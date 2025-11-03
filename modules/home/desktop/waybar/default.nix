@@ -22,10 +22,9 @@
         "hyprland/workspaces"
       ];
       modules-center = [
-        "hyprland/window"
+        "custom/timer"
       ];
       modules-right = [
-        "tray"
         "network"
         "bluetooth"
         "wireplumber"
@@ -44,14 +43,17 @@
         tooltip = false;
       };
 
-      tray = {
-        spacing = 10;
-        tooltip = false;
+      "custom/timer" = {
+        format = "{}";
+        exec = "cat /tmp/timer";
+        on-click = "kill -TERM $(pgrep -f /run/current-system/sw/bin/Timer)";
+        interval = 1;
+        tooltip = true;
       };
 
       network = {
         format-wifi = "";
-        format-ethernet = "";
+        format-ethernet = "󰈀";
         format-disconnected = "󱘖";
         tooltip = false;
       };
