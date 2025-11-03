@@ -6,6 +6,7 @@ UPDATE_INTERVAL=1
 
 cleanup() {
     echo "" > /tmp/timer
+    notify-send "Timer Shutting Down"
     exit 0
 }
 
@@ -46,9 +47,12 @@ REPETITIONS=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 
 
 # run timers
 for ((i=1; i<=REPETITIONS; i++)); do
+    notify-send "Starting focus for $FOCUS minutes"
     timer "Focus" "$FOCUS" "$i"
+    notify-send "Starting rest for $REST minutes"
     timer "Rest" "$REST" "$i"
 done
+notify-send "$INTERVAL Pomodoro timer completed! ($REPETITIONS repetitions)" "Go take a break"
 
 # finish with cleanup
 cleanup

@@ -15,5 +15,5 @@ case "${POWER#* }" in
     "Shutdown") shutdown now;;
     "Logout") hyprctl dispatch exit;;
     "Lock Screen") hyprlock;;
-    *) exit 1
+    *) exit 1 ;;
 esac

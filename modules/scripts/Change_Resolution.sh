@@ -15,3 +15,4 @@ SELECTED_RESOLUTION=$(echo "${RESOLUTIONS[@]}" | tr ' ' '\n' | wofi -dj -L ${#RE
 [[ -z "$SELECTED_RESOLUTION" || ! "${RESOLUTIONS[@]}" =~ "$SELECTED_RESOLUTION" ]] && exit 1
 
 hyprctl keyword monitor $SELECTED_MONITOR, $SELECTED_RESOLUTION >/dev/null 2>&1
+notify-send "$SELECTED_MONITOR changed resolution to: $SELECTED_RESOLUTION"
