@@ -3,7 +3,6 @@
     "$mod" = "SUPER";
 
     "$browser" = "librewolf";
-    "$editor" = "nvim";
     "$fileManager" = "$terminal -e $termFileManager $HOME";
     "$menu" = "wofi -j";
     "$music" = "spotify";
@@ -14,10 +13,10 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
-      "$mod, T, exec, changeres"
+      "$mod, T, exec, Change_Resolution"
       "$mod, RETURN, exec, $terminal"
       "$mod, O, exec, hyprctl dispatch tagwindow opacity"
-      "$mod, P, exec, sysmenu"
+      "$mod, P, exec, System_Menu"
 
       "$mod, S, exec, steam"
       "$mod, D, exec, discord"
@@ -25,10 +24,10 @@
       "$mod, G, togglefloating"
 
       "$mod, X, exec, $browser"
-      "$mod, C, exec, $editor"
-      "$mod, N, exec, notes"
+      "$mod, N, exec, Notes"
       "$mod, M, exec, $music"
       "$mod ALT SHIFT, H, exit"
+      "$mod, Space, exec, Script_Menu"
 
       # focus window
       "$mod, h, movefocus, l"
