@@ -11,8 +11,8 @@ CONFIRM=$( printf "Yes, $POWER\nCancel" | wofi -dj -L 2 )
 
 case "${POWER#* }" in
     "Suspend") systemctl suspend;;
-    "Reboot") systemctl reboot;;
-    "Shutdown") shutdown now;;
+    "Reboot") cliphist wipe && systemctl reboot;;
+    "Shutdown") cliphist wipe && shutdown now;;
     "Logout") hyprctl dispatch exit;;
     "Lock Screen") hyprlock;;
     *) exit 1 ;;
