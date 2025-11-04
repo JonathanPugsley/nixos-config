@@ -27,7 +27,8 @@
       "$mod, N, exec, Notes"
       "$mod, M, exec, $music"
       "$mod ALT SHIFT, H, exit"
-      "$mod, Space, exec, Script_Menu"
+
+      "$mod, Space, exec, Main_Menu"
 
       # focus window
       "$mod, h, movefocus, l"
