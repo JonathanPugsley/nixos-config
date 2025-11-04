@@ -36,7 +36,7 @@
         on-button-left = "invoke-default-action";
         on-button-right = "dismiss";
         # misc
-        sort = "time";
+        sort = "+time";
         actions = true;
         markup = true;
         icons = true;
