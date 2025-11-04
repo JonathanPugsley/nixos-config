@@ -5,6 +5,7 @@
     ./fastfetch.nix
     ./fzf.nix
     ./git.nix
+    ./nix-search-tv.nix
     ./playerctl.nix
     ./ripgrep.nix
     ./tmux.nix
@@ -21,6 +22,7 @@
     fastfetch.enable = lib.mkDefault config.groups.utils.enable;
     fzf.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
+    nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;
     ripgrep.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;

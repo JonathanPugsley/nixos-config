@@ -28,6 +28,7 @@
       # aliases
       shellAliases = {
         bt = "systemctl start bluetooth.service";
+        ns = "nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse";
       };
 
     };
