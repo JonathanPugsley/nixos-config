@@ -1,13 +1,14 @@
 #! /usr/bin/env bash
 # main wofi menu
 
-ENTRIES=( "Apps" "Learn" "Capture" "Style" "Config" "Nixpkgs" "About" "System" )
+ENTRIES=( "Apps" "Learn" "Capture" "Timer" "Style" "Config" "Nixpkgs" "About" "System" )
 
 SUB_MENU=$( printf "%s\n" "${ENTRIES[@]}" | wofi -dj -L ${#ENTRIES[@]} ) || exit 0
 case "${SUB_MENU#* }" in
     "Apps") wofi -j;;
     "Learn") exit 0;;
     "Capture") Capture_Menu;;
+    "Timer") Timer;;
     "Style") exit 0;;
     "Config") setsid -f alacritty -e zsh -c " cd \"$CONFIG_DIR\" && nvim ">/dev/null 2>&1;;
     "Nixpkgs") exit 0;;
