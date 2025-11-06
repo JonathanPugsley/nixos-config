@@ -19,11 +19,11 @@
           sources = [
             { name = "nvim_lsp"; }
             { name = "nvim_lua"; }
-            { name = "path"; } 
-            { name = "buffer"; } 
+            { name = "path"; }
+            { name = "buffer"; }
             { name = "luasnip"; }
           ];
-          
+
           mapping = {
             "<C-j>" = "cmp.mapping.select_next_item()";  # next item
             "<C-k>" = "cmp.mapping.select_prev_item()";  # previous item

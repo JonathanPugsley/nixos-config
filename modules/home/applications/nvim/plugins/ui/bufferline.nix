@@ -5,7 +5,7 @@
       settings.options = {
         diagnostics = "nvim_lsp";
         mode = "buffers";
-        always_show_bufferline = false;
+        always_show_bufferline = true;
         numbers = "ordinal";
         show_buffer_close_icons = false;
         show_close_icon = false;
@@ -31,7 +31,7 @@
         key = "<leader>x";
         action = ":bd<CR>";
         options.desc = "Remove Buffer";
-      } 
+      }
     ];
   };
 }
