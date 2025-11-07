@@ -1,58 +1,104 @@
 #! /usr/bin/env bash
-# pomodoro timer
+# Timer
 
-CONFIGS=("50/10" "25/5" "1/1")
-UPDATE_INTERVAL=1
+WARN="Stop Current Timer?"
+LOCK_FILE="/tmp/Timer.pid"
+TIMER_FILE="/tmp/Timer"
 
-cleanup() {
-    echo "" > /tmp/timer
-    notify-send "Timer Shutting Down"
+timerShutdown() {
+    local silent=$1
+    echo "" > "$TIMER_FILE"
+    [[ "$silent" -eq 1 ]] || notify-send "Timer Shutting Down"
     exit 0
 }
 
-trap cleanup SIGHUP SIGINT SIGQUIT SIGABRT SIGTERM
+trap timerShutdown SIGHUP SIGINT SIGQUIT SIGABRT SIGTERM
 
 timer() {
-    local mode=$1
+    local label=$1
     local duration=$2
     local repetition=$3
+    local total_reps=$4
+
+    # repetition counter - <= 1 removes it
+    if [[ "$total_reps" -gt 1 ]]; then
+        rep_counter="$repetition/$total_reps "
+    else
+        rep_counter=""
+    fi
 
     total_seconds=$(( duration * 60 ))
     while [ "$total_seconds" -gt 0 ]; do
-        MIN=$(printf "%02d" "$((total_seconds / 60))")
-        SEC=$(printf "%02d" "$((total_seconds % 60))")
-        echo " $mode | $MIN:$SEC | $repetition/$REPETITIONS " > /tmp/timer
-        sleep "$UPDATE_INTERVAL"
-        total_seconds=$((total_seconds - UPDATE_INTERVAL))
+        min=$( printf "%02d" "$((total_seconds / 60))" )
+        sec=$( printf "%02d" "$((total_seconds % 60))" )
+        echo " $label | $min:$sec | $rep_counter" > "$TIMER_FILE"
+        sleep 1
+        total_seconds=$((total_seconds - 1))
     done
 }
 
-# check for double instances
-mapfile -t INSTANCES < <(pgrep -f /run/current-system/sw/bin/Timer)
-if [[ ${#INSTANCES[@]} -gt 1 ]]; then
-    kill -TERM "$INSTANCES"
+countdown() {
+    minutes=$( echo "Cancel" | wofi -d -L 1 --prompt="Minutes" )
+    [[ "$minutes" =~ ^[0-9]+$ ]] || exit 0
+    timer "Countdown" "$minutes" "0" "0"
+    notify-send "Countdown timer completed!"
+}
+
+pomodoro() {
+    # pre-selected configs
+    local configs=( "Custom" "50/10" "25/5" )
+    # select parameters
+    local interval=$( printf "%s\n" "${configs[@]}" | wofi -dj -L "${#configs[@]}" ) || exit 0
+    if [[ "$interval" =~ ([0-9]+)\/([0-9]+) ]]; then
+        # grab time from pre-selected config
+        focus=$(echo "$interval" | awk -F'/' '{print $1}')
+        rest=$(echo "$interval" | awk -F'/' '{print $2}')
+    else
+        # custom interval input
+        focus=$( echo "Cancel" | wofi -d -L 1 --prompt="Minutes" )
+        [[ "$focus" =~ ^[0-9]+$ ]] || exit 0
+        rest=$( echo "Cancel" | wofi -d -L 1 --prompt="Rest" )
+        [[ "$rest" =~ ^[0-9]+$ ]] || exit 0
+    fi
+    # repitition input
+    local repetitions=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 1)
+    [[ "$repetitions" =~ ^[0-9]+$ ]] || exit 0
+
+    # run timer loop
+    for ((i=1; i<=repetitions; i++)); do
+        notify-send "Starting focus for $focus minutes"
+        timer "Focus" "$focus" "$i" "$repetitions"
+        notify-send "Starting rest for $rest minutes"
+        timer "Rest" "$rest" "$i" "$repetitions"
+    done
+    notify-send "$interval Pomodoro timer completed! ($repetitions repetitions)" "Go take a break"
+}
+
+menu() {
+    MODE=$( printf "Countdown\nPomodoro" | wofi -djE -L 2 ) || exit 0
+    case "$MODE" in
+        "Countdown") countdown;;
+        "Pomodoro") pomodoro;;
+        *) exit 1 ;;
+    esac
+}
+
+# check and manage currently running timers
+if [[ -f "$LOCK_FILE" ]]; then
+    OLD_PID=$( cat "$LOCK_FILE" )
+    if  ps -p $OLD_PID > /dev/null ; then
+        echo "old timer running"
+        NEW=$( printf "New Timer\nCancel" | wofi -dE -L 2 --prompt="$WARN" )
+        [[ "$NEW" == "New Timer" ]] || exit 0
+        kill "$OLD_PID"
+        wait $OLD_PID 2>/dev/null
+    fi
 fi
+# save current pid to lockfile
+echo "$$" > "$LOCK_FILE"
 
-# select parameters
-INTERVAL=$( printf "%s\n" "${CONFIGS[@]}" | wofi -dj -L "${#CONFIGS[@]}" ) || exit 0
-case "$INTERVAL" in
-    "50/10") FOCUS=50; REST=10 ;;
-    "25/5") FOCUS=25; REST=5 ;;
-    "1/1") FOCUS=1; REST=1 ;;
-    *) exit 1
-esac
-
-REPETITIONS=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 1)
-[[ "$REPETITIONS" =~ ^[0-9]+$ ]] || exit 0
-
-# run timers
-for ((i=1; i<=REPETITIONS; i++)); do
-    notify-send "Starting focus for $FOCUS minutes"
-    timer "Focus" "$FOCUS" "$i"
-    notify-send "Starting rest for $REST minutes"
-    timer "Rest" "$REST" "$i"
-done
-notify-send "$INTERVAL Pomodoro timer completed! ($REPETITIONS repetitions)" "Go take a break"
+# timer configuration
+menu
 
 # finish with cleanup
-cleanup
+timerShutdown "1"

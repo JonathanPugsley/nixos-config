@@ -45,7 +45,7 @@
 
       "custom/timer" = {
         format = "{}";
-        exec = "cat /tmp/timer";
+        exec = "cat /tmp/Timer";
         on-click = "kill -TERM $(pgrep -f /run/current-system/sw/bin/Timer)";
         interval = 1;
         tooltip = true;
