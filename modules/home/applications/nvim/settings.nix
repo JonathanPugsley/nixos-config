@@ -30,7 +30,7 @@
       relativenumber = true; # numbers relative to currently selected line
       scrolloff = 6; # lines to keep visible when scrolling vertically
       sidescrolloff = 10; # columns to keep visible when scrolling horizontally
-      showtabline = 0; # visibility of the tab line
+      showtabline = 2; # visibility of the tab line 0/1/2 : never/>1 page/always
       signcolumn = "yes:1"; # visibility of sign column
       splitbelow = true; # new h-split to the bottom
       splitright = true; # new v-split to the right
