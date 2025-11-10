@@ -19,13 +19,10 @@ timer() {
     local duration=$2
     local repetition=$3
     local total_reps=$4
+    rep_counter=""
 
-    # repetition counter - <= 1 removes it
-    if [[ "$total_reps" -gt 1 ]]; then
-        rep_counter="$repetition/$total_reps "
-    else
-        rep_counter=""
-    fi
+    # repetition counter > 1
+    [[ "$total_reps" -gt 1 ]] && rep_counter="$repetition/$total_reps "
 
     total_seconds=$(( duration * 60 ))
     while [ "$total_seconds" -gt 0 ]; do
@@ -46,9 +43,9 @@ countdown() {
 
 pomodoro() {
     # pre-selected configs
-    local configs=( "Custom" "50/10" "25/5" )
+    configs=( "Custom" "50/10" "25/5" )
     # select parameters
-    local interval=$( printf "%s\n" "${configs[@]}" | wofi -dj -L "${#configs[@]}" ) || exit 0
+    interval=$( printf "%s\n" "${configs[@]}" | wofi -dj -L "${#configs[@]}" ) || exit 0
     if [[ "$interval" =~ ([0-9]+)\/([0-9]+) ]]; then
         # grab time from pre-selected config
         focus=$(echo "$interval" | awk -F'/' '{print $1}')
@@ -60,8 +57,8 @@ pomodoro() {
         rest=$( echo "Cancel" | wofi -d -L 1 --prompt="Rest" )
         [[ "$rest" =~ ^[0-9]+$ ]] || exit 0
     fi
-    # repitition input
-    local repetitions=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 1)
+    # repetition input
+    repetitions=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 1)
     [[ "$repetitions" =~ ^[0-9]+$ ]] || exit 0
 
     # run timer loop
@@ -75,8 +72,8 @@ pomodoro() {
 }
 
 menu() {
-    MODE=$( printf "Countdown\nPomodoro" | wofi -djE -L 2 ) || exit 0
-    case "$MODE" in
+    mode=$( printf "Countdown\nPomodoro" | wofi -djE -L 2 ) || exit 0
+    case "$mode" in
         "Countdown") countdown;;
         "Pomodoro") pomodoro;;
         *) exit 1 ;;
@@ -86,12 +83,11 @@ menu() {
 # check and manage currently running timers
 if [[ -f "$LOCK_FILE" ]]; then
     OLD_PID=$( cat "$LOCK_FILE" )
-    if  ps -p $OLD_PID > /dev/null ; then
-        echo "old timer running"
-        NEW=$( printf "New Timer\nCancel" | wofi -dE -L 2 --prompt="$WARN" )
+    if  ps -p "$OLD_PID" > /dev/null ; then
+        NEW=$( printf "New Timer\nCancel" | wofi -dj -L 2 --prompt="$WARN" )
         [[ "$NEW" == "New Timer" ]] || exit 0
         kill "$OLD_PID"
-        wait $OLD_PID 2>/dev/null
+        wait "$OLD_PID" 2>/dev/null
     fi
 fi
 # save current pid to lockfile
