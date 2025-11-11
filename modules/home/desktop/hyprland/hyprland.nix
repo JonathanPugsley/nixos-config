@@ -72,7 +72,10 @@
         no_donation_nag = true;
       };
 
-      windowrule = "opacity 0.97 0.93, tag:opacity";
+      windowrule = [
+        "tag +opacity, class:(Alacritty)"
+        "opacity 0.95 0.90, tag:opacity"
+      ];
 
       env = builtins.concatLists [
         [
