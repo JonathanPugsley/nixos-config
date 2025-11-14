@@ -5,7 +5,7 @@ OPTIONS=( " Screenshot" " Screen Record" " Colour Picker" )
 
 screenshot() {
     SS_DIR="$HOME/Pictures/Screenshots"
-    MODE=$(printf "%s\n" "Output" "Window" "Region" "Active" | wofi -djE -L 4) || exit 0
+    MODE=$( printf "%s\n" "Output" "Window" "Region" "Active" | wofi -djE -L 4 ) || exit 0
     hyprshot -m "${MODE,,}" -o "$SS_DIR"
 }
 
@@ -15,8 +15,8 @@ screenrecord() {
 }
 
 colourPicker() {
-    COL=$(hyprpicker) || exit 1
-    [ -n "$COL" ] || exit 1
+    COL=$( hyprpicker )
+    [[ -n "$COL" ]] || exit 1
     wl-copy "$COL"
     notify-send "Colour Picker: $COL" "$COL copied to clipboard"
 }

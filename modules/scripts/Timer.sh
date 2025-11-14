@@ -25,12 +25,12 @@ timer() {
     [[ "$total_reps" -gt 1 ]] && rep_counter="$repetition/$total_reps "
 
     total_seconds=$(( duration * 60 ))
-    while [ "$total_seconds" -gt 0 ]; do
-        min=$( printf "%02d" "$((total_seconds / 60))" )
-        sec=$( printf "%02d" "$((total_seconds % 60))" )
+    while [[ "$total_seconds" -gt 0 ]]; do
+        min=$( printf "%02d" "$(( total_seconds / 60 ))" )
+        sec=$( printf "%02d" "$(( total_seconds % 60 ))" )
         echo " $label | $min:$sec | $rep_counter" > "$TIMER_FILE"
         sleep 1
-        total_seconds=$((total_seconds - 1))
+        total_seconds=$(( total_seconds - 1 ))
     done
 }
 
@@ -42,14 +42,11 @@ countdown() {
 }
 
 pomodoro() {
-    # pre-selected configs
     configs=( "Custom" "50/10" "25/5" )
-    # select parameters
     interval=$( printf "%s\n" "${configs[@]}" | wofi -dj -L "${#configs[@]}" ) || exit 0
     if [[ "$interval" =~ ([0-9]+)\/([0-9]+) ]]; then
-        # grab time from pre-selected config
-        focus=$(echo "$interval" | awk -F'/' '{print $1}')
-        rest=$(echo "$interval" | awk -F'/' '{print $2}')
+        focus=$( echo "$interval" | awk -F'/' '{print $1}' )
+        rest=$( echo "$interval" | awk -F'/' '{print $2}' )
     else
         # custom interval input
         focus=$( echo "Cancel" | wofi -d -L 1 --prompt="Minutes" )
@@ -57,12 +54,13 @@ pomodoro() {
         rest=$( echo "Cancel" | wofi -d -L 1 --prompt="Rest" )
         [[ "$rest" =~ ^[0-9]+$ ]] || exit 0
     fi
+
     # repetition input
-    repetitions=$( echo "Cancel" | wofi --prompt="Number of Repetitions" --dmenu -L 1)
+    repetitions=$( echo "Cancel" | wofi -d -L 1 --prompt="Number of Repetitions" )
     [[ "$repetitions" =~ ^[0-9]+$ ]] || exit 0
 
     # run timer loop
-    for ((i=1; i<=repetitions; i++)); do
+    for (( i=1; i<=repetitions; i++ )); do
         notify-send "Starting focus for $focus minutes"
         timer "Focus" "$focus" "$i" "$repetitions"
         notify-send "Starting rest for $rest minutes"
@@ -84,12 +82,13 @@ menu() {
 if [[ -f "$LOCK_FILE" ]]; then
     OLD_PID=$( cat "$LOCK_FILE" )
     if  ps -p "$OLD_PID" > /dev/null ; then
-        NEW=$( printf "New Timer\nCancel" | wofi -dj -L 2 --prompt="$WARN" )
+        NEW=$( printf "New Timer\nCancel" | wofi -dE -L 2 --prompt="$WARN" )
         [[ "$NEW" == "New Timer" ]] || exit 0
         kill "$OLD_PID"
         wait "$OLD_PID" 2>/dev/null
     fi
 fi
+
 # save current pid to lockfile
 echo "$$" > "$LOCK_FILE"
 

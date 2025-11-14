@@ -1,18 +1,34 @@
 #! /usr/bin/env bash
 # resolution changing menu
 
-RESOLUTIONS=(3440x1440@100 2560x1440@100 1920x1080@100 3840x2160@60 1920x1080@60)
-MONITORS=$(hyprctl monitors | grep -oP 'Monitor \K[^\s]+' )
+MONITOR_INFO=$( hyprctl monitors )
+RESOLUTIONS=( "4K" "UWQHD" "QHD" "FHD" )
 
-if [ ${#MONITORS[@]} -gt 1 ]; then
-    SELECTED_MONITOR=$(echo "$MONITORS" | wofi -dj -L ${#MONITORS[@]}) || exit 0
+readarray -t MONITORS <<< "$( grep -oE "Monitor [^[:space:]]+" <<< "$MONITOR_INFO" | cut -d " " -f2 )"
+readarray -t HZ <<< "$( grep " at " <<< "$MONITOR_INFO" | grep -oE "@[0-9]+(\.[0-9]+)?" | tr -d "@" )"
+readarray -t POS <<< "$( grep -oE "at [^[:space:]]+" <<< "$MONITOR_INFO" | cut -d " " -f2 )"
+readarray -t SCALE <<< "$( grep -oE "scale: [^[:space:]]+" <<< "$MONITOR_INFO" | cut -d " " -f2 )"
+
+# monitor selection for > 1 monitor
+INDEX=-1
+if [[ ${#MONITORS[@]} -gt 1 ]]; then
+    SELECTED_MONITOR=$( printf "%s\n" "${MONITORS[@]}" | wofi -dj -L "${#MONITORS[@]}" ) || exit 0
+    for i in "${!MONITORS[@]}"; do
+        [[ "${MONITORS[$i]}" == "$SELECTED_MONITOR" ]] && INDEX="$i" && break
+    done
+    [[ "$INDEX" -eq -1 ]] && exit 1
 else
-    SELECTED_MONITOR=$MONITORS
+    SELECTED_MONITOR="${MONITORS[0]}"
 fi
-[[ -z "$SELECTED_MONITOR" || ! "${MONITORS[@]}" =~ "$SELECTED_MONITOR" ]] && exit 1
 
-SELECTED_RESOLUTION=$(echo "${RESOLUTIONS[@]}" | tr ' ' '\n' | wofi -dj -L ${#RESOLUTIONS[@]}) || exit 0
-[[ -z "$SELECTED_RESOLUTION" || ! "${RESOLUTIONS[@]}" =~ "$SELECTED_RESOLUTION" ]] && exit 1
+SELECTED_RESOLUTION=$( printf "%s\n" "${RESOLUTIONS[@]}" | wofi -dj -L "${#RESOLUTIONS[@]}" ) || exit 0
+case "$SELECTED_RESOLUTION" in
+    "4K") RES="3840x2560@${HZ[$INDEX]}" ;;
+    "UWQHD") RES="3440x1440@${HZ[$INDEX]}" ;;
+    "QHD") RES="2560x1440@${HZ[$INDEX]}" ;;
+    "FHD") RES="1920x1080@${HZ[$INDEX]}" ;;
+    *) exit 1
+esac
 
-hyprctl keyword monitor $SELECTED_MONITOR, $SELECTED_RESOLUTION >/dev/null 2>&1
-notify-send "$SELECTED_MONITOR changed resolution to: $SELECTED_RESOLUTION"
+hyprctl keyword monitor "$SELECTED_MONITOR", "$RES", "${POS[$INDEX]}", "${SCALE[$INDEX]}" >/dev/null 2>&1
+notify-send "$SELECTED_MONITOR resolution is now $SELECTED_RESOLUTION"
