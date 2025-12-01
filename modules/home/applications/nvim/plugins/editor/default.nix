@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./colorizer.nix # highlights hex colour codes in that colour
     ./comment.nix # comment tool for multiple lines
     ./gitsigns.nix # displays git info in the sign column
     ./nvim-autopairs.nix # auto brackets, e.g. (), {}, "", e.t.c
