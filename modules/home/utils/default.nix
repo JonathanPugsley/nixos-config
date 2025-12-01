@@ -6,6 +6,7 @@
     ./fzf.nix
     ./git.nix
     ./nix-search-tv.nix
+    ./openjdk.nix
     ./playerctl.nix
     ./ripgrep.nix
     ./tmux.nix
@@ -23,6 +24,7 @@
     fzf.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
     nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
+    openjdk.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;
     ripgrep.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;

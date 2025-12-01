@@ -1,6 +1,7 @@
 { config, lib, ... }: {
   imports = [
     ./fonts.nix
+    ./firewall.nix
     ./fs-options.nix
     ./gc.nix
     ./locale.nix
@@ -16,6 +17,7 @@
 
   config.modules = {
     fonts.enable = lib.mkDefault config.groups.core.enable;
+    firewall.enable = lib.mkDefault config.groups.core.enable;
     fs-options.enable = lib.mkDefault config.groups.core.enable;
     gc.enable = lib.mkDefault config.groups.core.enable;
     locale.enable = lib.mkDefault config.groups.core.enable;
