@@ -1,10 +1,12 @@
 { config, lib, ... }: {
   config.services.hyprsunset = lib.mkIf config.modules.hyprland.enable {
     enable = true;
+    systemdTarget = "hyprland-session.target";
     settings.profile = [
       {
+        # defaults
         time = "8:00";
-        temperature = 6000; # default
+        temperature = 6000;
         gamma = 1.0;
       }
       {

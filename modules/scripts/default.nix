@@ -3,6 +3,7 @@ let
     Bluetooth_script = pkgs.writeScriptBin "Bluetooth" (builtins.readFile ./Bluetooth.sh);
     Capture_Menu_Script = pkgs.writeScriptBin "Capture_Menu" (builtins.readFile ./Capture_Menu.sh);
     Change_Resolution_script = pkgs.writeScriptBin "Change_Resolution" (builtins.readFile ./Change_Resolution.sh);
+    lekker-bluelight-script = pkgs.writeScriptBin "lekker-bluelight" (builtins.readFile ./lekker-bluelight.sh);
     Main_Menu_script = pkgs.writeScriptBin "Main_Menu" (builtins.readFile ./Main_Menu.sh);
     Notes_script = pkgs.writeScriptBin "Notes" (builtins.readFile ./Notes.sh);
     Package_Search_script = pkgs.writeScriptBin "Package_Search" (builtins.readFile ./Package_Search.sh);
@@ -14,6 +15,7 @@ let
         Bluetooth_script
         Capture_Menu_Script
         Change_Resolution_script
+        lekker-bluelight-script
         Main_Menu_script
         Notes_script
         Package_Search_script

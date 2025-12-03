@@ -1,56 +1,59 @@
 * {
-  min-height: 0px;
-  min-width: 0px;
-  font-size: 14px;
-  font-weight: 500;
+    background-color: @bg0@;
+    color: @fg1@;
+
+    font-family: "JetBrainsMono", SymbolsNerdFont;
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 0;
+
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
 }
 
-window#waybar {
-  background-color: @bg0@;
-}
-
-/*LEFT*/
-#workspaces {
-  margin-left: 4px;
+#custom-nixos {
+    min-width: 12px;
+    font-size: 16px;
+    margin: 0 12px;
 }
 
 #workspaces button {
-  margin: 4px 0px;
-  padding: 0px 4px;
-  color: @fg1@;
-}
-
-#workspaces button.active {
-  border-radius: 4px;
-  background-color: @bg1@;
-  color: @fg0@;
+    margin: 0 1px;
+    padding: 0 6px;
+    min-width: 14px;
 }
 
 #workspaces button.urgent {
-  color: @red@;
+    color: @red@;
 }
 
-/*CENTER*/
-#window {
-  color: @fg1@;
-  background-color: transparent;
+#bluetooth {
+    font-size: 16px;
 }
 
-/*RIGHT*/
-#network, #bluetooth, #wireplumber, #backlight, #battery, #clock, #custom-timer{
-  margin: 4px 2px;
-  padding: 0px 6px;
-  color: @fg1@;
-  background-color: @bg1@;
-  border-radius: 4px;
-  min-width: 20px;
+#custom-zenmode {
+    margin-right: 12px;
+    margin-left: 6px;
 }
 
-window#waybar.empty #window {
-  background-color: transparent;
+#wireplumber,
+#bluetooth,
+#backlight,
+#battery,
+#network,
+#custom-sunset {
+    margin: 1px;
+    padding: 0 6px;
+    min-width: 20px;
 }
 
-#clock {
-  margin-right: 4px;
-  background-color: transparent;
+#workspaces button.empty,
+#bluetooth.no-controller,
+#bluetooth.disabled,
+#bluetooth.off,
+#wireplumber.muted,
+#network.disconnected {
+    opacity: 0.6;
 }

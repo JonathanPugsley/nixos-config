@@ -4,7 +4,7 @@
 
     "$browser" = "librewolf";
     "$fileManager" = "$terminal -e $termFileManager $HOME";
-    "$menu" = "wofi -j";
+    "$menu" = "wofi";
     "$music" = "spotify";
     "$termFileManager" = "yazi";
     "$terminal" = "alacritty";

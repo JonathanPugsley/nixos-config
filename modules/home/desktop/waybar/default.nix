@@ -5,78 +5,80 @@
     enable = true;
     style = pkgs.replaceVars ./style.css {
       bg0 = "#${config.colorScheme.palette.bg0}";
-      bg1 = "#${config.colorScheme.palette.bg1}";
-      fg0 = "#${config.colorScheme.palette.fg0}";
       fg1 = "#${config.colorScheme.palette.fg1}";
       red = "#${config.colorScheme.palette.red}";
     };
 
     settings.mainBar = {
-
       layer = "top";
       position = "top";
       height = 30;
       spacing = 0;
 
       modules-left = [
+        "custom/nixos"
         "hyprland/workspaces"
       ];
+
       modules-center = [
-        "custom/timer"
-      ];
-      modules-right = [
-        "network"
-        "bluetooth"
-        "wireplumber"
-        "backlight"
-        "battery"
         "clock"
       ];
 
+      modules-right = [
+        "wireplumber"
+        "bluetooth"
+        "backlight"
+        "battery"
+        "network"
+        "custom/sunset"
+        "custom/zenmode"
+      ];
+
+      "custom/nixos" = {
+        format = "";
+        tooltip = false;
+      };
+
       "hyprland/workspaces" = {
         disable-scroll = true;
-        warp-on-scroll = false;
-        format = "{name}";
-      };
-
-      "hyprland/window" = {
+        "persistent-workspaces" = {
+          "*" = 5;
+        };
+        format = "{icon}";
+        "format-icons" = {
+          "active" = "";
+        };
         tooltip = false;
       };
 
-      "custom/timer" = {
-        format = "{}";
-        exec = "cat /tmp/Timer";
-        on-click = "kill -TERM $(pgrep -f /run/current-system/sw/bin/Timer)";
-        interval = 1;
-        tooltip = true;
-      };
-
-      network = {
-        format-wifi = "";
-        format-ethernet = "󰈀";
-        format-disconnected = "󱘖";
-        tooltip = false;
-      };
-
-      bluetooth = {
-        format-disabled = "";
-        format-off = "";
-        format-on = "";
-        format-connected = " {num_connections}";
+      clock = {
+        timezone = "Europe/London";
+        format = "{:%H:%M}";
+        format-alt = "{:%A %d-%m-%Y}";
         tooltip = false;
       };
 
       wireplumber = {
-        format = "{icon} {volume}%";
+        format = "{icon}";
+        format-alt = "{icon} {volume}%";
         format-muted = "";
-        format-icons = [ "" "" "" ];
+        format-icons = [ "" "" ];
         tooltip = false;
+      };
+
+      bluetooth = {
+        format-on = "";
+        format-off = "";
+        format-disabled = "󰂲";
+        format-connected = "󰂱";
+        format-no-controller = "󰂲";
+        tooltip = false;
+        on-click = "Bluetooth";
       };
 
       backlight = {
         device = "acpi_video1";
         format = "{icon}";
-        format-alt = "{percent}% {icon}";
         format-icons = [ "" "" "" "" "" "" "" "" "" ];
         tooltip = false;
       };
@@ -88,17 +90,38 @@
         };
         format = "{icon}";
         format-full = "{capacity}% {icon}";
-        format-charging = "{capacity}% ";
+        format-charging = "{capacity}% ";
         format-alt = "{capacity}% {time}";
         format-icons = [ "" "" "" "" "" ];
       };
 
-      clock = {
-        format = "{:%H:%M}";
-        format-alt = "{:%Y-%m-%d}";
-        timezone = "Europe/London";
+      network = {
+        format-wifi = "";
+        format-ethernet = "";
+        format-disconnected = "󱘖";
         tooltip = false;
       };
+
+      "custom/sunset" = {
+        return-type = "json";
+        format = "{icon}";
+        "format-icons" = {
+          "day" = "";
+          "night" = "";
+        };
+        exec = "lekker-bluelight read";
+        interval = "once";
+        on-click = "lekker-bluelight toggle";
+      };
+
+      # "custom/timer" = {
+      #   format = "{}";
+      #   exec = "cat /tmp/Timer";
+      #   on-click = "kill -TERM $(pgrep -f /run/current-system/sw/bin/Timer)";
+      #   interval = 1;
+      #   tooltip = false;
+      # };
+
     };
   };
 }
