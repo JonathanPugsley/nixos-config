@@ -114,6 +114,18 @@
         on-click = "lekker-bluelight toggle";
       };
 
+      "custom/zenmode" = {
+        return-type = "json";
+        format = "{icon}";
+        "format-icons" = {
+          "normal" = "󰹑";
+          "zen" = "󰧱";
+        };
+        exec = "lekker-zenmode read";
+        interval = "once";
+        on-click = "lekker-zenmode toggle";
+      };
+
       # "custom/timer" = {
       #   format = "{}";
       #   exec = "cat /tmp/Timer";

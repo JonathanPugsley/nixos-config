@@ -14,13 +14,15 @@
 }
 
 #custom-nixos {
-    min-width: 12px;
     font-size: 16px;
-    margin: 0 12px;
+    margin: 1px;
+    margin-left: 12px;
+    padding: 0 6px;
+    min-width: 20px;
 }
 
 #workspaces button {
-    margin: 0 1px;
+    margin: 1px;
     padding: 0 6px;
     min-width: 14px;
 }
@@ -34,8 +36,10 @@
 }
 
 #custom-zenmode {
+    margin: 1px;
     margin-right: 12px;
-    margin-left: 6px;
+    padding: 0 6 0 4px;
+    min-width: 20px;
 }
 
 #wireplumber,

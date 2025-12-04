@@ -4,9 +4,9 @@
 read_temp() {
     temp=$(hyprctl hyprsunset temperature 2>/dev/null) || exit 1
     if [[ "$temp" == "7000" ]]; then
-        echo "{\"alt\": \"day\"}";
+        echo "{\"alt\": \"day\"}"
     else
-        echo "{\"alt\": \"night\"}";
+        echo "{\"alt\": \"night\"}"
     fi
 }
 
@@ -14,10 +14,10 @@ toggle_temp() {
     temp=$(hyprctl hyprsunset temperature 2>/dev/null) || exit 1
     if [[ "$temp" == "7000" ]]; then
         hyprctl hyprsunset temperature 5000 >/dev/null 2>&1
-        echo "{\"alt\": \"night\"}";
+        echo "{\"alt\": \"night\"}"
     else
         hyprctl hyprsunset temperature 7000 >/dev/null 2>&1
-        echo "{\"alt\": \"day\"}";
+        echo "{\"alt\": \"day\"}"
     fi
 }
 

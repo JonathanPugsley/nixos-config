@@ -9,13 +9,13 @@ SUB_MENU=$( printf "%s\n" "${ENTRIES[@]}" | wofi -dj -L ${#ENTRIES[@]} ) || exit
 case "${SUB_MENU}" in
     "Apps") wofi ;;
     "Learn") exit 0 ;;
-    "Capture") Capture_Menu ;;
-    "Timer") Timer ;;
+    "Capture") lekker-capture ;;
+    "Timer") lekker-timer ;;
     "Style") exit 0 ;;
-    "Scripts") Script_Menu ;;
+    "Scripts") lekker-scripts ;;
     "Config") setsid -f alacritty -e zsh -c "cd \"$CONFIG_DIR\" && nvim" > /dev/null 2>&1 ;;
-    "Nixpkgs") Package_Search ;;
+    "Nixpkgs") lekker-pkg-search ;;
     "About") hyprctl dispatch exec "[float; center; size 980 600]" "${ABOUT[0]}" > /dev/null 2>&1 ;;
-    "System") System_Menu ;;
+    "System") lekker-system-menu ;;
     *) exit 1 ;;
 esac

@@ -13,10 +13,10 @@
       "$mod, Q, killactive,"
       "$mod, E, exec, $fileManager"
       "$mod, R, exec, $menu"
-      "$mod, T, exec, Change_Resolution"
+      "$mod, T, exec, lekker-resolution"
       "$mod, RETURN, exec, $terminal"
       "$mod, O, exec, hyprctl dispatch tagwindow opacity"
-      "$mod, P, exec, System_Menu"
+      "$mod, P, exec, lekker-system-menu"
 
       "$mod, S, exec, steam"
       "$mod, D, exec, discord"
@@ -28,7 +28,7 @@
       "$mod, M, exec, $music"
       "$mod ALT SHIFT, H, exit"
 
-      "$mod, Space, exec, Main_Menu"
+      "$mod, Space, exec, lekker-menu"
 
       # focus window
       "$mod, h, movefocus, l"
