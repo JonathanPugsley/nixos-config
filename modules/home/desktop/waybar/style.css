@@ -6,58 +6,57 @@
     font-size: 14px;
     font-weight: 500;
 
-    padding: 0;
-
     min-height: 0;
     border: 0;
     border-radius: 0;
 }
 
-#custom-nixos {
-    font-size: 16px;
-    margin: 1px;
-    margin-left: 12px;
-    padding: 0 6px;
-    min-width: 20px;
+.modules-left {
+    padding-left: 10px;
 }
 
-#workspaces button {
-    margin: 1px;
-    padding: 0 6px;
-    min-width: 14px;
+.modules-right {
+    padding-right: 0px;
 }
 
-#workspaces button.urgent {
-    color: @red@;
-}
-
-#bluetooth {
-    font-size: 16px;
-}
-
-#custom-zenmode {
-    margin: 1px;
-    margin-right: 12px;
-    padding: 0 6 0 4px;
-    min-width: 20px;
-}
-
+#custom-nixos,
+#workspaces,
+#workspaces button,
+#clock,
+#custom-timer,
 #wireplumber,
+#network,
 #bluetooth,
 #backlight,
+#custom-bluelight,
 #battery,
-#network,
-#custom-sunset {
+#custom-zenmode {
     margin: 1px;
     padding: 0 6px;
     min-width: 20px;
 }
 
 #workspaces button.empty,
+#wireplumber.muted,
+#network.disconnected,
 #bluetooth.no-controller,
 #bluetooth.disabled,
-#bluetooth.off,
-#wireplumber.muted,
-#network.disconnected {
+#bluetooth.off {
     opacity: 0.6;
+}
+
+/*tweaks for consistency*/
+#custom-nixos {
+    font-size: 16px;
+    padding-left: 1px;
+}
+
+/* #workspaces button { */
+/*     margin: 1px; */
+/*     padding: 0 6px; */
+/*     min-width: 20px; */
+/* } */
+
+#bluetooth {
+    font-size: 16px;
 }

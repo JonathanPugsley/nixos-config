@@ -19,11 +19,10 @@ toggle_mode() {
     fi
 }
 
-
 [[ ! -f /tmp/zenmode ]] && echo "normal" > "/tmp/zenmode"
 MODE=$(cat /tmp/zenmode)
 case "$1" in
-    "toggle") toggle_mode ;;
     "read") read_mode ;;
+    "toggle") toggle_mode ;;
     *) exit 1 ;;
 esac

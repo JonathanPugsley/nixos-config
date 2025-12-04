@@ -1,18 +1,21 @@
 #! /usr/bin/env bash
-# Timer
+# timer utility
 
+CMD=$1
+
+TIMER_RUNNING=0
 WARN="Stop Current Timer?"
-LOCK_FILE="/tmp/Timer.pid"
-TIMER_FILE="/tmp/Timer"
+LOCK_FILE="/tmp/timer.pid"
+TIMER_FILE="/tmp/timer"
 
-timerShutdown() {
+timer_end() {
     local silent=$1
     echo "" > "$TIMER_FILE"
     [[ "$silent" -eq 1 ]] || notify-send "Timer Shutting Down"
     exit 0
 }
 
-trap timerShutdown SIGHUP SIGINT SIGQUIT SIGABRT SIGTERM
+trap timer_end SIGHUP SIGINT SIGQUIT SIGABRT SIGTERM
 
 timer() {
     local label=$1
@@ -22,23 +25,35 @@ timer() {
     rep_counter=""
 
     # repetition counter > 1
-    [[ "$total_reps" -gt 1 ]] && rep_counter="$repetition/$total_reps "
+    [[ "$total_reps" -gt 1 ]] && rep_counter=" $repetition/$total_reps"
 
     total_seconds=$(( duration * 60 ))
     while [[ "$total_seconds" -gt 0 ]]; do
         min=$( printf "%02d" "$(( total_seconds / 60 ))" )
         sec=$( printf "%02d" "$(( total_seconds % 60 ))" )
-        echo " $label | $min:$sec | $rep_counter" > "$TIMER_FILE"
+        echo "{\"alt\": \"$label\", \"text\": \"$min:$sec$rep_counter\"}" > "$TIMER_FILE"
         sleep 1
         total_seconds=$(( total_seconds - 1 ))
+    done
+}
+
+stopwatch() {
+    total_seconds=0
+    while true; do
+        min=$( printf "%02d" "$(( total_seconds / 60 ))" )
+        sec=$( printf "%02d" "$(( total_seconds % 60 ))" )
+        echo "{\"alt\": \"stopwatch\", \"text\": \"$min:$sec\"}" > "$TIMER_FILE"
+        sleep 1
+        total_seconds=$(( total_seconds + 1 ))
     done
 }
 
 countdown() {
     minutes=$( echo "Cancel" | wofi -d -L 1 --prompt="Minutes" )
     [[ "$minutes" =~ ^[0-9]+$ ]] || exit 0
-    timer "Countdown" "$minutes" "0" "0"
-    notify-send "Countdown timer completed!"
+    notify-send "Timer" "Starting countdown for $minutes minutes!"
+    timer "countdown" "$minutes" "0" "0"
+    notify-send "Timer" "Countdown timer completed!"
 }
 
 pomodoro() {
@@ -62,38 +77,45 @@ pomodoro() {
     # run timer loop
     for (( i=1; i<=repetitions; i++ )); do
         notify-send "Starting focus for $focus minutes"
-        timer "Focus" "$focus" "$i" "$repetitions"
+        timer "pomodoro-focus" "$focus" "$i" "$repetitions"
         notify-send "Starting rest for $rest minutes"
-        timer "Rest" "$rest" "$i" "$repetitions"
+        timer "pomodoro-rest" "$rest" "$i" "$repetitions"
     done
     notify-send "$interval Pomodoro timer completed! ($repetitions repetitions)" "Go take a break"
 }
 
 menu() {
-    mode=$( printf "Countdown\nPomodoro" | wofi -djE -L 2 ) || exit 0
+    # handle already running timer
+    if [[ "$TIMER_RUNNING" -eq 1 ]]; then
+        NEW=$( printf "New Timer\nCancel" | wofi -dE -L 2 --prompt="$WARN" )
+        [[ "$NEW" == "New Timer" ]] || exit 0
+        kill "$PID" && wait "$PID" 2>/dev/null
+    fi
+
+    # save current pid to lockfile
+    echo "$$" > "$LOCK_FILE"
+
+    mode=$( printf "Countdown\nPomodoro\nStopwatch" | wofi -djE -L 3 ) || exit 0
     case "$mode" in
-        "Countdown") countdown;;
-        "Pomodoro") pomodoro;;
+        "Countdown") countdown ;;
+        "Pomodoro") pomodoro ;;
+        "Stopwatch") stopwatch ;;
         *) exit 1 ;;
     esac
 }
 
 # check and manage currently running timers
 if [[ -f "$LOCK_FILE" ]]; then
-    OLD_PID=$( cat "$LOCK_FILE" )
-    if  ps -p "$OLD_PID" > /dev/null ; then
-        NEW=$( printf "New Timer\nCancel" | wofi -dE -L 2 --prompt="$WARN" )
-        [[ "$NEW" == "New Timer" ]] || exit 0
-        kill "$OLD_PID"
-        wait "$OLD_PID" 2>/dev/null
-    fi
+    PID=$( cat "$LOCK_FILE" )
+    [ -n "$PID" ] && ps -p "$PID" > /dev/null && TIMER_RUNNING=1
 fi
 
-# save current pid to lockfile
-echo "$$" > "$LOCK_FILE"
-
-# timer configuration
-menu
+# handle commands
+case "$CMD" in
+    "stop") [[ $TIMER_RUNNING -eq 1 ]] && kill "$PID" && wait "$PID" 2>/dev/null ;;
+    "menu") menu ;;
+    *) exit 1 ;;
+esac
 
 # finish with cleanup
-timerShutdown "1"
+timer_end "1"

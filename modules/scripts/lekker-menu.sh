@@ -10,7 +10,7 @@ case "${SUB_MENU}" in
     "Apps") wofi ;;
     "Learn") exit 0 ;;
     "Capture") lekker-capture ;;
-    "Timer") lekker-timer ;;
+    "Timer") lekker-timer menu ;;
     "Style") exit 0 ;;
     "Scripts") lekker-scripts ;;
     "Config") setsid -f alacritty -e zsh -c "cd \"$CONFIG_DIR\" && nvim" > /dev/null 2>&1 ;;
