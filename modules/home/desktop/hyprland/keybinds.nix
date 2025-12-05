@@ -1,78 +1,80 @@
 { config, lib, ... }: {
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
-      "$mod" = "SUPER";
-      "$browser" = "librewolf";
-      "$fileManager" = "$terminal -e $termFileManager $HOME";
-      "$menu" = "wofi";
-      "$music" = "spotify";
-      "$termFileManager" = "yazi";
-      "$terminal" = "alacritty";
-
       bind = [
-        "$mod, Q, killactive,"
-        "$mod, E, exec, $fileManager"
-        "$mod, R, exec, $menu"
-        "$mod, T, exec, lekker-resolution"
-        "$mod, RETURN, exec, $terminal"
-        "$mod, O, exec, hyprctl dispatch tagwindow opacity"
-        "$mod, P, exec, lekker-system-menu"
+        "SUPER, Q, killactive,"
+        "SUPER, E, exec, alacritty -e yazi $HOME"
+        "SUPER, R, exec, wofi"
+        "SUPER, T, exec, lekker-resolution"
+        "SUPER, RETURN, exec, alacritty"
+        "SUPER, O, exec, hyprctl dispatch tagwindow opacity"
+        "SUPER, P, exec, lekker-system-menu"
 
-        "$mod, S, exec, steam"
-        "$mod, D, exec, discord"
-        "$mod, F, fullscreen"
-        "$mod, G, togglefloating"
+        "SUPER, S, exec, steam"
+        "SUPER, D, exec, discord"
+        "SUPER, F, fullscreen"
+        "SUPER, G, togglefloating"
 
-        "$mod, X, exec, $browser"
-        "$mod, N, exec, Notes"
-        "$mod, M, exec, $music"
-        "$mod ALT SHIFT, H, exit"
+        "SUPER, X, exec, librewolf"
+        "SUPER, N, exec, lekker-notes"
+        "SUPER, M, exec, spotify"
+        "SUPER ALT SHIFT, H, exit"
 
-        "$mod, Space, exec, lekker-menu"
+        "SUPER, Space, exec, lekker-menu"
 
         # focus window
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
+        "SUPER, h, movefocus, l"
+        "SUPER, j, movefocus, d"
+        "SUPER, k, movefocus, u"
+        "SUPER, l, movefocus, r"
 
         # move window
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, l, movewindow, r"
+        "SUPER SHIFT, h, movewindow, l"
+        "SUPER SHIFT, j, movewindow, d"
+        "SUPER SHIFT, k, movewindow, u"
+        "SUPER SHIFT, l, movewindow, r"
 
         # focus workspace
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
+        "SUPER, 0, workspace, 0"
 
         # move to workspace
-        "$mod SHIFT, 1, movetoworkspacesilent, 1"
-        "$mod SHIFT, 2, movetoworkspacesilent, 2"
-        "$mod SHIFT, 3, movetoworkspacesilent, 3"
-        "$mod SHIFT, 4, movetoworkspacesilent, 4"
-        "$mod SHIFT, 5, movetoworkspacesilent, 5"
+        "SUPER SHIFT, 1, movetoworkspacesilent, 1"
+        "SUPER SHIFT, 2, movetoworkspacesilent, 2"
+        "SUPER SHIFT, 3, movetoworkspacesilent, 3"
+        "SUPER SHIFT, 4, movetoworkspacesilent, 4"
+        "SUPER SHIFT, 5, movetoworkspacesilent, 5"
+        "SUPER SHIFT, 6, movetoworkspacesilent, 6"
+        "SUPER SHIFT, 7, movetoworkspacesilent, 7"
+        "SUPER SHIFT, 8, movetoworkspacesilent, 8"
+        "SUPER SHIFT, 9, movetoworkspacesilent, 9"
+        "SUPER SHIFT, 0, movetoworkspacesilent, 0"
 
         # screenshots
-        "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only -z"
-        "$mod SHIFT, F, exec, hyprshot -m output --clipboard-only"
+        "SUPER SHIFT, S, exec, hyprshot -m region --clipboard-only -z"
+        "SUPER SHIFT, F, exec, hyprshot -m output --clipboard-only"
       ];
 
       binde = [
         # resize window
-        "$mod ALT, h, resizeactive, -30 0"
-        "$mod ALT, j, resizeactive, 0 30"
-        "$mod ALT, k, resizeactive, 0 -30"
-        "$mod ALT, l, resizeactive, 30 0"
+        "SUPER ALT, h, resizeactive, -30 0"
+        "SUPER ALT, j, resizeactive, 0 30"
+        "SUPER ALT, k, resizeactive, 0 -30"
+        "SUPER ALT, l, resizeactive, 30 0"
       ];
 
       # mouse binds
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
 
       # multimedia keys
@@ -82,8 +84,8 @@
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-        "$mod, XF86MonBrightnessUp, exec, brightnessctl s 120000"
-        "$mod, XF86MonBrightnessDown, exec, brightnessctl s 1"
+        "SUPER, XF86MonBrightnessUp, exec, brightnessctl s 120000"
+        "SUPER, XF86MonBrightnessDown, exec, brightnessctl s 1"
       ];
 
       bindl = [
