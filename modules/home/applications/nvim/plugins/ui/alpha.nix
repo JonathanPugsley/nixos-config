@@ -1,9 +1,8 @@
 { config, lib, ... }: {
-  config.programs.nixvim = lib.mkIf config.modules.nixvim.enable { 
-    plugins.alpha = {
+  config = lib.mkIf config.modules.nixvim.enable {
+    programs.nixvim.plugins.alpha = {
       enable = true;
       layout =
-      # padding function
       let
         padding = val: {
           type = "padding";

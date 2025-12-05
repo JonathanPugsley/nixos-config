@@ -6,7 +6,7 @@
     ./nvidia.nix
   ];
 
-  options.groups.desktop.enable = lib.mkEnableOption "enable desktop";
+  options.groups.desktop.enable = lib.mkEnableOption "enable desktop group";
 
   config.modules = {
     bluetooth.enable = lib.mkDefault config.groups.desktop.enable;

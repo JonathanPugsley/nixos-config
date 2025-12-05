@@ -2,6 +2,10 @@
   options.modules.zsh.enable = lib.mkEnableOption "enable zsh";
 
   config = lib.mkIf config.modules.zsh.enable {
+    # omz theme
+    home.file.".oh-my-zsh-custom/themes/zenline.zsh-theme".source = ./zenline.zsh-theme;
+
+    # zsh
     programs.zsh = {
       enable = true;
 
@@ -18,7 +22,7 @@
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
 
-      # oh my zsh
+      # omz
       oh-my-zsh = {
         enable = true;
         custom = "${config.home.homeDirectory}/.oh-my-zsh-custom";
@@ -32,8 +36,5 @@
       };
 
     };
-
-    home.file.".oh-my-zsh-custom/themes/zenline.zsh-theme".source = ./zenline.zsh-theme;
-
   };
 }

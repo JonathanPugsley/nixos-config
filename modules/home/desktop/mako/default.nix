@@ -4,6 +4,7 @@
   config = lib.mkIf config.modules.mako.enable {
     # libnotify
     home.packages = [ pkgs.libnotify ];
+
     # mako
     services.mako = {
       enable = true;
@@ -11,12 +12,14 @@
         # global
         max-history = 20;
         sort = "+time";
+
         # actions
         on-button-left = "invoke-default-action";
         on-button-right = "dismiss";
         on-button-middle = "none";
         on-touch = "invoke-default-action";
         on-notify = "none";
+
         # style
         font = "JetBrainsMono 10";
         background-color = "#${config.colorScheme.palette.bg0}E6";

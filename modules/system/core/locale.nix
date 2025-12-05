@@ -1,7 +1,5 @@
-{ config, lib, ... }: {
-  options.modules.locale.enable = lib.mkEnableOption "enable locale";
-
-  config = lib.mkIf config.modules.locale.enable {
+{ ... }: {
+  config = {
     i18n.defaultLocale = "en_GB.UTF-8";
     console = {
       font = "Lat-Terminus16";

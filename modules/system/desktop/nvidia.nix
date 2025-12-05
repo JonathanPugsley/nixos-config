@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  options.modules.nvidia.enable = lib.mkEnableOption "enable nvidia";
+  options.modules.nvidia.enable = lib.mkEnableOption "enable nvidia gpu";
 
   config = lib.mkIf config.modules.nvidia.enable {
     services.xserver = {
@@ -12,6 +12,7 @@
         Option       "TripleBuffering" "on"
       '';
     };
+
     hardware.nvidia = {
       modesetting.enable = true;
       powerManagement = {

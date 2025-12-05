@@ -1,6 +1,6 @@
 { config, lib, ... }: {
-  config.programs.nixvim = lib.mkIf config.modules.nixvim.enable {
-    plugins.comment = {
+  config = lib.mkIf config.modules.nixvim.enable {
+    programs.nixvim.plugins.comment = {
       enable = true;
       settings = {
         toggler.line = "<leader>/";

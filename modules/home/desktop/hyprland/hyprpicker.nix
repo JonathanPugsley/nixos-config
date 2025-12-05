@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
-  config.home = lib.mkIf config.modules.hyprland.enable {
-    packages = [ pkgs.hyprpicker ];
+  config = lib.mkIf config.modules.hyprland.enable {
+    home.packages = [ pkgs.hyprpicker ];
   };
 }

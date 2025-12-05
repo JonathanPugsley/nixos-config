@@ -1,7 +1,8 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.default
   ];
+
   config = {
     users.users.jonny = {
       uid = 1000;
@@ -19,18 +20,13 @@
       extraSpecialArgs = { inherit inputs; };
       useGlobalPkgs = true;
       sharedModules = [ inputs.nixcord.homeModules.nixcord ];
-      users.jonny = { lib, pkgs, ... }: {
+      users.jonny = { ... }: {
         imports = [
           ../home/default.nix
         ];
 
         config = {
-          groups = {
-            home.enable = true;
-          };
-
           programs.home-manager.enable = true;
-
           home = {
             username = "jonny";
             homeDirectory = "/home/jonny";

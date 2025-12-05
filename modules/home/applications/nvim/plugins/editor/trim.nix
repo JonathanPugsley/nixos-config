@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  config.programs.nixvim = lib.mkIf config.modules.nixvim.enable {
-    plugins.trim.enable = true;
+  config = lib.mkIf config.modules.nixvim.enable {
+    programs.nixvim.plugins.trim.enable = true;
   };
 }

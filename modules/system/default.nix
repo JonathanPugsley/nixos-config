@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [
     ./applications/default.nix
     ./core/default.nix
@@ -8,10 +8,9 @@
   ];
 
   config.groups = {
-    applications.enable = true;
-    core.enable = true;
-    desktop.enable = true;
-    shells.enable = true;
-    utils.enable = true;
+    applications.enable = lib.mkDefault true;
+    desktop.enable = lib.mkDefault true;
+    shells.enable = lib.mkDefault true;
+    utils.enable = lib.mkDefault true;
   };
 }

@@ -1,24 +1,17 @@
 { config, lib, ... }: {
-  config.programs.nixvim = lib.mkIf config.modules.nixvim.enable {
-    plugins = {
+  config = lib.mkIf config.modules.nixvim.enable {
+    programs.nixvim.plugins = {
       lsp = {
         enable = true;
         servers = {
-          # nix lsp
-          nixd.enable = true;
-          # bash lsp
-          bashls.enable = true;
-          # c/c++ lsp
-          clangd.enable = true;
-          # css
-          cssls.enable = true;
-          # html
-          html.enable = true;
-          # python
-          pylsp.enable = true;
-          # rust lsp
+          nixd.enable = true; # nix
+          bashls.enable = true; # bash
+          clangd.enable = true; # c/c++
+          cssls.enable = true; # css
+          html.enable = true; # html
+          pylsp.enable = true; # python
           rust_analyzer = {
-            enable = true;
+            enable = true; # rust
             installCargo = false;
             installRustc = false;
           };

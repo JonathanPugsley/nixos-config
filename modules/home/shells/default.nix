@@ -1,6 +1,6 @@
 { config, lib, ... }: {
   imports = [
-    ./zsh.nix
+    ./zsh/default.nix
   ];
 
   options.groups.shells.enable = lib.mkEnableOption "enable shells group";

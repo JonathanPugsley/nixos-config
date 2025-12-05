@@ -6,7 +6,6 @@
     ./nixcord.nix
     ./prismlauncher.nix
     ./steam.nix
-    ./vscodium.nix
   ];
 
   options.groups.applications.enable = lib.mkEnableOption "enable applications group";
@@ -18,6 +17,5 @@
     nixcord.enable = lib.mkDefault config.groups.applications.enable;
     prismlauncher.enable = lib.mkDefault config.groups.applications.enable;
     steam.enable = lib.mkDefault config.groups.applications.enable;
-    vscodium.enable = lib.mkDefault config.groups.applications.enable;
   };
 }

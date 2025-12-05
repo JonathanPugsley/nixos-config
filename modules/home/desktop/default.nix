@@ -5,8 +5,8 @@
     ./mako/default.nix
     ./theming/default.nix
     ./waybar/default.nix
+    ./wl-clipboard/default.nix
     ./wofi/default.nix
-    ./clipboard/default.nix
   ];
 
   options.groups.desktop.enable = lib.mkEnableOption "enable desktop group";
@@ -17,7 +17,7 @@
     mako.enable = lib.mkDefault config.groups.desktop.enable;
     theming.enable = lib.mkDefault config.groups.desktop.enable;
     waybar.enable = lib.mkDefault config.groups.desktop.enable;
-    wofi.enable = lib.mkDefault config.groups.desktop.enable;
     wl-clipboard.enable = lib.mkDefault config.groups.desktop.enable;
+    wofi.enable = lib.mkDefault config.groups.desktop.enable;
   };
 }

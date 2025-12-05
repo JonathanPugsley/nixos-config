@@ -1,141 +1,143 @@
 { config, lib, pkgs, ... }: {
   options.modules.waybar.enable = lib.mkEnableOption "enable waybar";
 
-  config.programs.waybar = lib.mkIf config.modules.waybar.enable {
-    enable = true;
-    style = pkgs.replaceVars ./style.css {
-      bg0 = "#${config.colorScheme.palette.bg0}";
-      fg1 = "#${config.colorScheme.palette.fg1}";
-    };
-
-    settings.mainBar = {
-      layer = "top";
-      position = "top";
-      height = 30;
-      spacing = 0;
-
-      modules-left = [
-        "custom/nixos"
-        "hyprland/workspaces"
-      ];
-
-      modules-center = [
-        "clock"
-      ];
-
-      modules-right = [
-        "custom/timer"
-        "wireplumber"
-        "network"
-        "bluetooth"
-        "backlight"
-        "custom/bluelight"
-        "battery"
-        "custom/zenmode"
-      ];
-
-      "custom/nixos" = {
-        format = "";
-        tooltip = false;
+  config = lib.mkIf config.modules.waybar.enable {
+    programs.waybar = {
+      enable = true;
+      style = pkgs.replaceVars ./style.css {
+        bg0 = "#${config.colorScheme.palette.bg0}";
+        fg1 = "#${config.colorScheme.palette.fg1}";
       };
 
-      "hyprland/workspaces" = {
-        disable-scroll = true;
-        persistent-workspaces = { "*" = 5; };
-        format = "{icon}";
-        format-icons = { "active" = ""; };
-        tooltip = false;
-      };
+      settings.mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        spacing = 0;
 
-      clock = {
-        timezone = "Europe/London";
-        format = "{:%H:%M}";
-        format-alt = "{:%A %d-%m-%Y}";
-        tooltip = false;
-      };
+        modules-left = [
+          "custom/nixos"
+          "hyprland/workspaces"
+        ];
 
-      "custom/timer" = {
-        return-type = "json";
-        format = "{icon} {text}";
-        format-icons = {
-          "countdown" = "󰀠";
-          "pomodoro-focus" = "";
-          "pomodoro-rest" = "";
-          "stopwatch" = "󰔛";
+        modules-center = [
+          "clock"
+        ];
+
+        modules-right = [
+          "custom/timer"
+          "wireplumber"
+          "network"
+          "bluetooth"
+          "backlight"
+          "custom/bluelight"
+          "battery"
+          "custom/zenmode"
+        ];
+
+        "custom/nixos" = {
+          format = "";
+          tooltip = false;
         };
-        exec = "cat /tmp/timer";
-        on-click = "lekker-timer stop";
-        interval = 1;
-        tooltip = false;
-      };
 
-      wireplumber = {
-        format = "{icon}";
-        format-alt = "{icon} {volume}%";
-        format-muted = "";
-        format-icons = [ "" "" ];
-        tooltip = false;
-      };
-
-      network = {
-        format-wifi = "";
-        format-ethernet = "";
-        format-disconnected = "󱘖";
-        tooltip = false;
-      };
-
-      bluetooth = {
-        format-on = "";
-        format-off = "";
-        format-disabled = "󰂲";
-        format-connected = "󰂱";
-        format-no-controller = "󰂲";
-        on-click = "lekker-bluetooth";
-        tooltip = false;
-      };
-
-      backlight = {
-        device = "acpi_video1";
-        format = "{icon}";
-        format-icons = [ "" "" "" "" "" "" "" "" "" ];
-        tooltip = false;
-      };
-
-      "custom/bluelight" = {
-        return-type = "json";
-        format = "{icon}";
-        format-icons = {
-          "day" = "";
-          "night" = "";
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          persistent-workspaces = { "*" = 5; };
+          format = "{icon}";
+          format-icons = { "active" = ""; };
+          tooltip = false;
         };
-        exec = "lekker-bluelight read";
-        on-click = "lekker-bluelight toggle";
-        interval = 60;
-        tooltip = false;
-      };
 
-      battery = {
-        format = "{icon}";
-        format-charging = "{icon}";
-        format-alt = "{icon} {capacity}%";
-        format-icons = {
-          "charging" = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
-          "default" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+        clock = {
+          timezone = "Europe/London";
+          format = "{:%H:%M}";
+          format-alt = "{:%A %d-%m-%Y}";
+          tooltip = false;
         };
-        tooltip = false;
-      };
 
-      "custom/zenmode" = {
-        return-type = "json";
-        format = "{icon}";
-        format-icons = {
-          "normal" = "󰍹";
-          "zen" = "󰧱";
+        "custom/timer" = {
+          return-type = "json";
+          format = "{icon} {text}";
+          format-icons = {
+            "countdown" = "󰀠";
+            "pomodoro-focus" = "";
+            "pomodoro-rest" = "";
+            "stopwatch" = "󰔛";
+          };
+          exec = "cat /tmp/timer";
+          on-click = "lekker-timer stop";
+          interval = 1;
+          tooltip = false;
         };
-        exec = "lekker-zenmode read";
-        on-click = "lekker-zenmode toggle";
-        interval = 60;
-        tooltip = false;
+
+        wireplumber = {
+          format = "{icon}";
+          format-alt = "{icon} {volume}%";
+          format-muted = "";
+          format-icons = [ "" "" ];
+          tooltip = false;
+        };
+
+        network = {
+          format-wifi = "";
+          format-ethernet = "";
+          format-disconnected = "󱘖";
+          tooltip = false;
+        };
+
+        bluetooth = {
+          format-on = "";
+          format-off = "";
+          format-disabled = "󰂲";
+          format-connected = "󰂱";
+          format-no-controller = "󰂲";
+          on-click = "lekker-bluetooth";
+          tooltip = false;
+        };
+
+        backlight = {
+          device = "acpi_video1";
+          format = "{icon}";
+          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          tooltip = false;
+        };
+
+        "custom/bluelight" = {
+          return-type = "json";
+          format = "{icon}";
+          format-icons = {
+            "day" = "";
+            "night" = "";
+          };
+          exec = "lekker-bluelight read";
+          on-click = "lekker-bluelight toggle";
+          interval = 60;
+          tooltip = false;
+        };
+
+        battery = {
+          format = "{icon}";
+          format-charging = "{icon}";
+          format-alt = "{icon} {capacity}%";
+          format-icons = {
+            "charging" = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
+            "default" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          };
+          tooltip = false;
+        };
+
+        "custom/zenmode" = {
+          return-type = "json";
+          format = "{icon}";
+          format-icons = {
+            "normal" = "󰍹";
+            "zen" = "󰧱";
+          };
+          exec = "lekker-zenmode read";
+          on-click = "lekker-zenmode toggle";
+          interval = 60;
+          tooltip = false;
+        };
       };
     };
   };

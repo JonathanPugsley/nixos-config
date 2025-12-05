@@ -4,7 +4,7 @@
     ./comment.nix # comment tool for multiple lines
     ./gitsigns.nix # displays git info in the sign column
     ./nvim-autopairs.nix # auto brackets, e.g. (), {}, "", e.t.c
-    ./nvim-surround.nix # Easily re/surround with brackets e.t.c
+    ./nvim-surround.nix # easily re/surround with brackets e.t.c
     ./nvim-tree.nix # file explorer
     ./persistence.nix # session states
     ./render-markdown.nix # improved in-line markdown viewing

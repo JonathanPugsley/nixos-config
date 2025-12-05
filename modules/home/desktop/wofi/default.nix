@@ -22,8 +22,9 @@
         hide_scroll = true;
         no_actions = true;
         image_size = 30;
-        cache_file = "/dev/null"; # Effectively disables cache file. Stops re-ordering
+        cache_file = "/dev/null"; # stops re-ordering (disables cache file)
 
+        # keybinds
         key_down = "Ctrl-j";
         key_up = "Ctrl-k";
         key_hide_search = "space";

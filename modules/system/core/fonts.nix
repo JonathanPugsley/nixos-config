@@ -1,7 +1,5 @@
-{ config, lib, pkgs, ... }: {
-  options.modules.fonts.enable = lib.mkEnableOption "enable fonts";
-
-  config = lib.mkIf config.modules.fonts.enable {
+{ pkgs, ... }: {
+  config = {
     fonts.packages = with pkgs; [
       jetbrains-mono
       liberation_ttf
