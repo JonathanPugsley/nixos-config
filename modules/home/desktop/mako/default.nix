@@ -23,13 +23,13 @@
         text-color = "#${config.colorScheme.palette.fg1}FF";
         width = 300;
         height = 100;
-        outer-margin=0;
-        margin=4;
+        outer-margin = 0;
+        margin = 4;
         padding = 14;
         border-size = 2;
         border-color = "#${config.colorScheme.palette.bg0}FF";
         border-radius = 0;
-        progress-color = "none";
+        progress-color = "#${config.colorScheme.palette.fg1}FF";
         icons = true;
         max-icon-size = 32;
         icon-path = "";
@@ -48,6 +48,7 @@
         layer = "overlay";
         anchor = "top-right";
 
+        # criteria
         "mode=dnd".invisible = 1;
         "mode=zen".invisible = 1;
         "mode=zen app-name=notify-send".invisible = 0;
