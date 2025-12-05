@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, osConfig, ... }: {
   imports = [
     ./alacritty/default.nix
     ./hyprland/default.nix
@@ -13,7 +13,7 @@
 
   config.modules = {
     alacritty.enable = lib.mkDefault config.groups.desktop.enable;
-    hyprland.enable = lib.mkDefault config.groups.desktop.enable;
+    hyprland.enable = lib.mkDefault (config.groups.desktop.enable && osConfig.modules.hyprland.enable);
     mako.enable = lib.mkDefault config.groups.desktop.enable;
     theming.enable = lib.mkDefault config.groups.desktop.enable;
     waybar.enable = lib.mkDefault config.groups.desktop.enable;
