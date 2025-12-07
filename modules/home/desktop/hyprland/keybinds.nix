@@ -79,9 +79,9 @@
 
       # multimedia keys
       bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioRaiseVolume, exec, lekker-volume up"
+        ", XF86AudioLowerVolume, exec, lekker-volume down"
+        ", XF86AudioMute, exec, lekker-volume mute"
         ", XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         "SUPER, XF86MonBrightnessUp, exec, brightnessctl s 120000"

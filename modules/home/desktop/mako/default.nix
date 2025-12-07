@@ -56,6 +56,18 @@
         "mode=zen".invisible = 1;
         "mode=zen app-name=notify-send".invisible = 0;
         "urgency=high".default-timeout = 0;
+        "app-name=lekker-osd" = {
+          font = "JetBrainsMono 20";
+          history = 0;
+          width = 120;
+          height = 120;
+          border-radius = 10;
+          group-by = "app-name";
+          format = "<b>%s</b>\\n%b";
+          text-alignment = "center";
+          default-timeout = 1500;
+          anchor = "center";
+        };
       };
     };
   };
