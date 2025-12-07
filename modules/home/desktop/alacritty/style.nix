@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   config = lib.mkIf config.modules.alacritty.enable {
     programs.alacritty.settings = {
       colors = with config.colorScheme.palette; {
