@@ -55,7 +55,14 @@
         "mode=dnd".invisible = 1;
         "mode=zen".invisible = 1;
         "mode=zen app-name=notify-send".invisible = 0;
-        "urgency=high".default-timeout = 0;
+        "mode=zen app-name=lekker-osd".invisible = 0;
+        "mode=zen app-name=lekker".invisible = 0;
+
+        "urgency=high" = {
+          default-timeout = 0;
+          invisible = 0;
+        };
+
         "app-name=lekker-osd" = {
           font = "JetBrainsMono 20";
           history = 0;

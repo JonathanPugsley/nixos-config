@@ -34,4 +34,4 @@ done
 res="$selected_resolution@${hz[$index]}"
 
 hyprctl keyword monitor "$selected_monitor", "$res", "${pos[$index]}", "${scale[$index]}" >/dev/null 2>&1
-notify-send "$selected_monitor resolution is now $selected_resolution"
+notify-send -a "lekker" "Resolution" "$selected_monitor resolution is now $selected_resolution"

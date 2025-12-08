@@ -10,7 +10,7 @@ timer_end() {
     # graceful end
     local silent=$1
     echo "" > "$TIMER_FILE"
-    [[ "$silent" -eq 1 ]] || notify-send "Timer Shutting Down"
+    [[ "$silent" -eq 1 ]] || notify-send -a "lekker" "Timer Shutting Down"
     exit 0
 }
 
@@ -53,9 +53,9 @@ countdown() {
     minutes=$( echo "Cancel" | wofi -d -H "$menu_height" -p "Minutes" ) || exit 0
     [[ "$minutes" =~ ^[0-9]+$ ]] || exit 0
 
-    notify-send "Timer" "Starting countdown for $minutes minutes!"
+    notify-send -a "lekker" "Timer" "Starting countdown for $minutes minutes!"
     timer "countdown" "$minutes" "0" "0"
-    notify-send "Timer" "Countdown timer completed!"
+    notify-send -a "lekker" "Timer" "Countdown timer completed!"
 }
 
 pomodoro() {
@@ -80,12 +80,12 @@ pomodoro() {
 
     # run timer loop
     for (( i=1; i<=repetitions; i++ )); do
-        notify-send "Starting focus for $focus minutes"
+        notify-send -a "lekker" "Starting focus for $focus minutes"
         timer "pomodoro-focus" "$focus" "$i" "$repetitions"
-        notify-send "Starting rest for $rest minutes"
+        notify-send -a "lekker" "Starting rest for $rest minutes"
         timer "pomodoro-rest" "$rest" "$i" "$repetitions"
     done
-    notify-send "$interval Pomodoro timer completed! ($repetitions repetitions)" "Go take a break"
+    notify-send -a "lekker" "$interval Pomodoro timer completed! ($repetitions repetitions)" "Go take a break"
 }
 
 menu() {
