@@ -18,7 +18,6 @@
     };
 
     # do not touch
-    # boot.initrd.luks.devices."cryptswap".device = "/dev/disk/by-uuid/c69bf17d-19b4-4a1a-ace0-1ef0ba739eee";
     boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";
   };
