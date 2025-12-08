@@ -2,18 +2,23 @@
 # power menu
 
 OPTIONS=( "󰒲 Suspend" " Reboot" " Shutdown" "󰍃 Logout" " Lock Screen" )
-POWER=$( printf "%s\n" "${OPTIONS[@]}" | wofi -dj -L ${#OPTIONS[@]} ) || exit 0
 
-MATCH=0
-for ELEMENT in "${OPTIONS[@]}"; do
-    [[ "$ELEMENT" == "$POWER" ]] && MATCH=1
+# validate selection
+match=0
+menu_height=$( lekker-menu-height "${OPTIONS[@]}" )
+power=$( printf "%s\n" "${OPTIONS[@]}" | wofi -dj -H "$menu_height" ) || exit 0
+for element in "${OPTIONS[@]}"; do
+    [[ "$element" == "$power" ]] && match=1
 done
-[[ MATCH -eq 1 ]] || exit 1
+[[ "$match" -eq 1 ]] || exit 1
 
-CONFIRM=$( printf "%s\n" "Yes, $POWER" "Cancel" | wofi -dj -L 2 )
-[[ "$CONFIRM" != "Yes, $POWER" ]] && exit 0
+# confirm menu
+menu_height=$( lekker-menu-height "" "" )
+confirm=$( printf "%s\n" "Yes, $power" "Cancel" | wofi -dj -H "$menu_height" ) || exit 0
+[[ "$confirm" == "Yes, $power" ]] || exit 0
 
-case "${POWER#* }" in
+# exec commands
+case "${power#* }" in
     "Suspend") systemctl suspend;;
     "Reboot") cliphist wipe && systemctl reboot;;
     "Shutdown") cliphist wipe && shutdown now;;

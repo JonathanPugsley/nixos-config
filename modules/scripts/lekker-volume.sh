@@ -8,15 +8,13 @@ case "$1" in
     *) exit 1 ;;
 esac
 
-VOL=$( wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/.*: //' )
-if [[ "$VOL" == *"[MUTED]" ]] || awk "BEGIN {exit !($VOL == 0)}"; then
-    ICON=""
-elif awk "BEGIN {exit !($VOL < 0.5)}"; then
-    echo "VOLUME < 0.5"
-    ICON=""
+vol=$( wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/.*: //' )
+if [[ "$vol" == *"[MUTED]" ]] || awk "BEGIN {exit !($vol == 0)}"; then
+    icon=""
+elif awk "BEGIN {exit !($vol < 0.5)}"; then
+    icon=""
 else
-    echo "VOLUME > 0.5"
-    ICON=""
+    icon=""
 fi
 
-lekker-osd "$ICON" "$( awk -v v="$VOL" 'BEGIN { printf("%g", v * 100) }' )%"
+lekker-osd "$icon" "$( awk -v v="$vol" 'BEGIN { printf("%g", v * 100) }' )%"

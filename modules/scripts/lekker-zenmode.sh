@@ -1,13 +1,5 @@
 #! /usr/bin/env bash
-# manages focus/zen mode
-
-read_mode() {
-    if [[ "$MODE" == "zen" ]]; then
-        echo "{\"alt\": \"zen\"}"
-    else
-        echo "{\"alt\": \"normal\"}"
-    fi
-}
+# manage focus/zen mode
 
 toggle_mode() {
     if [[ "$MODE" == "zen" ]]; then
@@ -24,7 +16,7 @@ toggle_mode() {
 [[ ! -f /tmp/zenmode ]] && echo "normal" > "/tmp/zenmode"
 MODE=$(cat /tmp/zenmode)
 case "$1" in
-    "read") read_mode ;;
+    "read") echo "{\"alt\": \"$MODE\"}" ;;
     "toggle") toggle_mode ;;
     *) exit 1 ;;
 esac

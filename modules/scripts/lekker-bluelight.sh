@@ -19,7 +19,7 @@ toggle_temp() {
     fi
 }
 
-TEMPERATURE=$(hyprctl hyprsunset temperature 2>/dev/null) || exit 1
+TEMPERATURE=$(hyprctl hyprsunset temperature 2>/dev/null) || exit 0
 case "$1" in
     "read") read_temp ;;
     "toggle") toggle_temp ;;

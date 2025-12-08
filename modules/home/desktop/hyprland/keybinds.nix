@@ -4,7 +4,7 @@
       bind = [
         "SUPER, Q, killactive,"
         "SUPER, E, exec, alacritty -e yazi $HOME"
-        "SUPER, R, exec, wofi"
+        "SUPER, R, exec, wofi --show drun"
         "SUPER, T, exec, lekker-resolution"
         "SUPER, RETURN, exec, alacritty"
         "SUPER, O, exec, hyprctl dispatch tagwindow opacity"

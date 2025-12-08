@@ -66,7 +66,7 @@
             "stopwatch" = "󰔛";
           };
           exec = "cat /tmp/timer";
-          on-click = "lekker-timer stop";
+          on-click-right = "lekker-timer stop";
           interval = 1;
           tooltip = false;
         };

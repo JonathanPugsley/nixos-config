@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-# bluetui in a floating window
+# bluetooth manager
 
-hyprctl dispatch exec "[float; center]" " alacritty -e zsh -c \"bluetui\" "
-exit 0
+hyprctl dispatch exec "[float; center]" " alacritty -e zsh -c \"bluetui\" " > /dev/null 2>&1
