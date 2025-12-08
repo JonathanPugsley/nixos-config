@@ -37,6 +37,7 @@
 
         "custom/nixos" = {
           format = "";
+          on-click = "lekker-menu";
           tooltip = false;
         };
 
@@ -75,6 +76,7 @@
           format-alt = "{icon} {volume}%";
           format-muted = "";
           format-icons = [ "" "" ];
+          on-click-right = "lekker-volume mute";
           tooltip = false;
         };
 

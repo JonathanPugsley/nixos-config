@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+    lekker-about-info = pkgs.writeScriptBin "lekker-about-info" (builtins.readFile ./lekker-about-info.sh);
     lekker-bluetooth = pkgs.writeScriptBin "lekker-bluetooth" (builtins.readFile ./lekker-bluetooth.sh);
     lekker-capture = pkgs.writeScriptBin "lekker-capture" (builtins.readFile ./lekker-capture.sh);
     lekker-resolution = pkgs.writeScriptBin "lekker-resolution" (builtins.readFile ./lekker-resolution.sh);
@@ -15,6 +16,7 @@ let
     lekker-zenmode = pkgs.writeScriptBin "lekker-zenmode" (builtins.readFile ./lekker-zenmode.sh);
 
     scripts = [
+        lekker-about-info
         lekker-bluetooth
         lekker-capture
         lekker-resolution
