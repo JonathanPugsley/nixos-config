@@ -5,7 +5,7 @@
         enable = true;
         settings = {
           trouble = true;
-          current_line_blame = false;
+          current_line_blame = true;
         };
       };
 

@@ -16,6 +16,7 @@
         fg1 = "ebdbb2"; # ++++
         fg0 = "fbf1c7"; # +++++ h:"f9f5d7", m:"fbf1c7", s:"f2e5bc"
         # colours
+        grey = "928374";
         bright_red = "fb4934";
         red = "cc241d";
         bright_orange = "fe8019";

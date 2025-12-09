@@ -7,7 +7,7 @@
           diagnostics = "nvim_lsp";
           mode = "buffers";
           always_show_bufferline = true;
-          numbers = "ordinal";
+          numbers = "none";
           show_buffer_close_icons = false;
           show_close_icon = false;
           show_tab_indicators = false;
