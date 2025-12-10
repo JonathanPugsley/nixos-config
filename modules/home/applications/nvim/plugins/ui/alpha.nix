@@ -2,7 +2,7 @@
   config = lib.mkIf config.modules.nixvim.enable {
     programs.nixvim.plugins.alpha = {
       enable = true;
-      layout =
+      settings.layout =
       let
         padding = val: {
           type = "padding";

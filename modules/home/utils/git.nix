@@ -4,9 +4,11 @@
   config = lib.mkIf config.modules.git.enable {
     programs.git = {
       enable = true;
-      userName = "Jonny";
-      userEmail = "129212089+JonathanPugsley@users.noreply.github.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Jonny";
+          email = "129212089+JonathanPugsley@users.noreply.github.com";
+        };
         init.defaultBranch = "main";
       };
     };
