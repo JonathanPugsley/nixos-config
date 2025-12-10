@@ -1,6 +1,7 @@
-{ config, lib, osConfig, ... }: {
+{ config, lib, osConfig, pkgs, inputs, ... }: {
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland = {
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
@@ -73,8 +74,8 @@
         };
 
         windowrule = [
-          "tag +opacity, class:(Alacritty)"
-          "opacity 0.95 0.90, tag:opacity"
+          "tag +opacity, match:class Alacritty"
+          "opacity 0.95 0.90, match:tag opacity"
         ];
 
         env = builtins.concatLists [
