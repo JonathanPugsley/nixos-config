@@ -27,7 +27,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
     nixcord.url = "github:kaylorben/nixcord";
-    nix-vscode-extenstions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = { nixpkgs, ... } @ inputs: {
