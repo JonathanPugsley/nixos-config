@@ -1,70 +1,69 @@
-{ config, lib, osConfig, pkgs, inputs, ... }: {
+{ config, lib, pkgs, inputs, ... }: {
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland = {
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
+
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       xwayland.enable = true;
       systemd.enable = true;
-      settings = {
-        monitor = [
-          "eDP-1, 3840x2160@60, 0x0, 2"
-          "DP-1, 3440x1440@100, 0x0, 1"
-        ];
 
+      settings = {
+        # startup
         exec-once = [
           "waybar"
           "systemctl --user start hyprpaper"
           "systemctl --user start hyprsunset"
         ];
 
+        # shutdown
+        exec-shutdown = [
+          "cliphist wipe"
+        ];
+
+        # settings
         general = {
-          gaps_in = 5;
-          gaps_out = 10;
-          border_size = 2;
+          # colours
           "col.active_border" = "rgb(${config.colorScheme.palette.fg1})";
           "col.inactive_border" = "rgb(${config.colorScheme.palette.bg0})";
-          resize_on_border = false;
+          "col.nogroup_border" = "rgb(${config.colorScheme.palette.bg0})";
+          "col.nogroup_border_active" = "rgb(${config.colorScheme.palette.fg1})";
+
+          # styling
+          border_size = 2;
+          float_gaps = 0;
+          gaps_in = 5;
+          gaps_out = 10;
+          gaps_workspaces = 0;
+
+          # interactions
           allow_tearing = false;
+          extend_border_grab_area = 0;
+          hover_icon_on_border = false;
+          no_focus_fallback = true;
+          resize_corner = 0;
+          resize_on_border = false;
+
+          # window snapping
+          snap.enabled = false;
+
+          # tiling
           layout = "master";
         };
 
-        decoration = {
-          blur.enabled = true;
-          shadow.enabled = false;
-        };
-
-        misc = {
-          force_default_wallpaper = 0;
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-        };
-
-        dwindle = {
-          pseudotile = true;
-          preserve_split = true;
-        };
-
+        # layout
         master = {
           mfact = 0.60;
           new_status = "slave";
         };
 
-        animations = {
-          enabled = false;
-        };
-
-        input = {
-          kb_layout = osConfig.services.xserver.xkb.layout;
-          kb_options = "caps:escape";
-          follow_mouse = 2;
-          sensitivity = 0.15;
-          accel_profile = "flat";
-          repeat_rate = 35;
-          repeat_delay = 200;
-          touchpad.natural_scroll = true;
-        };
+        monitor = [
+          "eDP-1, 3840x2160@60, 0x0, 2"
+          "DP-1, 3440x1440@100, 0x0, 1"
+          # ", preferred, auto-center-right, 1"
+        ];
 
         cursor = {
+          no_hardware_cursors = 1;
           no_warps = true;
         };
 
@@ -73,33 +72,29 @@
           no_donation_nag = true;
         };
 
-        windowrule = [
-          "tag +opacity, match:class Alacritty"
-          "opacity 0.95 0.90, match:tag opacity"
-        ];
+        misc = {
+          # hyprland font
+          font_family = "JetBrainsMono";
 
-        env = builtins.concatLists [
-          [
-            "WLR_RENDERER_ALLOW_SOFTWARE,1"
-            "WLR_NO_HARDWARE_CURSORS,1"
+          # focus
+          layers_hog_keyboard_focus = true;
+          mouse_move_focuses_monitor = false;
 
-            "XDG_CURRENT_DESKTOP,Hyprland"
-            "XDG_SESSION_TYPE,wayland"
-            "XDG_SESSION_DESKTOP,Hyprland"
-          ]
-          # nvidia
-          (lib.optionals osConfig.modules.nvidia.enable [
-            "GBM_BACKEND,nvidia-drm"
-            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-            "LIBVA_DRIVER_NAME,nvidia"
-            "NVD_BACKEND,direct"
-          ])
-          # intel
-          (lib.optionals (!osConfig.modules.nvidia.enable) [
-            "GBM_BACKEND,intel"
-            "__GLX_VENDOR_LIBRARY_NAME,intel"
-          ])
-        ];
+          # animations
+          animate_manual_resizes = false;
+          animate_mouse_windowdragging = false;
+
+          # desktop
+          initial_workspace_tracking = 1;
+          middle_click_paste = false;
+          anr_missed_pings = 8;
+
+          # disable defaults
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          disable_scale_notification = false;
+          force_default_wallpaper = 0;
+        };
       };
     };
   };

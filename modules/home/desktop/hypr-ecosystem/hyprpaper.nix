@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  config = lib.mkIf config.modules.hyprland.enable {
+  config = lib.mkIf config.modules.hypr-ecosystem.enable {
     services.hyprpaper = {
       enable = true;
       settings = {

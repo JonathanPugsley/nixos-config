@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  config = lib.mkIf config.modules.hyprland.enable {
+  config = lib.mkIf config.modules.hypr-ecosystem.enable {
     programs.hyprlock = {
       enable = true;
       settings = {
