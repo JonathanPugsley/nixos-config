@@ -41,7 +41,7 @@
           enabled = true;
           # ignore_opacity = true;
           new_optimizations = true;
-          xray = true;
+          xray = false;
 
           # parameters
           size = 2;
