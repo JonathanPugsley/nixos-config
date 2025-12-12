@@ -31,8 +31,8 @@
       ];
 
       misc = {
-        animate_manual_resizes = false;
-        animate_mouse_windowdragging = false;
+        animate_manual_resizes = true;
+        animate_mouse_windowdragging = true;
       };
     };
   };

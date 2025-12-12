@@ -4,9 +4,9 @@
       general = {
         # colours
         "col.active_border" = "rgb(${config.colorScheme.palette.fg1})";
-        "col.inactive_border" = "rgb(${config.colorScheme.palette.bg0})";
-        "col.nogroup_border" = "rgb(${config.colorScheme.palette.bg0})";
+        "col.inactive_border" = "rgb(${config.colorScheme.palette.grey})";
         "col.nogroup_border_active" = "rgb(${config.colorScheme.palette.fg1})";
+        "col.nogroup_border" = "rgb(${config.colorScheme.palette.grey})";
 
         # gaps
         float_gaps = 0;
@@ -44,8 +44,8 @@
           xray = true;
 
           # parameters
-          # size = 8;
-          # passes = 1;
+          size = 2;
+          passes = 2;
           # noise = 0.0117;
           # contrast = 0.8916;
           # brightness = 0.8172;

@@ -21,16 +21,18 @@
           match = { class = ".*"; };
           no_blur = 1;
         }
-        # opacity for terminal windows
+        # opacity tag for terminal windows
         {
           name = "term-opacity";
           match = { class = "Alacritty"; };
-          opacity = "0.95 0.90";
+          tag = "opacity";
+          # opacity = "0.95 0.90";
         }
-        # override blur for terminal windows
+        # tags
         {
-          name = "term-blur";
-          match = { class = "Alacritty"; };
+          name = "opacity";
+          match = { tag = "opacity"; };
+          opacity = "0.95 0.90";
           no_blur = 0;
         }
       ];

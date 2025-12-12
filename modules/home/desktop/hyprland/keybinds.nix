@@ -2,9 +2,7 @@
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "SUPER, up, exec, hyprctl dispatch layoutmsg orientationcenter"
-        "SUPER, left, exec, hyprctl dispatch layoutmsg orientationleft"
-        "SUPER, Q, killactive,"
+        "SUPER, Q, killactive"
         "SUPER, E, exec, alacritty -e yazi $HOME"
         "SUPER, R, exec, wofi --show drun"
         "SUPER, T, exec, lekker-resolution"
