@@ -3,6 +3,8 @@
     wayland.windowManager.hyprland.settings = {
       env = builtins.concatLists [
         [
+          # "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
           "WLR_RENDERER_ALLOW_SOFTWARE,1"
           "WLR_NO_HARDWARE_CURSORS,1"
 
