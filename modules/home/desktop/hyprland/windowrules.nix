@@ -15,11 +15,23 @@
           };
           no_focus = 1;
         }
+        # no blur for all windows by default
+        {
+          name = "no-blur";
+          match = { class = ".*"; };
+          no_blur = 1;
+        }
         # opacity for terminal windows
         {
           name = "term-opacity";
           match = { class = "Alacritty"; };
           opacity = "0.95 0.90";
+        }
+        # override blur for terminal windows
+        {
+          name = "term-blur";
+          match = { class = "Alacritty"; };
+          no_blur = 0;
         }
       ];
     };

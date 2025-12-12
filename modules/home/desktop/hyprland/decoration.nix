@@ -38,10 +38,10 @@
         # blur
         blur = {
           # options
-          enabled = false;
+          enabled = true;
           # ignore_opacity = true;
-          # new_optimizations = true;
-          # xray = true;
+          new_optimizations = true;
+          xray = true;
 
           # parameters
           # size = 8;
