@@ -9,8 +9,11 @@ zen_mode() {
     echo "zen" > "/tmp/zenmode"
     echo "{\"alt\": \"zen\"}"
 
-    # window changes (opacity, animations etc)
-    # hyprctl getoption windowrule:term-opacity:enable false
+    # window modifications
+    hyprctl getoption general:gaps_in | sed -n 's/[^0-9 ]//gp' > /tmp/zen-gapsin
+    hyprctl getoption general:gaps_out | sed -n 's/[^0-9 ]//gp' > /tmp/zen-gapsout
+    hyprctl getoption animations:enabled | sed -n 's/[^0-9 ]//gp' > /tmp/zen-anims
+
     hyprctl keyword windowrule"[opacity]":enable 0 > /dev/null
     hyprctl keyword general:gaps_in 0 > /dev/null
     hyprctl keyword general:gaps_out 0 > /dev/null
@@ -25,11 +28,15 @@ normal_mode() {
     echo "normal" > "/tmp/zenmode"
     echo "{\"alt\": \"normal\"}"
 
-    # window changes (opacity, animations etc)
+    # window modifications
+    gaps_in=$( cat /tmp/zen-gapsin )
+    gaps_out=$( cat /tmp/zen-gapsout )
+    anims=$( cat /tmp/zen-anims )
+
     hyprctl keyword windowrule"[opacity]":enable 1 > /dev/null
-    hyprctl keyword general:gaps_in 5 > /dev/null
-    hyprctl keyword general:gaps_out 10 > /dev/null
-    hyprctl keyword animations:enabled 1 > /dev/null
+    hyprctl keyword general:gaps_in "$gaps_in" > /dev/null
+    hyprctl keyword general:gaps_out "$gaps_out" > /dev/null
+    hyprctl keyword animations:enabled "$anims" > /dev/null
 }
 
 toggle_mode() {
@@ -41,7 +48,7 @@ toggle_mode() {
 }
 
 [[ ! -f /tmp/zenmode ]] && echo "normal" > "/tmp/zenmode"
-MODE=$(cat /tmp/zenmode)
+MODE=$( cat /tmp/zenmode )
 case "$1" in
     "read") echo "{\"alt\": \"$MODE\"}" ;;
     "toggle") toggle_mode ;;
