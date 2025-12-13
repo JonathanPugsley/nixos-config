@@ -44,7 +44,7 @@
         "SUPER, 7, workspace, 7"
         "SUPER, 8, workspace, 8"
         "SUPER, 9, workspace, 9"
-        "SUPER, 0, workspace, 0"
+        "SUPER, 0, workspace, 10"
 
         # move to workspace
         "SUPER SHIFT, 1, movetoworkspacesilent, 1"
@@ -56,7 +56,7 @@
         "SUPER SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER SHIFT, 8, movetoworkspacesilent, 8"
         "SUPER SHIFT, 9, movetoworkspacesilent, 9"
-        "SUPER SHIFT, 0, movetoworkspacesilent, 0"
+        "SUPER SHIFT, 0, movetoworkspacesilent, 10"
 
         # screenshots
         "SUPER SHIFT, S, exec, hyprshot -m region --clipboard-only -z"
