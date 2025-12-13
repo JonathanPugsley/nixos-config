@@ -8,6 +8,7 @@
     ./nameservers.nix
     ./networkmanager.nix
     ./nixsettings.nix
+    ./opengl.nix
     ./sops.nix
     ./systemd-boot.nix
     ./vim.nix
