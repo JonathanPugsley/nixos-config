@@ -5,7 +5,7 @@
     programs.waybar = {
       enable = true;
       style = pkgs.replaceVars ./style.css {
-        bg0 = "#${config.colorScheme.palette.bg0}";
+        bg0h = "#${config.colorScheme.palette.bg0h}";
         fg1 = "#${config.colorScheme.palette.fg1}";
       };
 

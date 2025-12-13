@@ -30,7 +30,7 @@
         margin = 4;
         padding = 14;
         border-size = 2;
-        border-color = "#${config.colorScheme.palette.bg0}FF";
+        border-color = "#${config.colorScheme.palette.grey}FF";
         border-radius = 0;
         progress-color = "#${config.colorScheme.palette.fg1}FF";
         icons = true;

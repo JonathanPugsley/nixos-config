@@ -5,6 +5,7 @@
       author = "morhetz (https://github.com/morhetz/gruvbox)";
       variant = "dark";
       palette = {
+        bg0h = "1d2021";
         bg0 = "282828"; # ----- h:"1d2021", m:"282828", s:"32302f"
         bg1 = "3c3836"; # ----
         bg2 = "504945"; # ---
