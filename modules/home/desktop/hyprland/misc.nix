@@ -1,6 +1,7 @@
 { config, lib, ... }: {
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
+      # settings that really do not need changing
       cursor = {
         no_hardware_cursors = 1;
         no_warps = true;
@@ -12,9 +13,6 @@
       };
 
       misc = {
-        # hyprland font
-        font_family = "JetBrainsMono";
-
         # focus
         layers_hog_keyboard_focus = true;
         mouse_move_focuses_monitor = false;

@@ -1,16 +1,13 @@
 { lib, ... }: {
   imports = [
     ./animations.nix
-    ./decoration.nix
+    ./binds.nix
+    ./config.nix
     ./env.nix
-    ./general.nix
-    ./input.nix
-    ./keybinds.nix
     ./layout.nix
     ./misc.nix
-    ./monitor.nix
-    ./windowrules.nix
-    ./workspacerules.nix
+    ./monitors.nix
+    ./rules.nix
   ];
 
   options.modules.hyprland.enable = lib.mkEnableOption "enable hyprland";

@@ -11,8 +11,7 @@ zen_mode() {
 
     # window changes (opacity, animations etc)
     # hyprctl getoption windowrule:term-opacity:enable false
-    hyprctl keyword windowrule"[term-opacity]":enable 0 > /dev/null
-    hyprctl keyword windowrule"[term-blur]":enable 0 > /dev/null
+    hyprctl keyword windowrule"[opacity]":enable 0 > /dev/null
     hyprctl keyword general:gaps_in 0 > /dev/null
     hyprctl keyword general:gaps_out 0 > /dev/null
     hyprctl keyword animations:enabled 0 > /dev/null
@@ -27,8 +26,7 @@ normal_mode() {
     echo "{\"alt\": \"normal\"}"
 
     # window changes (opacity, animations etc)
-    hyprctl keyword windowrule"[term-opacity]":enable 1 > /dev/null
-    hyprctl keyword windowrule"[term-blur]":enable 1 > /dev/null
+    hyprctl keyword windowrule"[opacity]":enable 1 > /dev/null
     hyprctl keyword general:gaps_in 5 > /dev/null
     hyprctl keyword general:gaps_out 10 > /dev/null
     hyprctl keyword animations:enabled 1 > /dev/null

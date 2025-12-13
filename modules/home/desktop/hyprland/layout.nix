@@ -22,7 +22,6 @@
         default_split_ratio = 1;
         single_window_aspect_ratio = "4 3";
       };
-
     };
   };
 }
