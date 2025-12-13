@@ -12,28 +12,30 @@
 
       # define curves
       bezier = [
+        "easeInOutCubic, 0.65, 0, 0.35, 1"
         "easeOutCubic, 0.33, 1, 0.68, 1"
+        "easeInCubic, 0.32, 0, 0.67, 0"
       ];
 
       # animation properties
       animations.animation = [
-        "windowsIn, 1, 2, default, popin 80%"
-        "windowsOut, 1, 2, easeOutCubic, popin 80%"
-        "windowsMove, 1, 2, default, popin 80%"
+        "windowsIn, 1, 2, easeOutCubic, popin 60%"
+        "windowsOut, 1, 2, easeInCubic, popin 60%"
+        "windowsMove, 1, 1.6, easeInOutCubic"
 
-        "layersIn, 1, 2, default"
-        "layersOut, 1, 2, default"
+        "layersIn, 1, 2, easeOutCubic, popin"
+        "layersOut, 1, 2, easeInCubic, popin"
 
-        "fadeIn, 1, 1, easeOutCubic"
-        "fadeOut, 1, 1, easeOutCubic"
-        "fadeSwitch, 1, 2, default"
+        "fadeIn, 1, 2, easeOutCubic"
+        "fadeOut, 1, 2, easeInCubic"
+        "fadeSwitch, 1, 2, easeInOutCubic"
         "fadeShadow, 0"
         "fadeDim, 0"
 
-        "fadeLayersIn, 1, 2, default"
-        "fadeLayersOut, 1, 2, default"
-        "fadePopupsIn, 1, 2, default"
-        "fadePopupsOut, 1, 2, default"
+        "fadeLayersIn, 1, 2, easeOutCubic"
+        "fadeLayersOut, 1, 2, easeInCubic"
+        "fadePopupsIn, 1, 2, easeOutCubic"
+        "fadePopupsOut, 1, 2, easeInCubic"
         "fadeDpms, 1, 2, default"
 
         "border, 0"
@@ -45,7 +47,7 @@
         "specialWorkspaceIn, 0"
         "specialWorkspaceOut, 0"
         "zoomFactor, 0"
-        "monitorAdded, 1, 2, default"
+        "monitorAdded, 1, 2, easeInCubic"
       ];
 
     };
