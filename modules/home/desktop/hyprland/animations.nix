@@ -21,7 +21,7 @@
       animations.animation = [
         "windowsIn, 1, 2, easeOutCubic, popin 60%"
         "windowsOut, 1, 2, easeInCubic, popin 60%"
-        "windowsMove, 1, 1.6, easeInOutCubic"
+        "windowsMove, 1, 1.6, default"
 
         "layersIn, 1, 2, easeOutCubic, popin"
         "layersOut, 1, 2, easeInCubic, popin"
