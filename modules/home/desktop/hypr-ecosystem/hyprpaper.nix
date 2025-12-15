@@ -8,7 +8,7 @@
         ipc = "on";
         splash = "false";
         preload = [ "/home/${config.home.username}/Pictures/nixos-wallpaper-gruvbox.png" ];
-        wallpaper = [ "DP-1,/home/${config.home.username}/Pictures/nixos-wallpaper-gruvbox.png" ];
+        wallpaper = [ ",/home/${config.home.username}/Pictures/nixos-wallpaper-gruvbox.png" ];
       };
     };
   };

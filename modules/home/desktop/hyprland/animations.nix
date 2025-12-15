@@ -19,24 +19,24 @@
 
       # animation properties
       animations.animation = [
-        "windowsIn, 1, 2, easeOutCubic, popin 60%"
-        "windowsOut, 1, 2, easeInCubic, popin 60%"
+        "windowsIn, 1, 2.4, easeOutCubic, popin 60%"
+        "windowsOut, 1, 2.4, easeOutCubic, popin 60%"
         "windowsMove, 1, 1.6, default"
 
-        "layersIn, 1, 2, easeOutCubic, popin"
-        "layersOut, 1, 2, easeInCubic, popin"
+        "layersIn, 1, 2.4, easeOutCubic, popin 60%"
+        "layersOut, 1, 2.4, easeInCubic, popin 60%"
 
-        "fadeIn, 1, 2, easeOutCubic"
-        "fadeOut, 1, 2, easeInCubic"
-        "fadeSwitch, 1, 2, easeInOutCubic"
+        "fadeIn, 1, 2.4, easeOutCubic"
+        "fadeOut, 1, 1.6, easeInCubic"
+        "fadeSwitch, 1, 2.4, easeInOutCubic"
         "fadeShadow, 0"
         "fadeDim, 0"
 
-        "fadeLayersIn, 1, 2, easeOutCubic"
-        "fadeLayersOut, 1, 2, easeInCubic"
-        "fadePopupsIn, 1, 2, easeOutCubic"
-        "fadePopupsOut, 1, 2, easeInCubic"
-        "fadeDpms, 1, 2, default"
+        "fadeLayersIn, 1, 2.4, easeOutCubic"
+        "fadeLayersOut, 1, 2.4, easeInCubic"
+        "fadePopupsIn, 1, 2.4, easeOutCubic"
+        "fadePopupsOut, 1, 2.4, easeInCubic"
+        "fadeDpms, 1, 2.4, default"
 
         "border, 0"
         "borderangle, 0"
@@ -47,7 +47,7 @@
         "specialWorkspaceIn, 0"
         "specialWorkspaceOut, 0"
         "zoomFactor, 0"
-        "monitorAdded, 1, 2, easeInCubic"
+        "monitorAdded, 1, 4, easeInCubic"
       ];
 
     };
