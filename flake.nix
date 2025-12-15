@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
     nixcord.url = "github:kaylorben/nixcord";
@@ -36,6 +41,7 @@
         modules = [
           ./hosts/cyrion/configuration.nix
           inputs.home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
       hearth = nixpkgs.lib.nixosSystem {
@@ -43,6 +49,7 @@
         modules = [
           ./hosts/hearth/configuration.nix
           inputs.home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };

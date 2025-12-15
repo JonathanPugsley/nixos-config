@@ -5,16 +5,14 @@ OPTIONS=( "󰒲 Suspend" " Reboot" " Shutdown" "󰍃 Logout" " Lock Scr
 
 # validate selection
 match=0
-menu_height=$( lekker-menu-height "${OPTIONS[@]}" )
-power=$( printf "%s\n" "${OPTIONS[@]}" | wofi -dj -H "$menu_height" ) || exit 0
+power=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher "${#OPTIONS[@]}" "Power" ) || exit 0
 for element in "${OPTIONS[@]}"; do
     [[ "$element" == "$power" ]] && match=1
 done
 [[ "$match" -eq 1 ]] || exit 1
 
 # confirm menu
-menu_height=$( lekker-menu-height "" "" )
-confirm=$( printf "%s\n" "Yes, $power" "Cancel" | wofi -dj -H "$menu_height" ) || exit 0
+confirm=$( printf "%s\n" "Yes, $power" "Cancel" | lekker-launcher "2" "" "Are you sure?" ) || exit 0
 [[ "$confirm" == "Yes, $power" ]] || exit 0
 
 # exec commands

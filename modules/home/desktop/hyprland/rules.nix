@@ -24,18 +24,24 @@
       ];
 
       layerrule = [
-        # disable animations for wofi
-        {
-          name = "wofi";
-          match = { namespace = "wofi"; };
-          no_anim = 1;
-        }
-        # diable animations for notifications
+        # disable animations for notifications
         {
           name = "notifications";
           match = { namespace = "notifications"; };
           no_anim = 1;
         }
+        # disable animations for screen captures
+        {
+          name = "selection";
+          match = { namespace = "selection"; };
+          no_anim = 1;
+        }
+        {
+          name = "hyprpicker";
+          match = { namespace = "hyprpicker"; };
+          no_anim = 1;
+        }
+
       ];
 
       workspace = [

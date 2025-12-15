@@ -5,6 +5,9 @@
     # libnotify
     home.packages = [ pkgs.libnotify ];
 
+    # manual styling
+    stylix.targets.mako.enable = false;
+
     # mako
     services.mako = {
       enable = true;
@@ -22,17 +25,17 @@
 
         # style
         font = "JetBrainsMono 10";
-        background-color = "#${config.colorScheme.palette.bg0}E6";
-        text-color = "#${config.colorScheme.palette.fg1}FF";
+        background-color = "#${config.lib.stylix.colors.base00}E6";
+        text-color = "#${config.lib.stylix.colors.base05}";
         width = 300;
         height = 100;
         outer-margin = 0;
         margin = 4;
         padding = 14;
         border-size = 2;
-        border-color = "#${config.colorScheme.palette.grey}FF";
+        border-color = "#${config.lib.stylix.colors.base03}";
         border-radius = 0;
-        progress-color = "#${config.colorScheme.palette.fg1}FF";
+        # progress-color = "";
         icons = true;
         max-icon-size = 32;
         icon-path = "";

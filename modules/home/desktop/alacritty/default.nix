@@ -1,8 +1,4 @@
 { config, lib, ... }: {
-  imports = [
-    ./style.nix
-  ];
-
   options.modules.alacritty.enable = lib.mkEnableOption "enable alacritty";
 
   config = lib.mkIf config.modules.alacritty.enable {

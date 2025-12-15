@@ -9,16 +9,16 @@
 }
 
 window#waybar {
-    background-color: @bg0h@;
-    color: @fg1@;
+    background-color: @background@;
+    color: @foreground@;
 }
 
 .modules-left {
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 .modules-right {
-    padding-right: 0px;
+    padding-right: 5px;
 }
 
 #custom-nixos,
@@ -33,8 +33,8 @@ window#waybar {
 #custom-bluelight,
 #battery,
 #custom-zenmode {
-    background-color: @bg0h@;
-    color: @fg1@;
+    background-color: @background@;
+    color: @foreground@;
 
     margin: 2px;
     padding: 0 6px;

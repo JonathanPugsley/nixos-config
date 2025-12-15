@@ -9,5 +9,6 @@
 
   config = lib.mkIf config.modules.nixvim.enable {
     programs.nixvim.enable = true;
+    stylix.targets.nixvim.enable = false;
   };
 }

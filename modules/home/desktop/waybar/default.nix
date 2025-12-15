@@ -2,11 +2,13 @@
   options.modules.waybar.enable = lib.mkEnableOption "enable waybar";
 
   config = lib.mkIf config.modules.waybar.enable {
+    stylix.targets.waybar.enable = false;
     programs.waybar = {
+
       enable = true;
       style = pkgs.replaceVars ./style.css {
-        bg0h = "#${config.colorScheme.palette.bg0h}";
-        fg1 = "#${config.colorScheme.palette.fg1}";
+        foreground = "#${config.lib.stylix.colors.base05}";
+        background = "#${config.lib.stylix.colors.base10}";
       };
 
       settings.mainBar = {

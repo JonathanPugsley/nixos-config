@@ -8,36 +8,36 @@
 
           theme = let
             colours = {
-              fg1 = "#${config.colorScheme.palette.fg1}";
-              bg0 = "#${config.colorScheme.palette.bg0}";
-              grey = "#${config.colorScheme.palette.grey}";
-              blue = "#${config.colorScheme.palette.bright_blue}";
-              orange = "#${config.colorScheme.palette.orange}";
-              red = "#${config.colorScheme.palette.red}";
-              green = "#${config.colorScheme.palette.green}";
+              foreground = "#${config.lib.stylix.colors.base06}";
+              background = "#${config.lib.stylix.colors.base00}";
+              grey = "#${config.lib.stylix.colors.base04}";
+              red = "#${config.lib.stylix.colors.base08}";
+              orange = "#${config.lib.stylix.colors.base09}";
+              green = "#${config.lib.stylix.colors.base0B}";
+              blue = "#${config.lib.stylix.colors.base0D}";
             };
           in {
             normal = {
-              a = { fg = colours.fg1; bg = colours.bg0; gui = "bold"; };
-              b = { fg = colours.fg1; bg = colours.bg0; };
-              c = { fg = colours.fg1; bg = colours.bg0; };
+              a = { fg = colours.foreground; bg = colours.background; gui = "bold"; };
+              b = { fg = colours.foreground; bg = colours.background; };
+              c = { fg = colours.foreground; bg = colours.background; };
             };
 
-            insert.a = { fg = colours.blue; bg = colours.bg0; gui = "bold"; };
-            visual.a = { fg = colours.orange; bg = colours.bg0; gui = "bold"; };
-            replace.a = { fg = colours.red; bg = colours.bg0; gui = "bold"; };
-            command.a = { fg = colours.green; bg = colours.bg0; gui = "bold"; };
+            insert.a = { fg = colours.blue; bg = colours.background; gui = "bold"; };
+            visual.a = { fg = colours.orange; bg = colours.background; gui = "bold"; };
+            replace.a = { fg = colours.red; bg = colours.background; gui = "bold"; };
+            command.a = { fg = colours.green; bg = colours.background; gui = "bold"; };
 
             inactive = {
-              a = { fg = colours.grey; bg = colours.bg0; gui = "bold"; };
-              b = { fg = colours.grey; bg = colours.bg0; };
-              c = { fg = colours.grey; bg = colours.bg0; };
+              a = { fg = colours.grey; bg = colours.background; gui = "bold"; };
+              b = { fg = colours.grey; bg = colours.background; };
+              c = { fg = colours.grey; bg = colours.background; };
             };
 
             disabled = {
-              a = { fg = colours.bg0; bg = colours.bg0; gui = "bold"; };
-              b = { fg = colours.bg0; bg = colours.bg0; };
-              c = { fg = colours.bg0; bg = colours.bg0; };
+              a = { fg = colours.background; bg = colours.background; gui = "bold"; };
+              b = { fg = colours.background; bg = colours.background; };
+              c = { fg = colours.background; bg = colours.background; };
             };
           };
 

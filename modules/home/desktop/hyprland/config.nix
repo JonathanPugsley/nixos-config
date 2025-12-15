@@ -22,10 +22,8 @@
 
         general = {
           # colours
-          "col.active_border" = "rgb(${config.colorScheme.palette.fg1})";
-          "col.inactive_border" = "rgb(${config.colorScheme.palette.grey})";
-          "col.nogroup_border_active" = "rgb(${config.colorScheme.palette.fg1})";
-          "col.nogroup_border" = "rgb(${config.colorScheme.palette.grey})";
+          "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base05})";
+          "col.inactive_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base03})";
 
           # gaps
           float_gaps = 0;

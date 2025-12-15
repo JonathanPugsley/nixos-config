@@ -9,6 +9,5 @@ readarray -t available_scripts < <(
     | cut -d'.' -f1
 )
 
-menu_height=$( lekker-menu-height "${available_scripts[@]}" )
-SEL=$( printf "%s\n" "${available_scripts[@]}" | wofi -dj -H "$menu_height" ) || exit 0
+SEL=$( printf "%s\n" "${available_scripts[@]}" | lekker-launcher "${#available_scripts[@]}" "Scripts" ) || exit 0
 "$SEL" || exit 1

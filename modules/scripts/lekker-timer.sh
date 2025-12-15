@@ -2,7 +2,7 @@
 # timer - lekker utility
 
 TIMER_MODES=( "Countdown" "Pomodoro" "Stopwatch" )
-WARN="Stop Current Timer?"
+WARN="Timer already running!"
 LOCK_FILE="/tmp/timer.pid"
 TIMER_FILE="/tmp/timer"
 
@@ -49,8 +49,7 @@ stopwatch() {
 }
 
 countdown() {
-    menu_height=$( lekker-menu-height "" )
-    minutes=$( echo "Cancel" | wofi -d -H "$menu_height" -p "Minutes" ) || exit 0
+    minutes=$( echo "Cancel" | lekker-launcher "1" "Minutes" ) || exit 0
     [[ "$minutes" =~ ^[0-9]+$ ]] || exit 0
 
     notify-send -a "lekker" "Timer" "Starting countdown for $minutes minutes!"
@@ -60,22 +59,20 @@ countdown() {
 
 pomodoro() {
     pomo_configs=( "Custom" "50/10" "25/5" )
-    menu_height=$( lekker-menu-height "${pomo_configs[@]}" )
-    menu_height_single=$( lekker-menu-height "" )
-    interval=$( printf "%s\n" "${pomo_configs[@]}" | wofi -dj -H "$menu_height" ) || exit 0
+    interval=$( printf "%s\n" "${pomo_configs[@]}" | lekker-launcher "${#pomo_configs[@]}" "Interval" ) || exit 0
     if [[ "$interval" =~ ([0-9]+)\/([0-9]+) ]]; then
         focus=$( echo "$interval" | awk -F'/' '{print $1}' )
         rest=$( echo "$interval" | awk -F'/' '{print $2}' )
     else
         # custom interval input
-        focus=$( echo "Cancel" | wofi -d -H "$menu_height_single" -p "Minutes" ) || exit 0
+        focus=$( echo "Cancel" | lekker-launcher "1" "Minutes" ) || exit 0
         [[ "$focus" =~ ^[0-9]+$ ]] || exit 0
-        rest=$( echo "Cancel" | wofi -d -H "$menu_height_single" -p "Rest" ) || exit 0
+        rest=$( echo "Cancel" | lekker-launcher "1" "Rest" ) || exit 0
         [[ "$rest" =~ ^[0-9]+$ ]] || exit 0
     fi
 
     # repetition input
-    repetitions=$( echo "Cancel" | wofi -d -H "$menu_height_single" -p "Number of Repetitions" ) || exit 0
+    repetitions=$( echo "Cancel" | lekker-launcher "1" "Repetitions" ) || exit 0
     [[ "$repetitions" =~ ^[0-9]+$ ]] || exit 0
 
     # run timer loop
@@ -91,16 +88,14 @@ pomodoro() {
 menu() {
     # handle already running timer
     if [[ "$TIMER_RUNNING" -eq 1 ]]; then
-        menu_height=$( lekker-menu-height "" "" )
-        NEW=$( printf "New Timer\nCancel" | wofi -dE -H "$menu_height" -p "$WARN" ) || exit 0
+        NEW=$( printf "New Timer\nCancel" | lekker-launcher "2" "" "$WARN" ) || exit 0
         [[ "$NEW" == "New Timer" ]] || exit 0
         kill "$PID" && wait "$PID" 2>/dev/null
     fi
 
     # save current pid to lockfile
     echo "$$" > "$LOCK_FILE"
-    menu_height=$( lekker-menu-height "${TIMER_MODES[@]}" )
-    mode=$( printf "%s\n" "${TIMER_MODES[@]}" | wofi -djE -H "$menu_height" ) || exit 0
+    mode=$( printf "%s\n" "${TIMER_MODES[@]}" | lekker-launcher "${#TIMER_MODES[@]}" "Timer" ) || exit 0
     case "$mode" in
         "Countdown") countdown ;;
         "Pomodoro") pomodoro ;;

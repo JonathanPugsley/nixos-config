@@ -2,6 +2,7 @@
   options.modules.librewolf.enable = lib.mkEnableOption "enable librewolf";
 
   config = lib.mkIf config.modules.librewolf.enable {
+    stylix.targets.librewolf.profileNames = [ "default" ];
     programs.librewolf = {
       enable = true;
       profiles.default = {

@@ -4,10 +4,9 @@
     ./hypr-ecosystem/default.nix
     ./hyprland/default.nix
     ./mako/default.nix
-    ./theming/default.nix
+    ./rofi/default.nix
     ./waybar/default.nix
     ./wl-clipboard/default.nix
-    ./wofi/default.nix
   ];
 
   options.groups.desktop.enable = lib.mkEnableOption "enable desktop group";
@@ -17,9 +16,8 @@
     hypr-ecosystem.enable = lib.mkDefault (config.groups.desktop.enable && osConfig.modules.hyprland.enable);
     hyprland.enable = lib.mkDefault (config.groups.desktop.enable && osConfig.modules.hyprland.enable);
     mako.enable = lib.mkDefault config.groups.desktop.enable;
-    theming.enable = lib.mkDefault config.groups.desktop.enable;
+    rofi.enable = lib.mkDefault config.groups.desktop.enable;
     waybar.enable = lib.mkDefault config.groups.desktop.enable;
     wl-clipboard.enable = lib.mkDefault config.groups.desktop.enable;
-    wofi.enable = lib.mkDefault config.groups.desktop.enable;
   };
 }
