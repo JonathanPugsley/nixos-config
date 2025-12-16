@@ -11,7 +11,7 @@
         drun-display-format = "{name}";
         drun-show-actions = false;
         window-format = "{c}: {t}";
-        font = "${config.stylix.fonts.monospace.name} 12";
+        font = "${config.stylix.fonts.monospace.name} Semi-Bold 14 ";
       };
 
       "*" = {

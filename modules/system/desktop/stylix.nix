@@ -4,26 +4,26 @@
   config = lib.mkIf config.modules.stylix.enable {
     stylix = {
       enable = true;
-      # fonts = {
-      #   serif = {
-      #     package = pkgs.dejavu_fonts;
-      #     name = "DejaVu Serif";
-      #   };
-      #   sansSerif = {
-      #     package = pkgs.dejavu_fonts;
-      #     name = "DejaVu Sans";
-      #   };
-      #   monospace = {
-      #     package = pkgs.jetbrains-mono;
-      #     name = "JetBrainsMono";
-      #   };
-      #   emoji = {
-      #     package = pkgs.noto-fonts-color-emoji;
-      #     name = "Noto Color Emoji";
-      #   };
-      # };
-
       polarity = "dark";
+      fonts = {
+        serif = {
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Serif";
+        };
+        sansSerif = {
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Sans";
+        };
+        monospace = {
+          package = pkgs.jetbrains-mono;
+          name = "JetBrainsMono";
+        };
+        emoji = {
+          package = pkgs.noto-fonts-color-emoji;
+          name = "Noto Color Emoji";
+        };
+      };
+
       base16Scheme = {
         scheme = "Gruvbox dark, medium";
         author = "Dawid Kurek (dawikur@gmail.com), morhetz (https=//github.com/morhetz/gruvbox)";
@@ -46,7 +46,7 @@
         base0F = "d65d0e"; # brown: deprecated, open/close embedded language tags
 
         # extras (note where used as changing theme may not work as intended unless specified)
-        base10 = "1d2021";
+        base10 = "1d2021"; # waybar background
       };
     };
   };
