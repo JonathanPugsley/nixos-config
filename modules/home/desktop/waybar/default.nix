@@ -9,6 +9,7 @@
       style = pkgs.replaceVars ./style.css {
         foreground = "#${config.lib.stylix.colors.base05}";
         background = "#${config.lib.stylix.colors.base10}";
+        default-font = "${config.stylix.fonts.monospace.name}";
       };
 
       settings.mainBar = {

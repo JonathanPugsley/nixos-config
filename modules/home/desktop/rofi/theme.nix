@@ -11,6 +11,7 @@
         drun-display-format = "{name}";
         drun-show-actions = false;
         window-format = "{c}: {t}";
+        font = "${config.stylix.fonts.monospace.name} 12";
       };
 
       "*" = {
@@ -64,6 +65,7 @@
 
       "prompt" = {
         enabled = true;
+        vertical-align = mkLiteral "0.5";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
       };

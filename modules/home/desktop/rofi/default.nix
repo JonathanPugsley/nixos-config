@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   imports = [
     ./theme.nix
     ./keybinds.nix

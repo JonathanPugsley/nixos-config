@@ -1,9 +1,27 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   options.modules.stylix.enable = lib.mkEnableOption "enable stylix";
 
   config = lib.mkIf config.modules.stylix.enable {
     stylix = {
       enable = true;
+      # fonts = {
+      #   serif = {
+      #     package = pkgs.dejavu_fonts;
+      #     name = "DejaVu Serif";
+      #   };
+      #   sansSerif = {
+      #     package = pkgs.dejavu_fonts;
+      #     name = "DejaVu Sans";
+      #   };
+      #   monospace = {
+      #     package = pkgs.jetbrains-mono;
+      #     name = "JetBrainsMono";
+      #   };
+      #   emoji = {
+      #     package = pkgs.noto-fonts-color-emoji;
+      #     name = "Noto Color Emoji";
+      #   };
+      # };
 
       polarity = "dark";
       base16Scheme = {
