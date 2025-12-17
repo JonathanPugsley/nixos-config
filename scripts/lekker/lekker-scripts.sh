@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # scripts menu
 
-SCRIPT_DIR="$HOME/dev/nixos-config/modules/scripts"
+SCRIPT_DIR="$HOME/dev/nixos-config/scripts/lekker/"
 
 readarray -t available_scripts < <(
     find "$SCRIPT_DIR" -type f -executable -printf "%f\n" \
