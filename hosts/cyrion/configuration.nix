@@ -1,9 +1,9 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   imports = [
-      ../../modules/system/default.nix
-      ../../modules/scripts/default.nix
-      ../../modules/users/jonny.nix
-      ./hardware-configuration.nix
+    ../../modules/system/default.nix
+    ../../modules/users/jonny.nix
+    ../../scripts/default.nix
+    ./hardware-configuration.nix
   ];
 
   config = {
@@ -12,7 +12,7 @@
     # keyboard layout
     services.xserver.xkb.layout = "gb";
 
-    # modules
+    # system modules
     modules = {
       nvidia.enable = false;
     };
