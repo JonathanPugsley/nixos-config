@@ -29,7 +29,7 @@
         foldenable = false; # enables folds
         number = true; # show line number
         relativenumber = true; # numbers relative to currently selected line
-        scrolloff = 6; # lines to keep visible when scrolling vertically
+        scrolloff = 5; # lines to keep visible when scrolling vertically
         sidescrolloff = 10; # columns to keep visible when scrolling horizontally
         showtabline = 2; # visibility of the tab line 0/1/2 : never/>1 page/always
         signcolumn = "yes:1"; # visibility of sign column

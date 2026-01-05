@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   imports = [
     ../../modules/system/default.nix
     ../../modules/users/jonny.nix
@@ -14,7 +14,8 @@
 
     # system modules
     modules = {
-      nvidia.enable = true;
+      # core
+      nvidia.enable = lib.mkForce true;
     };
 
     # do not touch

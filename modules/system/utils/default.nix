@@ -4,7 +4,7 @@
     ./cifs-utils.nix
   ];
 
-  options.groups.utils.enable = lib.mkEnableOption "enable utils group";
+  options.groups.utils.enable = lib.mkEnableOption "enable system utils group";
 
   config.modules = {
     brightnessctl.enable = lib.mkDefault config.groups.utils.enable;

@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  options.modules.nvidia.enable = lib.mkEnableOption "enable nvidia gpu";
+  options.modules.nvidia.enable = lib.mkEnableOption "enable nvidia gpu settings";
 
   config = lib.mkIf config.modules.nvidia.enable {
     services.xserver = {
@@ -22,6 +22,7 @@
       open = false;
       nvidiaSettings = true;
       # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # currently pinned driver version due to ultrawide monitor issue in: 580.105.08
       package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
         version = "580.95.05";
         sha256_64bit = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";

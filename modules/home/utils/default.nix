@@ -14,7 +14,7 @@
     ./yazi.nix
   ];
 
-  options.groups.utils.enable = lib.mkEnableOption "enable utils group";
+  options.groups.utils.enable = lib.mkEnableOption "enable home utils group";
 
   config.modules = {
     bluetui.enable = lib.mkDefault config.groups.utils.enable;

@@ -6,17 +6,18 @@
       enable = true;
       settings = {
         window = {
-          opacity = 1.0;
-          padding = { x = 10; y = 10; };
           decorations = "None";
+          padding = { x = 10; y = 10; };
+          startup_mode = "Windowed";
         };
 
         cursor = {
-          blink_timeout = 0;
           style = {
-            shape = "Beam";
-            blinking = "Always";
+            shape = "Block";
+            blinking = "On";
           };
+          blink_timeout = 0;
+          unfocused_hollow = true;
         };
 
         scrolling = {

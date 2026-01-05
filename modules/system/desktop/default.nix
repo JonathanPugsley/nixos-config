@@ -3,17 +3,18 @@
     ./bluetooth.nix
     ./hyprland.nix
     ./ly.nix
-    ./nvidia.nix
     ./stylix.nix
   ];
 
-  options.groups.desktop.enable = lib.mkEnableOption "enable desktop group";
+  options.groups.desktop.enable = lib.mkEnableOption "enable system desktop group";
 
   config.modules = {
-    bluetooth.enable = lib.mkDefault config.groups.desktop.enable;
+    bluetooth = {
+      enable = lib.mkDefault config.groups.desktop.enable;
+      powerOnBoot.enable = lib.mkDefault config.modules.bluetooth.enable;
+    };
     hyprland.enable = lib.mkDefault config.groups.desktop.enable;
     ly.enable = lib.mkDefault config.groups.desktop.enable;
-    nvidia.enable = lib.mkDefault config.groups.desktop.enable;
     stylix.enable = lib.mkDefault config.groups.desktop.enable;
   };
 }

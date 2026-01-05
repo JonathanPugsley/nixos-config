@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options.modules.hyprshot.enable = lib.mkEnableOption "enable hyprshot";
 
   config = lib.mkIf config.modules.hyprshot.enable {
-    home.packages = [ pkgs.hyprshot ];
+    programs.hyprshot.enable = true;
   };
 }

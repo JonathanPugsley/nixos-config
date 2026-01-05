@@ -9,20 +9,22 @@
     programs.zsh = {
       enable = true;
 
-      # settings
       autocd = true;
       autosuggestion.enable = true;
+      # defaultKeymap = "viins / vicmd";
       dotDir = "${config.home.homeDirectory}/.config/zsh";
       enableCompletion = true;
       enableVteIntegration = true;
-      syntaxHighlighting.enable = true;
       history = {
-        size = 1000;
-        extended = true;
         path = "${config.xdg.dataHome}/zsh/zsh_history";
+        save = 1000;
+        share = true;
+        size = 1000;
       };
 
-      # omz
+      syntaxHighlighting.enable = true;
+
+      # omzsh
       oh-my-zsh = {
         enable = true;
         custom = "${config.home.homeDirectory}/.oh-my-zsh-custom";
@@ -34,7 +36,6 @@
         bt = "systemctl start bluetooth.service";
         ns = "nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse";
       };
-
     };
   };
 }

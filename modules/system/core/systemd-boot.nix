@@ -4,7 +4,7 @@
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = 60;
+        configurationLimit = 50;
       };
       efi.canTouchEfiVariables = true;
     };

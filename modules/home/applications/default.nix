@@ -5,6 +5,7 @@
     ./librewolf.nix
     ./nixcord.nix
     ./prismlauncher.nix
+    ./r2modman.nix
     ./steam.nix
   ];
 
@@ -16,6 +17,7 @@
     librewolf.enable = lib.mkDefault config.groups.applications.enable;
     nixcord.enable = lib.mkDefault config.groups.applications.enable;
     prismlauncher.enable = lib.mkDefault config.groups.applications.enable;
+    r2modman.enable = lib.mkDefault config.groups.applications.enable;
     steam.enable = lib.mkDefault (config.groups.applications.enable && osConfig.modules.steam.enable);
   };
 }
