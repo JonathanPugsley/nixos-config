@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # timer - lekker utility
 
-TIMER_MODES=( "Countdown" "Pomodoro" "Stopwatch" )
+TIMER_MODES=( "󰀠  Countdown" "  Pomodoro" "󰔛  Stopwatch" )
 WARN="Timer already running!"
 LOCK_FILE="/tmp/timer.pid"
 TIMER_FILE="/tmp/timer"
@@ -96,7 +96,7 @@ menu() {
     # save current pid to lockfile
     echo "$$" > "$LOCK_FILE"
     mode=$( printf "%s\n" "${TIMER_MODES[@]}" | lekker-launcher "${#TIMER_MODES[@]}" "Timer" ) || exit 0
-    case "$mode" in
+    case "${mode#*  }" in
         "Countdown") countdown ;;
         "Pomodoro") pomodoro ;;
         "Stopwatch") stopwatch ;;

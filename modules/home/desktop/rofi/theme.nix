@@ -6,8 +6,8 @@
       "configuration" = {
         modi = "drun,window";
         show-icons = false;
-        display-drun = "";
-        display-window = "";
+        display-drun = " ";
+        display-window = " ";
         drun-display-format = "{name}";
         drun-show-actions = false;
         window-format = "{c}: {t}";

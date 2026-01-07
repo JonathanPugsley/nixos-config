@@ -1,0 +1,41 @@
+#! /usr/bin/env bash
+# screen capture lekker menu
+
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+OPTIONS=( "  Screenshot" "  Screen Record" "  Colour Picker" )
+
+screenshot() {
+    ss_options=( "󰍹  Output" "  Window" "󰗆  Region")
+    ss_mode=$( printf "%s\n" "${ss_options[@]}" | lekker-launcher "${#ss_options[@]}" "Screenshot" ) || exit 0
+    ss_mode=${ss_mode#*  }
+    save_mode=$( printf "󰈟  Save to File\n󰱖  Save to Clipboard" | lekker-launcher 2 "Saving" ) || exit 0
+    [[ "$save_mode" == "Save to File" ]] && hyprshot -m "${ss_mode,,}" -o "$SCREENSHOT_DIR"
+    [[ "$save_mode" == "Save to Clipboard" ]] && hyprshot -m "${ss_mode,,}" --clipboard-only
+}
+
+screenRecord() {
+    # currently no app to screen record
+    notify-send -a "lekker" "Screen Recording" "Currently Unavailable :("
+}
+
+colourPicker() {
+    sleep 0.4
+    colour=$( hyprpicker -a )
+    [[ -n "$colour" ]] || exit 1
+    notify-send -a "lekker" "Colour Picker: $colour" "$colour copied to clipboard"
+}
+
+# check for storage directory
+if [[ ! -d "$SCREENSHOT_DIR" ]]; then
+    notify-send -a "lekker" "Lekker Capture" "Creating $SCREENSHOT_DIR for screenshots"
+    mkdir -p "$SCREENSHOT_DIR"
+fi
+
+# menu
+SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher "${#OPTIONS[@]}" "Capture" ) || exit 0
+case "${SEL#*  }" in
+    "Screenshot") screenshot;;
+    "Screen Record") screenRecord;;
+    "Colour Picker") colourPicker;;
+    *) exit 1;;
+esac

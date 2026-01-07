@@ -24,7 +24,7 @@
         on-notify = "none";
 
         # style
-        font = "JetBrainsMono 10";
+        font = "${config.stylix.fonts.monospace.name} 10";
         background-color = "#${config.lib.stylix.colors.base00}E6";
         text-color = "#${config.lib.stylix.colors.base05}";
         width = 300;
@@ -73,7 +73,7 @@
           height = 120;
           border-radius = 10;
           group-by = "app-name";
-          format = "<b>%s</b>\\n%b";
+          # format = "<b>%s</b>\\n%b";
           text-alignment = "center";
           default-timeout = 1500;
           anchor = "center";

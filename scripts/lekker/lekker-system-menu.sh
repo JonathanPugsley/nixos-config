@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # power menu
 
-OPTIONS=( "󰒲 Suspend" " Reboot" " Shutdown" "󰍃 Logout" " Lock Screen" )
+OPTIONS=( "  Lock Screen" "  Logout" "󰒲  Suspend" "  Reboot" "  Shutdown")
 
 # validate selection
 match=0
@@ -16,11 +16,11 @@ confirm=$( printf "%s\n" "Yes, $power" "Cancel" | lekker-launcher "2" "" "Are yo
 [[ "$confirm" == "Yes, $power" ]] || exit 0
 
 # exec commands
-case "${power#* }" in
+case "${power#*  }" in
+    "Lock Screen") hyprlock;;
+    "Logout") hyprctl dispatch exit;;
     "Suspend") systemctl suspend;;
     "Reboot") cliphist wipe && systemctl reboot;;
     "Shutdown") cliphist wipe && shutdown now;;
-    "Logout") hyprctl dispatch exit;;
-    "Lock Screen") hyprlock;;
     *) exit 1 ;;
 esac
