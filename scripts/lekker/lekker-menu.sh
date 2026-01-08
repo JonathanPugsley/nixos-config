@@ -7,7 +7,7 @@ selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher "${#ENTRIES[@]}" "L
 case "${selection#*  }" in
     "Apps") rofi -show drun ;;
     "Learn") exit 0 ;;
-    "Capture") lekker-capture ;;
+    "Capture") lekker-menu-capture ;;
     "Timer") lekker-timer menu ;;
     "Scripts") lekker-scripts ;;
     "Config") lekker-edit-config ;;
