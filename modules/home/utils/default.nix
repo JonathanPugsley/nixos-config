@@ -8,6 +8,7 @@
     ./nix-search-tv.nix
     ./openjdk.nix
     ./playerctl.nix
+    ./qpwgraph.nix
     ./ripgrep.nix
     ./tmux.nix
     ./tree.nix
@@ -25,6 +26,7 @@
     nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
     openjdk.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;
+    qpwgraph.enable = lib.mkDefault config.groups.utils.enable;
     ripgrep.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;
     tree.enable = lib.mkDefault config.groups.utils.enable;

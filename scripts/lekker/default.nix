@@ -7,6 +7,7 @@
       lekker-bluelight = pkgs.writeScriptBin "lekker-bluelight" (builtins.readFile ./lekker-bluelight.sh);
       lekker-bluetooth = pkgs.writeScriptBin "lekker-bluetooth" (builtins.readFile ./lekker-bluetooth.sh);
       lekker-edit-config = pkgs.writeScriptBin "lekker-edit-config" (builtins.readFile ./lekker-edit-config.sh);
+      lekker-launch-audio = pkgs.writeScriptBin "lekker-launch-audio" (builtins.readFile ./lekker-launch-audio.sh);
       lekker-launcher = pkgs.writeScriptBin "lekker-launcher" (builtins.readFile ./lekker-launcher.sh);
       lekker-menu-capture = pkgs.writeScriptBin "lekker-menu-capture" (builtins.readFile ./lekker-menu-capture.sh);
       lekker-menu-toggle = pkgs.writeScriptBin "lekker-menu-toggle" (builtins.readFile ./lekker-menu-toggle.sh);
@@ -24,6 +25,7 @@
         lekker-bluelight
         lekker-bluetooth
         lekker-edit-config
+        lekker-launch-audio
         lekker-launcher
         lekker-menu-capture
         lekker-menu-toggle

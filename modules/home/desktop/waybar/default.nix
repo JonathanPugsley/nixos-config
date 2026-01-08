@@ -79,7 +79,8 @@
           format-alt = "{icon} {volume}%";
           format-muted = "";
           format-icons = [ "" "" ];
-          on-click-right = "lekker-volume mute";
+          on-click = "lekker-launch-audio";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           tooltip = false;
         };
 

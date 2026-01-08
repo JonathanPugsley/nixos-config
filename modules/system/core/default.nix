@@ -10,6 +10,7 @@
     ./nixsettings.nix
     ./nvidia.nix
     ./opengl.nix
+    ./pipewire.nix
     ./sops.nix
     ./systemd-boot.nix
     ./vim.nix
