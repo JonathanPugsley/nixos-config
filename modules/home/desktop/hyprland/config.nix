@@ -13,6 +13,7 @@
           "waybar"
           "systemctl --user start hyprpaper"
           "systemctl --user start hyprsunset"
+          "systemctl --user start hyprpolkitagent"
         ];
 
         # shutdown
