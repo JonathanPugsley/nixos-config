@@ -3,13 +3,11 @@
 
 ENTRIES=( "  Apps" "  Learn" "  Capture" "  Timer" "  Scripts" "  Config" "  Toggle" "  Nixpkgs" "  About" "  System" )
 
-selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher "${#ENTRIES[@]}" "Lekker" ) || exit 0
+selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher -l "${#ENTRIES[@]}" -p "Lekker" ) || exit 0
 case "${selection#*  }" in
     "Apps") rofi -show drun ;;
-    "Learn") exit 0 ;;
     "Capture") lekker-menu-capture ;;
     "Timer") lekker-timer menu ;;
-    "Scripts") lekker-scripts ;;
     "Config") lekker-edit-config ;;
     "Toggle") lekker-menu-toggle;;
     "Nixpkgs") lekker-pkg-search ;;

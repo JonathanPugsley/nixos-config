@@ -16,6 +16,7 @@
         "SUPER, G, togglefloating"
 
         "SUPER, X, exec, librewolf"
+        "SUPER, C, exec, lekker-menu-clipboard"
         "SUPER, N, exec, lekker-notes"
         "SUPER, M, exec, spotify"
         "SUPER ALT SHIFT, H, exit"

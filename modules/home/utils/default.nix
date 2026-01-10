@@ -6,6 +6,7 @@
     ./fzf.nix
     ./git.nix
     ./gum.nix
+    ./jq.nix
     ./nix-search-tv.nix
     ./openjdk.nix
     ./playerctl.nix
@@ -25,6 +26,7 @@
     fzf.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
     gum.enable = lib.mkDefault config.groups.utils.enable;
+    jq.enable = lib.mkDefault config.groups.utils.enable;
     nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
     openjdk.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;

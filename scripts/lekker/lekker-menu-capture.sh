@@ -6,11 +6,11 @@ OPTIONS=( "  Screenshot" "  Screen Record" "  Colour Picker" )
 
 screenshot() {
     ss_options=( "󰍹  Output" "  Window" "󰗆  Region")
-    ss_mode=$( printf "%s\n" "${ss_options[@]}" | lekker-launcher "${#ss_options[@]}" "Screenshot" ) || exit 0
+    ss_mode=$( printf "%s\n" "${ss_options[@]}" | lekker-launcher -l "${#ss_options[@]}" -p "Screenshot" ) || exit 0
     ss_mode=${ss_mode#*  }
-    save_mode=$( printf "󰈟  Save to File\n󰱖  Save to Clipboard" | lekker-launcher 2 "Saving" ) || exit 0
-    [[ "$save_mode" == "Save to File" ]] && hyprshot -m "${ss_mode,,}" -o "$SCREENSHOT_DIR"
-    [[ "$save_mode" == "Save to Clipboard" ]] && hyprshot -m "${ss_mode,,}" --clipboard-only
+    save_mode=$( printf "󰈟  Save to File\n󰱖  Save to Clipboard" | lekker-launcher -l 2 -p "Saving" ) || exit 0
+    [[ "$save_mode" == "󰈟  Save to File" ]] && hyprshot -m "${ss_mode,,}" -o "$SCREENSHOT_DIR"
+    [[ "$save_mode" == "󰱖  Save to Clipboard" ]] && hyprshot -m "${ss_mode,,}" --clipboard-only
 }
 
 screenRecord() {
@@ -32,7 +32,7 @@ if [[ ! -d "$SCREENSHOT_DIR" ]]; then
 fi
 
 # menu
-SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher "${#OPTIONS[@]}" "Capture" ) || exit 0
+SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher -l "${#OPTIONS[@]}" -p "Capture" ) || exit 0
 case "${SEL#*  }" in
     "Screenshot") screenshot;;
     "Screen Record") screenRecord;;

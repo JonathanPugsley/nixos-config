@@ -12,7 +12,7 @@ toggleBar() {
     fi
 }
 
-selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher "${#ENTRIES[@]}" "Lekker" ) || exit 0
+selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher -l "${#ENTRIES[@]}" -p "Lekker" ) || exit 0
 case "${selection#*  }" in
     "Top Bar") toggleBar;;
     "Nightlight") lekker-bluelight toggle;;

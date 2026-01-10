@@ -7,6 +7,7 @@
     ./rofi/default.nix
     ./waybar/default.nix
     ./wl-clipboard/default.nix
+    ./xdg/default.nix
   ];
 
   options.groups.desktop.enable = lib.mkEnableOption "enable desktop group";
@@ -19,5 +20,6 @@
     rofi.enable = lib.mkDefault config.groups.desktop.enable;
     waybar.enable = lib.mkDefault config.groups.desktop.enable;
     wl-clipboard.enable = lib.mkDefault config.groups.desktop.enable;
+    xdg.enable = lib.mkDefault config.groups.desktop.enable;
   };
 }
