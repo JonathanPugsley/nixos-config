@@ -27,9 +27,12 @@ fi
 COMMAND=$1 && shift 1
 
 # fetch screen resolution, and calculate default window size
-readarray -t RESOLUTION < <( hyprctl monitors -j | jq -r '.[0].width, .[0].height' )
-WINDOW_WIDTH=$(awk "BEGIN {print ${RESOLUTION[0]} * $WIDTH_FACTOR}")
-WINDOW_HEIGHT=$(awk "BEGIN {print ${RESOLUTION[1]} * $HEIGHT_FACTOR}")
+readarray -t RESOLUTION < <( hyprctl monitors -j | jq -r '.[0].width, .[0].height, .[0].scale' )
+WINDOW_WIDTH=$(awk "BEGIN {print ${RESOLUTION[0]} * ( $WIDTH_FACTOR / ${RESOLUTION[2]} )}")
+WINDOW_HEIGHT=$(awk "BEGIN {print ${RESOLUTION[1]} * ( $HEIGHT_FACTOR / ${RESOLUTION[2]} )}")
+
+echo "$WINDOW_WIDTH"
+echo "$WINDOW_HEIGHT"
 
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
