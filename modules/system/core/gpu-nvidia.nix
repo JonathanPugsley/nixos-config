@@ -1,7 +1,7 @@
 { config, lib, ... }: {
-  options.modules.nvidia.enable = lib.mkEnableOption "enable nvidia gpu settings";
+  options.modules.gpu-nvidia.enable = lib.mkEnableOption "enable nvidia gpu settings";
 
-  config = lib.mkIf config.modules.nvidia.enable {
+  config = lib.mkIf config.modules.gpu-nvidia.enable {
     services.xserver = {
       videoDrivers = [ "nvidia" ];
 
@@ -13,6 +13,7 @@
       '';
     };
 
+    hardware.graphics.enable = true;
     hardware.nvidia = {
       modesetting.enable = true;
       powerManagement = {
