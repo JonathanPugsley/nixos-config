@@ -12,7 +12,7 @@
         ]
 
         # nvidia
-        (lib.optionals osConfig.modules.nvidia.enable [
+        (lib.optionals osConfig.modules.gpu-nvidia.enable [
           "GBM_BACKEND,nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
           "LIBVA_DRIVER_NAME,nvidia"
@@ -20,9 +20,10 @@
         ])
 
         # default to intel if nvidia module is not enabled
-        (lib.optionals (!osConfig.modules.nvidia.enable) [
+        (lib.optionals osConfig.modules.gpu-intel.enable [
           "GBM_BACKEND,intel"
           "__GLX_VENDOR_LIBRARY_NAME,intel"
+          "LIBVA_DRIVER_NAME,iHD"
         ])
       ];
     };

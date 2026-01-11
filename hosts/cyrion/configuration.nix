@@ -14,6 +14,8 @@
 
     # system modules
     modules = {
+      # core
+      gpu-intel.enable = lib.mkForce true;
       # desktop
       bluetooth.powerOnBoot.enable = lib.mkForce false;
     };

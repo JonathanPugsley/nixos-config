@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ lib, ... }: {
   imports = [
     ./fonts.nix
     ./firewall.nix
@@ -8,8 +8,8 @@
     ./nameservers.nix
     ./networkmanager.nix
     ./nixsettings.nix
-    ./nvidia.nix
-    ./opengl.nix
+    ./gpu-intel.nix
+    ./gpu-nvidia.nix
     ./pipewire.nix
     ./sops.nix
     ./systemd-boot.nix
@@ -18,6 +18,7 @@
 
   # Only enable option in core: "modules.nvidia.enable"
   config.modules = {
-    nvidia.enable = lib.mkDefault false;
+    gpu-intel.enable = lib.mkDefault false;
+    gpu-nvidia.enable = lib.mkDefault false;
   };
 }

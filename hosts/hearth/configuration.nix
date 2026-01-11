@@ -15,7 +15,7 @@
     # system modules
     modules = {
       # core
-      nvidia.enable = lib.mkForce true;
+      gpu-nvidia.enable = lib.mkForce true;
     };
 
     # do not touch
