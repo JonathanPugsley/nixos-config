@@ -15,7 +15,7 @@ toggleBar() {
 selection=$( printf "%s\n" "${ENTRIES[@]}" | lekker-launcher -l "${#ENTRIES[@]}" -p "Lekker" ) || exit 0
 case "${selection#*  }" in
     "Top Bar") toggleBar;;
-    "Nightlight") lekker-bluelight toggle;;
-    "Zen Mode") lekker-zenmode toggle;;
+    "Nightlight") lekker-toggle-bluelight toggle;;
+    "Zen Mode") lekker-toggle-zenmode toggle;;
     *) exit 1;;
 esac

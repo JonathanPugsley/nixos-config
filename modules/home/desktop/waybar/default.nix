@@ -76,10 +76,9 @@
 
         wireplumber = {
           format = "{icon}";
-          format-alt = "{icon} {volume}%";
           format-muted = "";
           format-icons = [ "" "" ];
-          on-click = "lekker-launch-audio";
+          on-click = "lekker-menu-audio";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           tooltip = false;
         };
@@ -97,7 +96,7 @@
           format-disabled = "󰂲";
           format-connected = "󰂱";
           format-no-controller = "󰂲";
-          on-click = "lekker-bluetooth";
+          on-click = "lekker-launch-bluetooth";
           tooltip = false;
         };
 
@@ -115,8 +114,8 @@
             "day" = "";
             "night" = "";
           };
-          exec = "lekker-bluelight read";
-          on-click = "lekker-bluelight toggle";
+          exec = "lekker-toggle-bluelight read";
+          on-click = "lekker-toggle-bluelight toggle";
           interval = 60;
           tooltip = false;
         };
@@ -139,8 +138,8 @@
             "normal" = "󰍹";
             "zen" = "󰧱";
           };
-          exec = "lekker-zenmode read";
-          on-click = "lekker-zenmode toggle";
+          exec = "lekker-toggle-zenmode read";
+          on-click = "lekker-toggle-zenmode toggle";
           interval = 60;
           tooltip = false;
         };

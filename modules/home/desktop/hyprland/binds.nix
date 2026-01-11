@@ -5,10 +5,10 @@
         "SUPER, Q, killactive"
         "SUPER, E, exec, alacritty -e yazi $HOME"
         "SUPER, R, exec, rofi -show drun"
-        "SUPER, T, exec, lekker-resolution"
+        "SUPER, T, exec, lekker-toggle-resolution"
         "SUPER, RETURN, exec, alacritty"
         "SUPER, O, exec, hyprctl dispatch tagwindow opacity"
-        "SUPER, P, exec, lekker-system-menu"
+        "SUPER, P, exec, lekker-menu-system"
 
         "SUPER, S, exec, steam"
         "SUPER, D, exec, discord"
