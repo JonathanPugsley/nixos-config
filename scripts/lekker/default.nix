@@ -10,6 +10,7 @@
       lekker-launch-audio = pkgs.writeScriptBin "lekker-launch-audio" (builtins.readFile ./lekker-launch-audio.sh);
       lekker-launch-floating-window = pkgs.writeScriptBin "lekker-launch-floating-window" (builtins.readFile ./lekker-launch-floating-window.sh);
       lekker-launcher = pkgs.writeScriptBin "lekker-launcher" (builtins.readFile ./lekker-launcher.sh);
+      lekker-menu-audio = pkgs.writeScriptBin "lekker-menu-audio" (builtins.readFile ./lekker-menu-audio.sh);
       lekker-menu-capture = pkgs.writeScriptBin "lekker-menu-capture" (builtins.readFile ./lekker-menu-capture.sh);
       lekker-menu-clipboard = pkgs.writeScriptBin "lekker-menu-clipboard" (builtins.readFile ./lekker-menu-clipboard.sh);
       lekker-menu-toggle = pkgs.writeScriptBin "lekker-menu-toggle" (builtins.readFile ./lekker-menu-toggle.sh);
@@ -29,6 +30,7 @@
         lekker-launch-audio
         lekker-launch-floating-window
         lekker-launcher
+        lekker-menu-audio
         lekker-menu-capture
         lekker-menu-clipboard
         lekker-menu-toggle
