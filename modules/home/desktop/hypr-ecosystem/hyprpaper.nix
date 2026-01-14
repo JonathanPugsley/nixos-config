@@ -7,8 +7,8 @@
       settings = {
         ipc = "on";
         splash = "false";
-        preload = [ "/home/${config.home.username}/Pictures/nixos-wallpaper-gruvbox.png" ];
-        wallpaper = [ ",/home/${config.home.username}/Pictures/nixos-wallpaper-gruvbox.png" ];
+        preload = [ "/home/${config.home.username}/Pictures/wallpapers/everforest/1-everforest.jpg" ];
+        wallpaper = [ ",/home/${config.home.username}/Pictures/wallpapers/everforest/1-everforest.jpg" ];
       };
     };
   };

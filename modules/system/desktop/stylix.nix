@@ -4,7 +4,7 @@
   config = lib.mkIf config.modules.stylix.enable {
     stylix = {
       enable = true;
-      base16Scheme = import ./gruvbox-medium.nix;
+      base16Scheme = import ./themes/everforest.nix;
       polarity = "dark";
       fonts = {
         serif = config.stylix.fonts.sansSerif;
