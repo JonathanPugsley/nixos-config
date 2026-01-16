@@ -7,19 +7,19 @@
         {
           mode = "n";
           key = "<leader>ff";
-          action = "<cmd>Telescope find_files<CR>";
+          action = "<CMD>Telescope find_files<CR>";
           options.desc = "Find Files";
         }
         {
           mode = "n";
           key = "<leader>fg";
-          action = "<cmd>Telescope live_grep<CR>";
-          options.desc = "Live Grep";
+          action = "<CMD>Telescope live_grep<CR>";
+          options.desc = "Rip Grep";
         }
         {
           mode = "n";
           key = "<leader>fh";
-          action = "<cmd>Telescope help_tags<CR>";
+          action = "<CMD>Telescope help_tags<CR>";
           options.desc = "Help Tags";
         }
       ];

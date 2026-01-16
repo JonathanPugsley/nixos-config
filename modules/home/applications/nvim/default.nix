@@ -12,6 +12,5 @@
       enable = true;
       defaultEditor = true;
     };
-    stylix.targets.nixvim.enable = false;
   };
 }

@@ -44,20 +44,27 @@
         swapfile = false; # enable creation of a swapfile
       };
 
-      colorschemes.gruvbox = {
-        enable = true;
-        settings = {
-          background = "dark";
-          contrast = "medium";
-        };
-      };
+      # colorschemes.gruvbox = {
+      #   enable = true;
+      #   settings = {
+      #     background = "dark";
+      #     contrast = "medium";
+      #   };
+      # };
 
       # theme tweaks
-      highlightOverride.SignColumn.bg = "NONE";
       highlightOverride.StatusLine.bg = "NONE";
       highlightOverride.StatusLineNC.bg = "NONE";
       highlightOverride.TabLineFill.bg = "NONE";
-
     };
+
+    stylix.targets.nixvim = {
+      enable = true;
+      plugin = "base16-nvim";
+      transparentBackground.signColumn = true;
+      transparentBackground.numberLine = true;
+      transparentBackground.main = true;
+    };
+
   };
 }

@@ -4,13 +4,26 @@
       plugins.nvim-tree = {
         enable = true;
         settings = {
+          filters.dotfiles = true;
+
           view = {
-            side = "right";
-            width = 30;
+            float = {
+              enable = true;
+              quit_on_focus_loss = true;
+              open_win_config = {
+                relative = "editor";
+                border = "single";
+                width = 40;
+                height = 30;
+                # position: top right
+                row = 1;
+                col = 10000;
+              };
+            };
           };
+
           renderer = {
             special_files = [ "Makefile" "README.md" "readme.md" "LICENSE" ".gitignore" "Cargo.toml" "Cargo.lock" ];
-            indent_markers.enable = true;
             icons = {
               git_placement = "after";
               modified_placement = "before";
@@ -19,8 +32,8 @@
                 color = true;
               };
             };
+            indent_markers.enable = false;
           };
-          filters.dotfiles = true;
         };
       };
 
@@ -28,7 +41,7 @@
         {
           mode = "n";
           key = "<leader>e";
-          action = ":NvimTreeToggle<CR>";
+          action = "<CMD>NvimTreeToggle<CR>";
           options.desc = "Toggle neo-tree";
         }
       ];
