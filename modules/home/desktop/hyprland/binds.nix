@@ -3,12 +3,13 @@
     wayland.windowManager.hyprland.settings = {
       bind = [
         "SUPER, Q, killactive"
+        "SUPER SHIFT, Q, forcekillactive"
         "SUPER, E, exec, alacritty -e yazi $HOME"
         "SUPER, R, exec, rofi -show drun"
         "SUPER, T, exec, lekker-toggle-resolution"
-        "SUPER, RETURN, exec, alacritty"
         "SUPER, O, exec, hyprctl dispatch tagwindow opacity"
         "SUPER, P, exec, lekker-menu-system"
+        "SUPER, RETURN, exec, alacritty"
 
         "SUPER, S, exec, steam"
         "SUPER, D, exec, discord"
