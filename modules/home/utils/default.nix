@@ -7,6 +7,7 @@
     ./git.nix
     ./gum.nix
     ./jq.nix
+    ./ncdu.nix
     ./nix-search-tv.nix
     ./openjdk.nix
     ./playerctl.nix
@@ -28,6 +29,7 @@
     git.enable = lib.mkDefault config.groups.utils.enable;
     gum.enable = lib.mkDefault config.groups.utils.enable;
     jq.enable = lib.mkDefault config.groups.utils.enable;
+    ncdu.enable = lib.mkDefault config.groups.utils.enable;
     nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
     openjdk.enable = lib.mkDefault config.groups.utils.enable;
     playerctl.enable = lib.mkDefault config.groups.utils.enable;
