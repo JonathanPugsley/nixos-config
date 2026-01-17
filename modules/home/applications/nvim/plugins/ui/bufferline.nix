@@ -125,7 +125,7 @@
         }
         {
           mode = "n";
-          key = "<leader>q";
+          key = "<leader>x";
           action = "<CMD>bdelete<CR>";
           options.desc = "Remove Buffer";
         }

@@ -16,46 +16,63 @@
 
       opts = {
         # tabs/indents
-        autoindent = true; # copies previous line's indentation
-        smartindent = false; # dynamically inserts indentation
-        expandtab = true; # replace tabs with spaces
-        shiftwidth = 4; # width to shift/move lines with motions/autoindentations
-        smarttab = false; # contextual and positional indentation
-        softtabstop = 4; # number of spaces inseted when pressing tab *key*
-        tabstop = 4; # number of spaces = tab *chacater* (\t)
-        # ui
-        cmdheight = 0; # 0: hide command line unless writing command
-        cursorline = true; # highlight the currently selected line
-        foldenable = false; # enables folds
-        number = true; # show line number
-        relativenumber = true; # numbers relative to currently selected line
-        scrolloff = 5; # lines to keep visible when scrolling vertically
-        sidescrolloff = 10; # columns to keep visible when scrolling horizontally
-        showtabline = 2; # visibility of the tab line 0/1/2 : never/>1 page/always
-        signcolumn = "yes:1"; # visibility of sign column
-        splitbelow = true; # new h-split to the bottom
-        splitright = true; # new v-split to the right
-        termguicolors = true; # enable 24-bit color support
-        wrap = false; # wraps text when reaching the width of the window
-        fillchars.eob = " "; # characters to fill empty lines
-        # general
-        ignorecase = true; # matches non-case sensitive
-        smartcase = true; # overrides ignorecase if search pattern contains uppercase
-        swapfile = false; # enable creation of a swapfile
-      };
+        tabstop = 4;            # tab width
+        shiftwidth = 4;         # indent width
+        softtabstop = 4;        # spaces that equal a tab
+        expandtab = true;       # use spaces instead of tabs
+        autoindent = true;      # copy indent from current line
+        smartindent = false;    # dynamically inserts indentation
+        smarttab = false;       # contextual and positional indentation
 
-      # colorschemes.gruvbox = {
-      #   enable = true;
-      #   settings = {
-      #     background = "dark";
-      #     contrast = "medium";
-      #   };
-      # };
+        # search
+        ignorecase = true;      # case insensitive search
+        smartcase = true;       # case sensitive if uppercase in search
+        hlsearch = false;       # highlight search results
+        incsearch = true;       # show matches as you type
+
+        # ui
+        number = true;          # show line numbers
+        relativenumber = true;  # relative line numbers
+        cursorline = true;      # highlight current line
+        wrap = false;           # wrap lines
+        scrolloff = 8;          # lines to keep visible when scrolling vertically
+        sidescrolloff = 10;     # columns to keep visible when scrolling horizontally
+
+        termguicolors = true;   # enable 24-bit color support
+        signcolumn = "yes:1";   # show sign column
+        cmdheight = 0;          # command line height
+        foldenable = false;     # enable folds
+        showtabline = 0;        # visibility of tab line (0|1|2 never|>1 page|always)
+        splitbelow = true;      # new h-split to the bottom
+        splitright = true;      # new v-split to the right
+        fillchars.eob = " ";    # characters to fill empty lines
+
+        # file handling
+        backup = false;
+        writebackup = false;
+        swapfile = false;
+        undofile = false;
+      };
 
       # theme tweaks
       highlightOverride.StatusLine.bg = "NONE";
       highlightOverride.StatusLineNC.bg = "NONE";
       highlightOverride.TabLineFill.bg = "NONE";
+
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>w";
+          action = "<CMD>write<CR>";
+          options.desc = "Write";
+        }
+        {
+          mode = "n";
+          key = "<leader>q";
+          action = "<CMD>quit<CR>";
+          options.desc = "Quit";
+        }
+      ];
     };
 
     stylix.targets.nixvim = {
