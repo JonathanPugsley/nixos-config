@@ -16,6 +16,8 @@
     modules = {
       # core
       gpu-nvidia.enable = lib.mkForce true;
+      # desktop
+      stylix.scheme = "everforest";
     };
 
     # do not touch

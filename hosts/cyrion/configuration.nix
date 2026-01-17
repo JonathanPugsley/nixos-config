@@ -18,6 +18,7 @@
       gpu-intel.enable = lib.mkForce true;
       # desktop
       bluetooth.powerOnBoot.enable = lib.mkForce false;
+      stylix.scheme = "tokyo-night";
     };
 
     # do not touch

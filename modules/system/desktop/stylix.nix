@@ -1,10 +1,26 @@
 { config, lib, pkgs, ... }: {
-  options.modules.stylix.enable = lib.mkEnableOption "enable stylix";
+  options.modules.stylix = let
+    themeDir = ./themes;
+    availableThemes = builtins.listToAttrs (
+      map ( file: {
+        name = lib.removeSuffix ".nix" file;
+        value = themeDir + "/${file}";
+      })
+      (builtins.filter (f: lib.hasSuffix ".nix" f) (builtins.attrNames (builtins.readDir themeDir)))
+    );
+  in {
+    enable = lib.mkEnableOption "enable stylix";
+    scheme = lib.mkOption {
+      type = lib.types.enum (builtins.attrNames availableThemes);
+      default = "gruvbox";
+      description = "Stylix base16 colour scheme for stylix (from ./themes)";
+    };
+  };
 
   config = lib.mkIf config.modules.stylix.enable {
     stylix = {
       enable = true;
-      base16Scheme = import ./themes/everforest.nix;
+      base16Scheme = import ./themes/${config.modules.stylix.scheme}.nix;
       polarity = "dark";
       fonts = {
         serif = config.stylix.fonts.sansSerif;

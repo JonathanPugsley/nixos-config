@@ -4,22 +4,20 @@
   author = "https://github.com/catppuccin/catppuccin";
 
   # base16 theme
-  base00 = "1e1e2e"; # base
-  base01 = "313244"; # surface0
-  base02 = "45475a"; # surface1
-  base03 = "6c7086"; # overlay0
-  base04 = "a6adc8"; # subtext0
-  base05 = "cdd6f4"; # text
-  base06 = "f5e0dc"; # rosewater
-  base07 = "b4befe"; # lavender
-  base08 = "f38ba8"; # red
-  base09 = "fab387"; # peach
-  base0A = "f9e2af"; # yellow
-  base0B = "a6e3a1"; # green
-  base0C = "94e2d5"; # teal
-  base0D = "89b4fa"; # blue
-  base0E = "cba6f7"; # mauve
-  base0F = "f2cdcd"; # flamingo
-
-  # extras
+  base00 = "1e1e2e";
+  base01 = "313244";
+  base02 = "45475a";
+  base03 = "6c7086";
+  base04 = "a6adc8";
+  base05 = "cdd6f4";
+  base06 = "f5e0dc";
+  base07 = "b4befe";
+  base08 = "f38ba8";
+  base09 = "fab387";
+  base0A = "f9e2af";
+  base0B = "a6e3a1";
+  base0C = "94e2d5";
+  base0D = "89b4fa";
+  base0E = "cba6f7";
+  base0F = "f2cdcd";
 }
