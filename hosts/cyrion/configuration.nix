@@ -22,6 +22,10 @@
     };
 
     # do not touch
+    boot.initrd.luks.devices."cryptroot" = {
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
     boot.initrd.luks.devices."cryptswap".device = "/dev/disk/by-uuid/d3d0ad63-21d4-4164-bcf4-71adbdef73d7";
     boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";

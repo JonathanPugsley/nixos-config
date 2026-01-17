@@ -21,6 +21,10 @@
     };
 
     # do not touch
+    boot.initrd.luks.devices."cryptroot" = {
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
     boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";
   };
