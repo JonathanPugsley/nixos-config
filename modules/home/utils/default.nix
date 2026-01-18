@@ -3,6 +3,7 @@
     ./bluetui.nix
     ./btop.nix
     ./fastfetch.nix
+    ./fd.nix
     ./fzf.nix
     ./git.nix
     ./gum.nix
@@ -25,6 +26,7 @@
     bluetui.enable = lib.mkDefault config.groups.utils.enable;
     btop.enable = lib.mkDefault config.groups.utils.enable;
     fastfetch.enable = lib.mkDefault config.groups.utils.enable;
+    fd.enable = lib.mkDefault config.groups.utils.enable;
     fzf.enable = lib.mkDefault config.groups.utils.enable;
     git.enable = lib.mkDefault config.groups.utils.enable;
     gum.enable = lib.mkDefault config.groups.utils.enable;
