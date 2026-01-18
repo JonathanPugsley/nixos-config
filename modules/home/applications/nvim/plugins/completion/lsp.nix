@@ -1,6 +1,7 @@
 { config, lib, ... }: {
   config = lib.mkIf config.modules.nixvim.enable {
     programs.nixvim = {
+      plugins.lsp-format.enable = true;
       plugins.lsp = {
         enable = true;
         servers = {
