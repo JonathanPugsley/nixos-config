@@ -1,9 +1,6 @@
 { config, lib, ... }: {
   config = lib.mkIf config.modules.nixvim.enable {
     programs.nixvim = {
-      enableMan = true;
-      editorconfig.enable = true;
-
       globals = {
         mapleader = " ";
         maplocalleader = " ";
@@ -55,9 +52,11 @@
       };
 
       # theme tweaks
-      highlightOverride.StatusLine.bg = "NONE";
-      highlightOverride.StatusLineNC.bg = "NONE";
-      highlightOverride.TabLineFill.bg = "NONE";
+      highlightOverride = {
+        StatusLine.bg = "NONE";
+        StatusLineNC.bg = "NONE";
+        TabLineFill.bg = "NONE";
+      };
 
       keymaps = [
         {

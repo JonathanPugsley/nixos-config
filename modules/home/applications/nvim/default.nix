@@ -10,6 +10,8 @@
   config = lib.mkIf config.modules.nixvim.enable {
     programs.nixvim = {
       enable = true;
+      enableMan = true;
+      editorconfig.enable = true;
       defaultEditor = true;
     };
   };
