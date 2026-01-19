@@ -34,6 +34,7 @@
         wrap = false;           # wrap lines
         scrolloff = 8;          # lines to keep visible when scrolling vertically
         sidescrolloff = 10;     # columns to keep visible when scrolling horizontally
+        winborder = "single";   # window border for floating windows
 
         termguicolors = true;   # enable 24-bit color support
         signcolumn = "yes:1";   # show sign column
@@ -62,13 +63,13 @@
         {
           mode = "n";
           key = "<leader>w";
-          action = "<CMD>write<CR>";
+          action = ":w<CR>";
           options.desc = "Write";
         }
         {
           mode = "n";
           key = "<leader>q";
-          action = "<CMD>quit<CR>";
+          action = ":q<CR>";
           options.desc = "Quit";
         }
       ];
@@ -81,6 +82,5 @@
       transparentBackground.numberLine = true;
       transparentBackground.main = true;
     };
-
   };
 }

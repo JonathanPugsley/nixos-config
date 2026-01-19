@@ -9,14 +9,18 @@
             float = {
               enable = true;
               quit_on_focus_loss = true;
-              open_win_config = {
-                relative = "editor";
-                border = "single";
-                width = 40;
-                height = 30;
-                row = 1;
-                col = 10000;
-              };
+              open_win_config.__raw = '' function()
+                local width = math.floor(0.5 * vim.o.columns)
+                local height = math.floor(0.7 * vim.o.lines)
+                return {
+                  border = "single",
+                  relative = "editor",
+                  width = width,
+                  height = height,
+                  row = math.floor(0.5 * (vim.o.lines - height)),
+                  col = math.floor(0.5 * (vim.o.columns - width)),
+                }
+              end '';
             };
           };
 
@@ -55,7 +59,7 @@
         {
           mode = "n";
           key = "<leader>e";
-          action = "<CMD>NvimTreeToggle<CR>";
+          action = ":NvimTreeToggle<CR>";
           options.desc = "Toggle neo-tree";
         }
       ];
