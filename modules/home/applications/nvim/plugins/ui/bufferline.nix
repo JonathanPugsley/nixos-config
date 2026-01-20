@@ -4,6 +4,33 @@
       plugins.bufferline = {
         enable = true;
         settings = {
+          options = {
+            mode = "buffers";
+            always_show_bufferline = true;
+            numbers = "none";
+            indicator.style = "none";
+            modified_icon = "●";
+            max_name_length = 18;
+            max_prefix_length = 15;
+            truncate_names = true;
+            tab_size = 18;
+            diagnostics = "nvim_lsp";
+            diagnostics_indicator = "";
+            color_icons = true;
+            show_buffer_icons = true;
+            show_buffer_close_icons = false;
+            show_close_icon = false;
+            show_tab_indicators = false;
+            show_duplicate_prefix = true;
+            duplicates_across_groups = true;
+            persist_buffer_sort = true;
+            move_wraps_at_end = false;
+            separator_style = [ "" "" ];
+            enforce_regular_tabs = false; # disables de-duplication
+            hover.enabled = false;
+            sort_by = "insert_after_current";
+          };
+
           highlights = let
             colours = {
               background = "#${config.lib.stylix.colors.base00}";
@@ -80,33 +107,6 @@
             # truncated buffers marker
             trunc_marker.bg = colours.background;
           };
-
-          options = {
-            mode = "buffers";
-            always_show_bufferline = true;
-            numbers = "none";
-            indicator.style = "none";
-            modified_icon = "●";
-            max_name_length = 18;
-            max_prefix_length = 15;
-            truncate_names = true;
-            tab_size = 18;
-            diagnostics = "nvim_lsp";
-            diagnostics_indicator = "";
-            color_icons = true;
-            show_buffer_icons = true;
-            show_buffer_close_icons = false;
-            show_close_icon = false;
-            show_tab_indicators = false;
-            show_duplicate_prefix = true;
-            duplicates_across_groups = true;
-            persist_buffer_sort = true;
-            move_wraps_at_end = false;
-            separator_style = [ "" "" ];
-            enforce_regular_tabs = false; # disables de-duplication
-            hover.enabled = false;
-            sort_by = "insert_after_current";
-          };
         };
       };
 
@@ -114,19 +114,19 @@
         {
           mode = "n";
           key = "<leader>n";
-          action = "<CMD>BufferLineCycleNext<CR>";
+          action = ":BufferLineCycleNext<CR>";
           options.desc = "Buffer Next";
         }
         {
           mode = "n";
           key = "<leader>p";
-          action = "<CMD>BufferLineCyclePrev<CR>";
+          action = ":BufferLineCyclePrev<CR>";
           options.desc = "Buffer Previous";
         }
         {
           mode = "n";
           key = "<leader>x";
-          action = "<CMD>bdelete<CR>";
+          action = ":bdelete<CR>";
           options.desc = "Remove Buffer";
         }
       ];

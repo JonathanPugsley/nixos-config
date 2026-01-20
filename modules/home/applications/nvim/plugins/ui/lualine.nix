@@ -31,39 +31,20 @@
             disabled_filetypes.statusline = [ "alpha" "NvimTree" ];
 
             # colours
-            theme = let
-              colours = {
-                foreground = "#${config.lib.stylix.colors.base06}";
-                background = "#${config.lib.stylix.colors.base00}";
-                dimmed_foreground = "#${config.lib.stylix.colors.base03}";
-                red = "#${config.lib.stylix.colors.base08}";
-                orange = "#${config.lib.stylix.colors.base09}";
-                green = "#${config.lib.stylix.colors.base0B}";
-                blue = "#${config.lib.stylix.colors.base0D}";
-              };
-            in {
+            theme = {
               normal = {
-                a = { fg = colours.foreground; bg = colours.background; gui = "bold"; };
-                b = { fg = colours.foreground; bg = colours.background; };
-                c = { fg = colours.foreground; bg = colours.background; };
+                a = { fg = "#${config.lib.stylix.colors.base05}"; gui = "bold"; };
+                c.fg = "#${config.lib.stylix.colors.base05}";
               };
-
-              insert.a = { fg = colours.blue; bg = colours.background; gui = "bold"; };
-              visual.a = { fg = colours.orange; bg = colours.background; gui = "bold"; };
-              replace.a = { fg = colours.red; bg = colours.background; gui = "bold"; };
-              command.a = { fg = colours.green; bg = colours.background; gui = "bold"; };
-
               inactive = {
-                a = { fg = colours.dimmed_foreground; bg = colours.background; gui = "bold"; };
-                b = { fg = colours.dimmed_foreground; bg = colours.background; };
-                c = { fg = colours.dimmed_foreground; bg = colours.background; };
+                a.fg = "#${config.lib.stylix.colors.base03}";
+                c.fg = "#${config.lib.stylix.colors.base03}";
               };
 
-              disabled = {
-                a = { fg = colours.background; bg = colours.background; gui = "bold"; };
-                b = { fg = colours.background; bg = colours.background; };
-                c = { fg = colours.background; bg = colours.background; };
-              };
+              insert.a = { fg = "#${config.lib.stylix.colors.base0D}"; gui = "bold"; };
+              visual.a = { fg = "#${config.lib.stylix.colors.base09}"; gui = "bold"; };
+              replace.a = { fg = "#${config.lib.stylix.colors.base08}"; gui = "bold"; };
+              command.a = { fg = "#${config.lib.stylix.colors.base0B}"; gui = "bold"; };
             };
           };
         };

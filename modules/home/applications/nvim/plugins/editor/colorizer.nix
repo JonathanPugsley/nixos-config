@@ -13,7 +13,7 @@
         {
           mode = "n";
           key = "<leader>tc";
-          action = "<CMD>ColorizerToggle<CR>";
+          action = ":ColorizerToggle<CR>";
           options.desc = "Toggle Color Code Highlights";
         }
       ];

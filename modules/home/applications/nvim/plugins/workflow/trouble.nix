@@ -6,7 +6,7 @@
         {
           mode = "n";
           key = "<leader>d";
-          action = "<CMD>Trouble diagnostics toggle<CR>";
+          action = ":Trouble diagnostics toggle<CR>";
           options.desc = "Toggle Diagnostics";
         }
       ];

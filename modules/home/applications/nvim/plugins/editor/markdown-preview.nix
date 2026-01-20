@@ -7,7 +7,7 @@
         {
           mode = "n";
           key = "<leader>mp";
-          action = "<CMD>MarkdownPreviewToggle<CR>";
+          action = ":MarkdownPreviewToggle<CR>";
           options.desc = "Toggle Markdown Preview";
         }
       ];

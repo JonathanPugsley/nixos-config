@@ -15,10 +15,10 @@
     ./ui/bufferline.nix
     ./ui/gitsigns.nix
     ./ui/lualine.nix
-    ./ui/web-devicons.nix
+    ./ui/mini-icons.nix
     ./workflow/mini-pick.nix
+    ./workflow/mini-sessions.nix
     ./workflow/nvim-tree.nix
-    ./workflow/persistence.nix
     ./workflow/trouble.nix
     ./workflow/which-key.nix
   ];

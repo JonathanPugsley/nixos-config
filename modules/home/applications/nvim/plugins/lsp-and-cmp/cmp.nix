@@ -34,10 +34,13 @@
               completion = {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None";
                 scrollbar = false;
+                side_padding = 0;
+                col_offset = 0;
               };
 
               documentation = {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None";
+                col_offset = 0;
               };
             };
           };

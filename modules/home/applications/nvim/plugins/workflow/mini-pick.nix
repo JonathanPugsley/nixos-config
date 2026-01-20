@@ -21,6 +21,7 @@
             toggle_preview = "<Tab>";
           };
 
+          # centred floating window
           window = {
             config.__raw = '' function()
               local width = math.floor(0.5 * vim.o.columns)
