@@ -20,7 +20,6 @@
         "SUPER, C, exec, lekker-menu-clipboard"
         "SUPER, N, exec, lekker-notes"
         "SUPER, M, exec, spotify"
-        "SUPER ALT SHIFT, H, exit"
 
         "SUPER, Space, exec, lekker-menu"
 
