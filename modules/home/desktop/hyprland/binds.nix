@@ -13,10 +13,10 @@
         "SUPER, D, Discord, exec, discord"
         "SUPER, F, Fullscreen, fullscreen"
         "SUPER, G, Toggle Window Float, togglefloating"
-        "SUPER, K, Keybinds Menu, exec, lekker-menu-keybinds"
 
         "SUPER, X, Browser, exec, librewolf"
         "SUPER, C, Clipboard, exec, lekker-menu-clipboard"
+        "SUPER, B, Keybinds Menu, exec, lekker-menu-keybinds"
         "SUPER, N, Notes, exec, lekker-notes"
         "SUPER, M, Music, exec, spotify"
 
