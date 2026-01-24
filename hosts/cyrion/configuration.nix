@@ -18,7 +18,7 @@
       gpu-intel.enable = lib.mkForce true;
       # desktop
       bluetooth.powerOnBoot.enable = lib.mkForce false;
-      stylix.scheme = "gruvbox";
+      stylix.scheme = "everforest";
     };
 
     # do not touch
