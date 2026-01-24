@@ -87,14 +87,15 @@ prioritize_entries() {
     if (match(line, /Toggle Window Float/))  prio = 10
     if (match(line, /Screenshot/))  prio = 11
     if (match(line, /Notes/))  prio = 12
-    if (match(line, /Music/))  prio = 13
-    if (match(line, /Steam/))  prio = 14
-    if (match(line, /Discord/))  prio = 15
-    if (match(line, /Window Focus/))  prio = 16
-    if (match(line, /Window Move/))  prio = 17
-    if (match(line, /Workspace/))  prio = 18
-    if (match(line, /Move to Workspace/))  prio = 19
-    if (match(line, /Keybinds Menu/))  prio = 20
+    if (match(line, /Wallpaper Switcher/))  prio = 13
+    if (match(line, /Music/))  prio = 14
+    if (match(line, /Steam/))  prio = 15
+    if (match(line, /Discord/))  prio = 16
+    if (match(line, /Window Focus/))  prio = 17
+    if (match(line, /Window Move/))  prio = 18
+    if (match(line, /Workspace/))  prio = 19
+    if (match(line, /Move to Workspace/))  prio = 20
+    if (match(line, /Keybinds Menu/))  prio = 21
     # print "priority<TAB>line"
     printf "%d\t%s\n", prio, line
   }' |
