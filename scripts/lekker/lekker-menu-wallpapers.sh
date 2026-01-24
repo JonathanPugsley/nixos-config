@@ -33,5 +33,4 @@ selected_wallpaper="$WALLPAPER_PATH/$selected_scheme/$selected_wallpaper"
 sed -i "s|^\(preload=\).*|\1$selected_wallpaper|" "$CONFIG_FILE"
 sed -i "s|^\(wallpaper=\).*|\1,$selected_wallpaper|" "$CONFIG_FILE"
 
-pkill hyprpaper
-systemctl --user start hyprpaper
+systemctl --user restart hyprpaper
