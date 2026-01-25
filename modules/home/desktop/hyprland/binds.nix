@@ -4,6 +4,7 @@
       bindd = [
         "SUPER, Q, Kill Window, killactive"
         "SUPER SHIFT, Q, Force Kill Window, forcekillactive"
+        "SUPER, W, Wallpaper Switcher, exec, lekker-menu-wallpapers"
         "SUPER, E, File Manager, exec, alacritty -e yazi $HOME"
         "SUPER, R, Run Apps, exec, rofi -show drun"
         "SUPER, P, Power Menu, exec, lekker-menu-system"
