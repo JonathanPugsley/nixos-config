@@ -7,7 +7,7 @@ SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher -l "${#OPTIONS[@]}" -p "L
 case "${SEL#*  }" in
     "Audio") lekker-menu-audio ;;
     "Bluetooth") lekker-launch-bluetooth ;;
-    "Network") exit 0 ;;
+    "Network") lekker-menu-wifi ;;
     "Monitors") lekker-toggle-resolution ;;
     "Power Profiles") exit 0 ;;
     *) exit 1 ;;

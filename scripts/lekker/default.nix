@@ -13,6 +13,7 @@
       lekker-menu-manage = pkgs.writeScriptBin "lekker-menu-manage" (builtins.readFile ./lekker-menu-manage.sh);
       lekker-menu-system = pkgs.writeScriptBin "lekker-menu-system" (builtins.readFile ./lekker-menu-system.sh);
       lekker-menu-toggle = pkgs.writeScriptBin "lekker-menu-toggle" (builtins.readFile ./lekker-menu-toggle.sh);
+      lekker-menu-wifi = pkgs.writeScriptBin "lekker-menu-wifi" (builtins.readFile ./lekker-menu-wifi.sh);
       lekker-menu = pkgs.writeScriptBin "lekker-menu" (builtins.readFile ./lekker-menu.sh);
       lekker-notes = pkgs.writeScriptBin "lekker-notes" (builtins.readFile ./lekker-notes.sh);
       lekker-timer = pkgs.writeScriptBin "lekker-timer" (builtins.readFile ./lekker-timer.sh);
@@ -31,6 +32,7 @@
         lekker-menu-manage
         lekker-menu-system
         lekker-menu-toggle
+        lekker-menu-wifi
         lekker-menu
         lekker-notes
         lekker-timer
