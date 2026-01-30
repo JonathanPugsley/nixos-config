@@ -3,7 +3,7 @@
 
 OPTIONS=( "  Audio" "  Bluetooth" "󰖩  Network" "󰍹  Monitors" "󱐋  Power Profiles" )
 
-SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher -l "${#OPTIONS[@]}" -p "Lekker" ) || exit 0
+SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher -l "${#OPTIONS[@]}" -p "Manage" ) || exit 0
 case "${SEL#*  }" in
     "Audio") lekker-menu-audio ;;
     "Bluetooth") lekker-launch-bluetooth ;;

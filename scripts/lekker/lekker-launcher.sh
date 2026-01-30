@@ -45,4 +45,5 @@ rofi -dmenu -i \
   -p "$prompt" \
   -theme-str "#entry { placeholder: \"$placeholder\"; } window { width: $width; }" \
   -display-columns "$display_columns" \
-  "$password"
+  "$password" \
+  -markup-rows
