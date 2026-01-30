@@ -14,7 +14,7 @@
       settings = {
         # global
         max-history = 20;
-        sort = "+time";
+        sort = "-time";
 
         # actions
         on-button-left = "invoke-default-action";
