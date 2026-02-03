@@ -11,6 +11,7 @@
       lekker-menu-clipboard = pkgs.writeScriptBin "lekker-menu-clipboard" (builtins.readFile ./lekker-menu-clipboard.sh);
       lekker-menu-keybinds = pkgs.writeScriptBin "lekker-menu-keybinds" (builtins.readFile ./lekker-menu-keybinds.sh);
       lekker-menu-manage = pkgs.writeScriptBin "lekker-menu-manage" (builtins.readFile ./lekker-menu-manage.sh);
+      lekker-menu-symbols = pkgs.writeScriptBin "lekker-menu-symbols" (builtins.readFile ./lekker-menu-symbols.sh);
       lekker-menu-system = pkgs.writeScriptBin "lekker-menu-system" (builtins.readFile ./lekker-menu-system.sh);
       lekker-menu-toggle = pkgs.writeScriptBin "lekker-menu-toggle" (builtins.readFile ./lekker-menu-toggle.sh);
       lekker-menu-wifi = pkgs.writeScriptBin "lekker-menu-wifi" (builtins.readFile ./lekker-menu-wifi.sh);
@@ -30,6 +31,7 @@
         lekker-menu-clipboard
         lekker-menu-keybinds
         lekker-menu-manage
+        lekker-menu-symbols
         lekker-menu-system
         lekker-menu-toggle
         lekker-menu-wifi

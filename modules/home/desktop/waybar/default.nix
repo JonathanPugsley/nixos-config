@@ -8,6 +8,7 @@
       enable = true;
       style = pkgs.replaceVars ./style.css {
         foreground = "#${config.lib.stylix.colors.base05}";
+        border-color = "#${config.lib.stylix.colors.base03}";
         background = "#${config.lib.stylix.colors.base10}";
         default-font = "${config.stylix.fonts.monospace.name}";
       };
@@ -84,9 +85,12 @@
         };
 
         network = {
-          format-wifi = "";
+          format-wifi = "{icon}";
           format-ethernet = "";
-          format-disconnected = "󱘖";
+          format-disconnected = "󰤯";
+          format-disabled = "󱘖";
+          format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+          on-click = "lekker-menu-wifi";
           tooltip = false;
         };
 

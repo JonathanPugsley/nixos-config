@@ -13,6 +13,16 @@ window#waybar {
     color: @foreground@;
 }
 
+tooltip {
+    background-color: @background@;
+    border: 2px solid @border-color@;
+}
+
+tooltip * {
+    color: @foreground@;
+    padding: 4px;
+}
+
 .modules-left {
     padding-left: 15px;
 }
@@ -44,6 +54,7 @@ window#waybar {
 #workspaces button.empty,
 #wireplumber.muted,
 #network.disconnected,
+#network.disabled,
 #bluetooth.no-controller,
 #bluetooth.disabled,
 #bluetooth.off {

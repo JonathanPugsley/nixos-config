@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   imports = [
     ./theme.nix
     ./keybinds.nix
@@ -12,9 +12,13 @@
     # settings
     programs.rofi = {
       enable = true;
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-nerdy
+      ];
       cycle = false;
       location = "center";
-      modes = [ "drun" "window" ];
+      modes = [ "drun" "window" "nerdy" "emoji" ];
       extraConfig = {
         fixed-num-lines = false;
         disable-history = true;

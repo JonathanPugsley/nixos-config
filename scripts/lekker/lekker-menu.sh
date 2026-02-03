@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # main lekker menu
 
-ENTRIES=( "  Apps" "  Capture" "  Timer" "  Toggle" "  Manage" "  Nixpkgs" "  About" "  System" )
+ENTRIES=( "  Apps" "  Capture" "  Timer" "  Toggle" "  Manage" "  Nixpkgs" "  Symbols" "  About" "  System" )
 
 about() {
     abt_cmd="xdg-terminal-exec -e $SHELL -c 'fastfetch; echo -n \"Press any key to exit... \" && read -sr -k 1 ; exit'"
@@ -22,6 +22,7 @@ case "${selection#*  }" in
     "Toggle") lekker-menu-toggle ;;
     "Manage") lekker-menu-manage ;;
     "Nixpkgs") pkg_search ;;
+    "Symbols") lekker-menu-symbols ;;
     "About")  about ;;
     "System") lekker-menu-system ;;
     *) exit 1 ;;
