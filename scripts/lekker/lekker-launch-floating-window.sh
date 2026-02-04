@@ -31,9 +31,6 @@ readarray -t RESOLUTION < <( hyprctl monitors -j | jq -r '.[0].width, .[0].heigh
 WINDOW_WIDTH=$(awk "BEGIN {print ${RESOLUTION[0]} * ( $WIDTH_FACTOR / ${RESOLUTION[2]} )}")
 WINDOW_HEIGHT=$(awk "BEGIN {print ${RESOLUTION[1]} * ( $HEIGHT_FACTOR / ${RESOLUTION[2]} )}")
 
-echo "$WINDOW_WIDTH"
-echo "$WINDOW_HEIGHT"
-
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
         -w|--width-factor) WINDOW_WIDTH=$(awk "BEGIN {print ${RESOLUTION[0]} * $2}") && shift 2;;
