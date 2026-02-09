@@ -135,7 +135,7 @@ menu() {
     options=( "$toggle_label" "󱛃  Add Network" "󱛅  Remove Network" "󱚾  Saved Networks" "  Share Network" )
     selection=$( printf "%s\n" "${options[@]}" | lekker-launcher -l "${#options[@]}" -p "Network") || exit 0
     case "${selection#*  }" in
-        "$toggle_label") toggle_wifi "$radio_state" ;;
+        "${toggle_label#*  }") toggle_wifi "$radio_state" ;;
         "Add Network") add ;;
         "Remove Network") remove ;;
         "Saved Networks") saved ;;
