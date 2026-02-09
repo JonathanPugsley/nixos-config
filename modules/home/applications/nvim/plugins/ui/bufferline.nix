@@ -6,7 +6,7 @@
         settings = {
           options = {
             mode = "buffers";
-            always_show_bufferline = true;
+            always_show_bufferline = false;
             numbers = "none";
             indicator.style = "none";
             modified_icon = "●";
