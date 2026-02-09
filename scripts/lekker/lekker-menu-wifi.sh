@@ -6,12 +6,21 @@ notify_msg() {
     notify-send -a "lekker" "Lekker Wi-Fi Menu" "$message"
 }
 
-add_connection() {
+display_known_connections() {
+    local ssid sel_ssid
+    readarray -t ssid < <( nmcli -f "NAME" connection show |
+        sed 1d |
+        sed '/^lo[[:space:]]*$/d'
+    )
+    sel_ssid=$( printf "%s\n" "${ssid[@]}" | lekker-launcher -l "${#ssid[@]}" ) || return 1
+    printf '%s\n' "$sel_ssid"
+}
+
+add() {
     local display raw_ssids
     local sec ssid inuse freq signal
     local icon signal_bars band
     local selection sel_ssid wifi_pass i
-
     display=()
     raw_ssids=()
 
@@ -69,22 +78,39 @@ add_connection() {
             break
         else
             notify_msg "Failed to connect to $sel_ssid"
-            nmcli connection modify "$sel_ssid" wifi-sec.psk ""
+            nmcli connection delete "$sel_ssid"
         fi
     done
 }
 
-remove_connection() {
-    local ssid sel_ssid
-    readarray -t ssid <<<"$( nmcli -f "NAME" connection show |
-        sed 1d |
-        sed '/^lo[[:space:]]*$/d'
-    )"
-
-    sel_ssid=$( printf "%s\n" "${ssid[@]}" | lekker-launcher -l "${#ssid[@]}" ) || exit 0
+remove() {
+    local sel_ssid
+    sel_ssid="$(display_known_connections)" || exit 0
     sel_ssid="${sel_ssid%"${sel_ssid##*[![:space:]]}"}" # remove trailing whitespace
-    notify_msg "Removed connection $sel_ssid"
+    notify_msg "Removed network $sel_ssid"
     nmcli connection delete "$sel_ssid"
+}
+
+share() {
+    local launch_cmd
+    launch_cmd="xdg-terminal-exec -e $SHELL -c '
+        nmcli device wifi show-password;
+        echo -n \"Press any key to exit... \" && read -sr -k 1 ;
+        exit'"
+    lekker-launch-floating-window "$launch_cmd" -W 375 -H 530
+}
+
+saved() {
+    local sel_ssid
+    sel_ssid="$(display_known_connections)" || exit 0
+    sel_ssid="${sel_ssid%"${sel_ssid##*[![:space:]]}"}" # remove trailing whitespace
+
+    # connect
+    if nmcli dev wifi connect "$sel_ssid" 2>&1; then
+        notify_msg "Successfully connected to $sel_ssid"
+    else
+        notify_msg "Failed to connect to $sel_ssid"
+    fi
 }
 
 toggle_wifi() {
@@ -106,12 +132,14 @@ menu() {
     [[ "$radio_state" == "enabled" ]] && toggle_label="󰖪  Disable Wi-Fi"
 
     # menu
-    options=( "$toggle_label" "Add Connection" "Remove Connection" )
+    options=( "$toggle_label" "󱛃  Add Network" "󱛅  Remove Network" "󱚾  Saved Networks" "  Share Network" )
     selection=$( printf "%s\n" "${options[@]}" | lekker-launcher -l "${#options[@]}" -p "Network") || exit 0
-    case "$selection" in
+    case "${selection#*  }" in
         "$toggle_label") toggle_wifi "$radio_state" ;;
-        "Add Connection") add_connection ;;
-        "Remove Connection") remove_connection ;;
+        "Add Network") add ;;
+        "Remove Network") remove ;;
+        "Saved Networks") saved ;;
+        "Share Network") share ;;
         *) exit 1 ;;
     esac
 }
