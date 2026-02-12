@@ -19,8 +19,10 @@
         set -g status-style \"bg=default\"
         set -g window-status-style \"fg=default\"
         set -g window-status-current-style \"fg=cyan bold\"
-        set -g status-right \"\"
-        set -g status-left \"#S\"
+        set -g status-right \"#S\"
+        set -g status-left \"\"
+
+        set -g escape-time 5
 
         bind r source-file \"~/.config/tmux/tmux.conf\"
       ";
