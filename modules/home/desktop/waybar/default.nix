@@ -56,7 +56,7 @@
         clock = {
           timezone = "Europe/London";
           format = "{:%H:%M}";
-          format-alt = "{:%A %d-%m-%Y}";
+          format-alt = "{:%A %d %B}";
           tooltip = false;
         };
 
