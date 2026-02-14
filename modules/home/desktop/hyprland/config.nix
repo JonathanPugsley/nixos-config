@@ -63,15 +63,14 @@
           dim_strength = 0;
 
           blur = {
-            # options
-            enabled = true;
+            enabled = false;
             # ignore_opacity = true;
-            new_optimizations = true;
-            xray = false;
+            # new_optimizations = true;
+            # xray = false;
 
             # parameters
-            size = 2;
-            passes = 2;
+            # size = 2;
+            # passes = 2;
             # noise = 0.0117;
             # contrast = 0.8916;
             # brightness = 0.8172;

@@ -2,12 +2,6 @@
   config = lib.mkIf config.modules.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       windowrule = [
-        # disable blur for all windows by default
-        {
-          name = "no-blur";
-          match = { class = ".*"; };
-          no_blur = 1;
-        }
         # opacity for terminal windows
         {
           name = "term-opacity";
@@ -19,7 +13,6 @@
           name = "opacity";
           match = { tag = "opacity"; };
           opacity = "0.95 0.90";
-          no_blur = 0;
         }
       ];
 
