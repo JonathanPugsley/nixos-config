@@ -11,10 +11,5 @@ pkgs.callPackage (
       rustc
       cargo
     ];
-
-    shellHook = ''
-      export SHELL=${pkgs.zsh}/bin/zsh
-      exec ${pkgs.zsh}/bin/zsh
-    '';
   }
 ) {}

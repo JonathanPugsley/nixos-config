@@ -1,5 +1,12 @@
+if [[ -n $IN_NIX_SHELL ]]; then
+    PCOL="%{$fg_no_bold[magenta]%}"
+    # "%{$fg[magenta]%}nxsh%{$reset_color%} "
+else
+    PCOL="%{$fg_no_bold[green]%}"
+fi
+
 RPROMPT='[%*]'
-PROMPT='%{$fg_no_bold[green]%}%n@%m %{$fg_no_bold[default]%}%6~ $(git_prompt_info)%{$reset_color%}
+PROMPT='${PCOL}%n@%m %{$fg_no_bold[green]%}%~ $(git_prompt_info)%{$reset_color%}
 » '
 
 # GIT PROMPT

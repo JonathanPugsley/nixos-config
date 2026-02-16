@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   options.modules.zsh.enable = lib.mkEnableOption "enable zsh";
 
   config = lib.mkIf config.modules.zsh.enable {
@@ -22,6 +22,19 @@
         size = 1000;
       };
 
+      plugins = [
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.8.0";
+            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+          };
+        }
+      ];
+
       syntaxHighlighting.enable = true;
 
       # omzsh
@@ -33,7 +46,6 @@
 
       # aliases
       shellAliases = {
-        bt = "systemctl start bluetooth.service";
         ns = "nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse";
         nsh = "nix-shell ./shell.nix";
         nsh-rust = "nix-shell ~/dev/nixos-config/modules/home/shells/rust/shell.nix";
