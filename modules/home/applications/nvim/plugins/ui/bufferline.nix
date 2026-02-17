@@ -53,6 +53,26 @@
             };
 
             # diagnostic levels (hint & info not shown)
+            info.bg = colours.background;
+            info_selected = {
+              bg = colours.background;
+              italic = false;
+            };
+            info_visible = {
+              bg = colours.background;
+              italic = false;
+            };
+
+            hint.bg = colours.background;
+            hint_selected = {
+              bg = colours.background;
+              italic = false;
+            };
+            hint_visible = {
+              bg = colours.background;
+              italic = false;
+            };
+
             warning.bg = colours.background;
             warning_selected = {
               bg = colours.background;
