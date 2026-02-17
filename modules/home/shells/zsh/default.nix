@@ -49,6 +49,8 @@
         ns = "nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse";
         nsh = "nix-shell ./shell.nix";
         nsh-rust = "nix-shell ~/dev/nixos-config/modules/home/shells/rust/shell.nix";
+
+        tsm = "tmux-session-manager";
       };
     };
   };

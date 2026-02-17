@@ -1,5 +1,6 @@
 { config, lib, ... }: {
   imports = [
+    ./tmux/default.nix
     ./bluetui.nix
     ./btop.nix
     ./fastfetch.nix
@@ -14,7 +15,6 @@
     ./playerctl.nix
     ./qpwgraph.nix
     ./ripgrep.nix
-    ./tmux.nix
     ./tree.nix
     ./wiremix.nix
     ./yazi.nix
