@@ -46,11 +46,17 @@
 
       # aliases
       shellAliases = {
+        # nix-search-tv
         ns = "nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse";
+
+        # nix-shell
         nsh = "nix-shell ./shell.nix";
         nsh-rust = "nix-shell ~/dev/nixos-config/modules/home/shells/rust/shell.nix";
 
-        tsm = "tmux-session-manager";
+        # tmux-session-manager
+        t = "tmux-session-manager";
+        tl = "tmux-session-manager launch";
+        tc = "tmux-session-manager close";
       };
     };
   };

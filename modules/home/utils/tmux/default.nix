@@ -49,10 +49,10 @@
 
         bind r source-file \"~/.config/tmux/tmux.conf\"
         bind g run \"open-github\"
-        unbind f
-        bind f neww -n picker \"bash -ic tmux-session-manager\"
+        bind e choose-tree -s
+        bind f neww -n tsm \"tmux-session-manager launch\"
         unbind C
-        bind C run-shell \"tmux-session-manager -f ~/dev/nixos-config\"
+        bind C run \"tmux-session-manager launch -p ~/dev/nixos-config\"
       ";
     };
   };
