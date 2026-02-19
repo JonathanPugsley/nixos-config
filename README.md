@@ -29,9 +29,10 @@ a website link will be provided here, and in the repository info.
 - [`modules/`](modules/) : Sets of modularised NixOS configuration files
     - [`home/`](modules/home/) : Home-manager modules:
     - [`system/`](modules/home/) : System-wide modules
-    - [`user/`](modules/home/) : User configurations
+    - [`users/`](modules/home/) : User configurations
 - [`scripts/`](scripts/) : Shell scripts directory
-    - [`lekker/`](scripts/lekker/) : Lekker scripts directory
+    - [`lekker/`](scripts/lekker/) : Lekker scripts directory (rofi-based)
+    - [`cli-scripts`](scripts/cli-scripts/) : Command-line utilities (terminal-based)
 - [`sops/`](sops/) : Sops secrets and configuration
     - [`secrets.yaml`](sops/secrets.yaml) : Encrypted secrets file
     - [`sops.yaml`](sops/sops.yaml) : Configure sops encryption rules and keys
@@ -98,7 +99,6 @@ These programs can be replaced with an alternative or simply removed/omitted.
 [sops-nix]: https://github.com/Mic92/sops-nix
 [ly]: https://codeberg.org/fairyglade/ly
 [nixvim]: https://github.com/nix-community/nixvim
-[gruvbox]: https://github.com/morhetz/gruvbox
 [zsh]: https://ohmyz.sh/
 <!-- Credits -->
 [basecamp/omarchy]: https://github.com/basecamp/omarchy
