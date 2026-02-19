@@ -51,6 +51,8 @@
         bind g run \"open-github\"
         bind e choose-tree -s
         bind f neww -n tsm \"tmux-session-manager launch\"
+        unbind q
+        bind q neww -n tsm \"tmux-session-manager close\"
         unbind C
         bind C run \"tmux-session-manager launch -p ~/dev/nixos-config\"
       ";
