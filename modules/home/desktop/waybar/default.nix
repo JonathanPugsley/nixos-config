@@ -81,7 +81,8 @@
           format-icons = [ "" "" ];
           on-click = "lekker-menu-audio";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "{node_name}\nvol: {volume}%";
         };
 
         network = {
@@ -91,7 +92,11 @@
           format-disabled = "󱘖";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
           on-click = "lekker-menu-wifi";
-          tooltip = false;
+          tooltip = true;
+          tooltip-format-wifi = "{essid}\nss: {signalStrength}%";
+          tooltip-format-ethernet = "{essid}";
+          tooltip-format-disabled = "disabled";
+          tooltip-format-disconnected = "disconnected";
         };
 
         bluetooth = {
@@ -101,14 +106,21 @@
           format-connected = "󰂱";
           format-no-controller = "󰂲";
           on-click = "lekker-launch-bluetooth";
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "";
+          tooltip-format-connected = "{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+          tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_battery_percentage}%";
+
+          # tooltip-format-enumerate-connected = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
         };
 
         backlight = {
           device = "acpi_video1";
           format = "{icon}";
           format-icons = [ "" "" "" "" "" "" "" "" "" ];
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "{percent}%";
         };
 
         "custom/bluelight" = {
@@ -127,12 +139,12 @@
         battery = {
           format = "{icon}";
           format-charging = "{icon}";
-          format-alt = "{icon} {capacity}%";
           format-icons = {
             "charging" = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
             "default" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           };
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "{capacity}%";
         };
 
         "custom/zenmode" = {
