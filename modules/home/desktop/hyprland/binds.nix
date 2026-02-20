@@ -19,7 +19,7 @@
         "SUPER, B, Keybinds, exec, lekker-menu-keybinds"
         "SUPER SHIFT, B, Keyboard Cheatsheet, exec, lekker-menu-keybinds --keyboard"
         "SUPER, N, Notes, exec, lekker-notes"
-        "SUPER, M, Music, exec, spotify"
+        "SUPER, M, Music, exec, spotify-player-wrapper"
 
         "SUPER, Space, Lekker Menu, exec, lekker-menu"
 
