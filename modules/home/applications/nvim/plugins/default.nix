@@ -16,6 +16,7 @@
     ./ui/gitsigns.nix
     ./ui/lualine.nix
     ./ui/mini-icons.nix
+    ./workflow/lazygit.nix
     ./workflow/mini-pick.nix
     ./workflow/mini-sessions.nix
     ./workflow/nvim-tree.nix
