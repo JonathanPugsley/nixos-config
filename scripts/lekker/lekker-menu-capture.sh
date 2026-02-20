@@ -2,7 +2,7 @@
 # screen capture lekker menu
 
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
-OPTIONS=( "  Screenshot" "  Screen Record" "  Colour Picker" )
+OPTIONS=( "  Screenshot" "  Screen Record" "  Colour Picker" "  Theme Palette" )
 
 screenshot() {
     ss_options=( "󰍹  Output" "  Window" "󰗆  Region")
@@ -25,6 +25,12 @@ colourPicker() {
     notify-send -a "lekker" "Colour Picker: $colour" "$colour copied to clipboard"
 }
 
+themePalette() {
+    local command
+    command="xdg-terminal-exec -e $SHELL -c 'lekker-launch-palette; echo -n \"Press any key to exit... \" && read -sr -k 1 ; exit'"
+    lekker-launch-floating-window "$command" -W 600 -H 600
+}
+
 # check for storage directory
 if [[ ! -d "$SCREENSHOT_DIR" ]]; then
     notify-send -a "lekker" "Lekker Capture" "Creating $SCREENSHOT_DIR for screenshots"
@@ -34,8 +40,9 @@ fi
 # menu
 SEL=$( printf "%s\n" "${OPTIONS[@]}" | lekker-launcher -l "${#OPTIONS[@]}" -p "Capture" ) || exit 0
 case "${SEL#*  }" in
-    "Screenshot") screenshot;;
-    "Screen Record") screenRecord;;
-    "Colour Picker") colourPicker;;
-    *) exit 1;;
+    "Screenshot") screenshot ;;
+    "Screen Record") screenRecord ;;
+    "Colour Picker") colourPicker ;;
+    "Theme Palette") themePalette ;;
+    *) exit 1 ;;
 esac

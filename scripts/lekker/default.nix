@@ -5,6 +5,7 @@
     environment = let
       lekker-launch-bluetooth = pkgs.writeScriptBin "lekker-launch-bluetooth" (builtins.readFile ./lekker-launch-bluetooth.sh);
       lekker-launch-floating-window = pkgs.writeScriptBin "lekker-launch-floating-window" (builtins.readFile ./lekker-launch-floating-window.sh);
+      lekker-launch-palette = pkgs.writeScriptBin "lekker-launch-palette" (builtins.readFile ./lekker-launch-palette.sh);
       lekker-launcher = pkgs.writeScriptBin "lekker-launcher" (builtins.readFile ./lekker-launcher.sh);
       lekker-menu-audio = pkgs.writeScriptBin "lekker-menu-audio" (builtins.readFile ./lekker-menu-audio.sh);
       lekker-menu-capture = pkgs.writeScriptBin "lekker-menu-capture" (builtins.readFile ./lekker-menu-capture.sh);
@@ -25,6 +26,7 @@
       systemPackages = [
         lekker-launch-bluetooth
         lekker-launch-floating-window
+        lekker-launch-palette
         lekker-launcher
         lekker-menu-audio
         lekker-menu-capture
