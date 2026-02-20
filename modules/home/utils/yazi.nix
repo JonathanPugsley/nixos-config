@@ -7,6 +7,7 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+      shellWrapperName = "yy";
       settings = {
         mgr = {
           ratio = [ 1 3 3 ];
@@ -43,29 +44,6 @@
       };
 
       theme = {
-      # let
-      #   colours = {
-      #     foreground = "#${config.lib.stylix.colors.base06}";
-      #     background = "#${config.lib.stylix.colors.base00}";
-      #     grey = "#${config.lib.stylix.colors.base04}";
-      #     red = "#${config.lib.stylix.colors.base08}";
-      #     orange = "#${config.lib.stylix.colors.base09}";
-      #     green = "#${config.lib.stylix.colors.base0B}";
-      #     blue = "#${config.lib.stylix.colors.base0D}";
-      #   };
-      # in {
-        # mode = {
-          # normal_main = { fg = colours.foreground; bg = colours.background; bold = true; };
-          # normal_alt = { fg = colours.foreground; bg = colours.background; };
-          #
-          # # visual/select mode
-          # select_main = { fg = colours.orange; bg = colours.background; bold = true; };
-          # select_alt = { fg = colours.orange; bg = colours.background; };
-          #
-          # unset_main = { fg = colours.grey; bg = colours.background; bold = true; };
-          # unset_alt = { fg = colours.grey; bg = colours.background; };
-        # };
-
         status = {
           sep_left = {
             open = "";
