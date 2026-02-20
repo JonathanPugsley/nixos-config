@@ -7,8 +7,12 @@
       settings = {
         ipc = "on";
         splash = "false";
-        preload = [ "/home/${config.home.username}/Pictures/wallpapers/everforest/1-everforest.jpg" ];
-        wallpaper = [ ",/home/${config.home.username}/Pictures/wallpapers/everforest/1-everforest.jpg" ];
+        wallpaper = [
+          {
+            monitor = "";
+            path = "/home/${config.home.username}/Pictures/wallpapers/everforest/1-everforest.jpg";
+          }
+        ];
       };
     };
   };
