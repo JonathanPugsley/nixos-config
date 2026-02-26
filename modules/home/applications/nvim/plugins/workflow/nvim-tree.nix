@@ -60,7 +60,7 @@
           mode = "n";
           key = "<leader>e";
           action = ":NvimTreeToggle<CR>";
-          options.desc = "Toggle neo-tree";
+          options.desc = "Toggle NvimTree";
         }
       ];
 
