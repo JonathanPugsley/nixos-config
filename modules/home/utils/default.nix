@@ -17,6 +17,7 @@
     ./qpwgraph.nix
     ./ripgrep.nix
     ./tree.nix
+    ./udiskie.nix
     ./wiremix.nix
     ./yazi.nix
   ];
@@ -41,6 +42,7 @@
     ripgrep.enable = lib.mkDefault config.groups.utils.enable;
     tmux.enable = lib.mkDefault config.groups.utils.enable;
     tree.enable = lib.mkDefault config.groups.utils.enable;
+    udiskie.enable = lib.mkDefault config.groups.utils.enable;
     wiremix.enable = lib.mkDefault config.groups.utils.enable;
     yazi.enable = lib.mkDefault config.groups.utils.enable;
   };
