@@ -40,6 +40,7 @@
       workspace = [
         # center single window
         "w[t1]m[DP-1], layoutopt:orientation:center"
+        "m[HDMI-A-1], layoutopt:orientation:top"
       ];
     };
   };
