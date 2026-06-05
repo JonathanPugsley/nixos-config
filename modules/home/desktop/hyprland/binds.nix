@@ -16,8 +16,7 @@
 
         "SUPER, X, Browser, exec, librewolf"
         "SUPER, C, Clipboard, exec, lekker-menu-clipboard"
-        "SUPER SHIFT, /, Keybinds, exec, lekker-menu-keybinds"
-        "SUPER SHIFT, /, Keyboard Cheatsheet, exec, lekker-menu-keybinds --keyboard"
+        "SUPER, B, Keybinds, exec, lekker-menu-keybinds"
         "SUPER, N, Notes, exec, lekker-notes"
         "SUPER, M, Music, exec, spotify-player-wrapper"
 

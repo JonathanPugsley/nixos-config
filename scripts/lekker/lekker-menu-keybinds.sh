@@ -1,42 +1,6 @@
 #! /usr/bin/env bash
 # display hyprland keybinds
 
-keyboard_cheatsheet="
-FN,F1,My Computer
-FN,F2,Explorer
-FN,F3,Calculator
-FN,F4,Mail
-FN,F5,Multi-Media Player
-FN,F6,Stop
-FN,F7,Previous Track
-FN,F8,Play/Pause
-FN,F9,Next Track
-FN,F10,Mute
-FN,F11,Volume -
-FN,F12,Volume +
-FN,SUPER,Lock/Unlock SUPER
-FN,PRINT,Reset Keyboard
-FN,A,Win Mode
-FN,SPACE,Check Battery
-FN,S,Mac Mode
-FN,Q,Pair/Connect Device BT1
-FN,W,Pair/Connect Device BT2
-FN,E,Pair/Connect Device BT3
-FN,R,Connect 2.4GHz Wireless
-FN,BACKSPACE,Toggle Backlight
-FN,\\|,Backlight Effects
-FN,[{,Backlight Hue -
-FN,]},Backlight Hue +
-FN,;:,Backlight Sat -
-FN,\'\",Backlight Sat +
-FN,PGUP,Logo Light Effects
-FN,PGDN,Logo Light Colours
-FN,DOWN,Backlight Brightness -
-FN,UP,Backlight Brightness +
-FN,LEFT,Backlight Speed -
-FN,RIGHT,Backlight Speed +
-"
-
 dynamic_bindings() {
     hyprctl -j binds | jq -r '.[] | {modmask, key, keycode, description, dispatcher, arg} | "\(.modmask),\(.key)@\(.keycode),\(.description),\(.dispatcher),\(.arg)"' |
     sed -r \
@@ -139,22 +103,5 @@ prioritize_entries() {
   cut -f2-
 }
 
-hypr_binds() {
-    dynamic_bindings | sort -u | parse_bindings | prioritize_entries | lekker-launcher -l 14 -p "Keybinds" -w 700
-    exit 0
-}
-
-keyboard_binds() {
-    echo "$keyboard_cheatsheet" | parse_bindings | lekker-launcher  -l 14 -p "Keybinds" -w 700
-    exit 0
-}
-
-parse_args() {
-    [[ "$#" -eq 0 ]] && hypr_binds
-    case "$1" in
-        -k|--keyboard) keyboard_binds ;;
-        *) exit 1 ;;
-    esac
-}
-
+dynamic_bindings | sort -u | parse_bindings | prioritize_entries | lekker-launcher -l 14 -p "Keybinds" -w 700
 parse_args "$@"
