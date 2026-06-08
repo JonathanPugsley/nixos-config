@@ -13,15 +13,6 @@
         orientation = "left";
         slave_count_for_center_master = 0;
       };
-
-      dwindle = {
-        pseudotile = true;
-        force_split = 2;
-        smart_resizing = true;
-        use_active_for_splits = true;
-        default_split_ratio = 1;
-        single_window_aspect_ratio = "4 3";
-      };
     };
   };
 }
