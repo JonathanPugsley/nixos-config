@@ -98,7 +98,7 @@ launch_path() {
     [ -z "$SESSION_NAME" ] && SESSION_NAME=$( basename "$SESSION_PATH" | tr . _ )
 
     if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-        running_wd=$( tmux display-message -p -t "$SESSION_NAME":0.0 '#{pane_current_path}' )
+        running_wd=$( tmux show-options -v -t "$SESSION_NAME" @project_path )
         if [[ "$running_wd" != "${SESSION_PATH%/}" ]]; then
             conflict_error_msg="session \"$SESSION_NAME\" already running at \"$running_wd\"."
             conflict_error_msg+=" Please specify a new session name, or close the running session"
@@ -106,6 +106,7 @@ launch_path() {
         fi
     else
         tmux new -c "${SESSION_PATH%/}" -ds "$SESSION_NAME"
+        tmux set-option -t "$SESSION_NAME" @project_path "${SESSION_PATH%/}"
     fi
     tmux "$cmd" -t "$SESSION_NAME"
 }
