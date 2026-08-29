@@ -66,7 +66,7 @@
 
                 # buttons
                 button_background_active = lib.mkForce (mkColor "base02");
-                button_background_hover = lib.mkForce (mkColor "base01");
+                button_background_hover = lib.mkForce (mkColor "base02");
 
                 # icons
                 icons = lib.mkForce (mkColor "base05");
