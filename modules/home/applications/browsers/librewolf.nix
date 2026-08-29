@@ -2,7 +2,11 @@
   options.modules.librewolf.enable = lib.mkEnableOption "enable librewolf";
 
   config = lib.mkIf config.modules.librewolf.enable {
-    stylix.targets.librewolf.profileNames = [ "default" ];
+    stylix.targets.librewolf = {
+      colorTheme.enable = true;
+      profileNames = [ "default" ];
+    };
+
     programs.librewolf = {
       enable = true;
       profiles.default = {
@@ -10,13 +14,77 @@
         name = "default";
         isDefault = true;
 
-        extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-          consent-o-matic
-          darkreader
-          decentraleyes
-          proton-pass
-          ublock-origin
-        ];
+        extensions = {
+          packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+            consent-o-matic
+            darkreader
+            decentraleyes
+            proton-pass
+            ublock-origin
+          ];
+          settings."FirefoxColor@mozilla.com" = {
+            force = true;
+            settings.theme.colors =
+              let
+                mkColor = name: {
+                  r = config.lib.stylix.colors."${name}-rgb-r";
+                  g = config.lib.stylix.colors."${name}-rgb-g";
+                  b = config.lib.stylix.colors."${name}-rgb-b";
+                };
+              in {
+                # frame
+                frame = lib.mkForce (mkColor "base00");
+                frame_inactive = lib.mkForce (mkColor "base00");
+
+                # tabs
+                tab_selected = lib.mkForce (mkColor "base01");
+                tab_text = lib.mkForce (mkColor "base05");
+                tab_line = lib.mkForce (mkColor "base01");
+                tab_loading = lib.mkForce (mkColor "base05");
+                tab_background_text = lib.mkForce (mkColor "base05");
+
+                # toolbar
+                toolbar = lib.mkForce (mkColor "base01");
+                toolbar_text = lib.mkForce (mkColor "base05");
+                toolbar_field = lib.mkForce (mkColor "base02");
+                toolbar_field_focus = lib.mkForce (mkColor "base00");
+                toolbar_field_text = lib.mkForce (mkColor "base05");
+                toolbar_field_border = lib.mkForce (mkColor "base02");
+                toolbar_field_border_focus = lib.mkForce (mkColor "base00");
+                toolbar_field_highlight = lib.mkForce (mkColor "base02");
+                toolbar_field_highlight_text = lib.mkForce (mkColor "base05");
+                toolbar_top_separator = lib.mkForce (mkColor "base01");
+                toolbar_vertical_separator = lib.mkForce (mkColor "base01");
+                toolbar_bottom_separator = lib.mkForce (mkColor "base00");
+
+                # sidebar
+                sidebar = lib.mkForce (mkColor "base00");
+                sidebar_text = lib.mkForce (mkColor "base05");
+                sidebar_border = lib.mkForce (mkColor "base00");
+                sidebar_highlight = lib.mkForce (mkColor "base02");
+                sidebar_highlight_text = lib.mkForce (mkColor "base05");
+
+                # buttons
+                button_background_active = lib.mkForce (mkColor "base02");
+                button_background_hover = lib.mkForce (mkColor "base01");
+
+                # icons
+                icons = lib.mkForce (mkColor "base05");
+                icons_attention = lib.mkForce (mkColor "base0B");
+
+                # popups
+                popup = lib.mkForce (mkColor "base00");
+                popup_text = lib.mkForce (mkColor "base05");
+                popup_border = lib.mkForce (mkColor "base00");
+                popup_highlight = lib.mkForce (mkColor "base02");
+                popup_highlight_text = lib.mkForce (mkColor "base05");
+
+                # new tab page
+                ntp_background = lib.mkForce (mkColor "base00");
+                ntp_text = lib.mkForce (mkColor "base05");
+              };
+          };
+        };
 
         search = {
           force = true;
