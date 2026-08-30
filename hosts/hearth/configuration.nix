@@ -3,16 +3,15 @@
     ../../modules/system/default.nix
     ../../modules/users/jonny.nix
     ../../scripts/default.nix
+
     ./hardware-configuration.nix
+    ./boot.nix
   ];
 
   config = {
-    # hostname
     networking.hostName = "hearth";
-    # keyboard layout
     services.xserver.xkb.layout = "us";
 
-    # system modules
     modules = {
       # core
       gpu-nvidia.enable = lib.mkForce true;
@@ -21,10 +20,6 @@
     };
 
     # do not touch
-    boot.initrd.luks.devices."cryptroot" = {
-      allowDiscards = true;
-      bypassWorkqueues = true;
-    };
     boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "25.05";
   };
