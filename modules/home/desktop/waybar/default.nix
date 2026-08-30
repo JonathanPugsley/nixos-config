@@ -30,7 +30,8 @@
 
         modules-right = [
           "custom/timer"
-          "wireplumber"
+          "wireplumber#sink"
+          "wireplumber#source"
           "network"
           "bluetooth"
           "backlight"
@@ -75,12 +76,23 @@
           tooltip = false;
         };
 
-        wireplumber = {
+        "wireplumber#sink" = {
           format = "{icon}";
           format-muted = "";
           format-icons = [ "" "" ];
           on-click = "lekker-menu-audio";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          tooltip = true;
+          tooltip-format = "{node_name}\nvol: {volume}%";
+        };
+
+        "wireplumber#source" = {
+          node-type = "Audio/Source";
+          format = "{icon}";
+          format-muted = "";
+          format-icons = "";
+          on-click = "lekker-menu-audio";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           tooltip = true;
           tooltip-format = "{node_name}\nvol: {volume}%";
         };
