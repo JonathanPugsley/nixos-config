@@ -37,24 +37,24 @@
                 frame_inactive = lib.mkForce (mkColor "base00");
 
                 # tabs
-                tab_selected = lib.mkForce (mkColor "base01");
+                tab_selected = lib.mkForce (mkColor "base02");
                 tab_text = lib.mkForce (mkColor "base05");
-                tab_line = lib.mkForce (mkColor "base01");
+                tab_line = lib.mkForce (mkColor "base02");
                 tab_loading = lib.mkForce (mkColor "base03");
                 tab_background_text = lib.mkForce (mkColor "base05");
 
                 # toolbar
-                toolbar = lib.mkForce (mkColor "base01");
+                toolbar = lib.mkForce (mkColor "base02");
                 toolbar_text = lib.mkForce (mkColor "base05");
                 toolbar_field = lib.mkForce (mkColor "base00");
                 toolbar_field_focus = lib.mkForce (mkColor "base00");
                 toolbar_field_text = lib.mkForce (mkColor "base05");
                 toolbar_field_border = lib.mkForce (mkColor "base00");
-                toolbar_field_border_focus = lib.mkForce (mkColor "base02");
-                toolbar_field_highlight = lib.mkForce (mkColor "base02");
+                toolbar_field_border_focus = lib.mkForce (mkColor "base03");
+                toolbar_field_highlight = lib.mkForce (mkColor "base03");
                 toolbar_field_highlight_text = lib.mkForce (mkColor "base05");
-                toolbar_top_separator = lib.mkForce (mkColor "base01");
-                toolbar_vertical_separator = lib.mkForce (mkColor "base01");
+                toolbar_top_separator = lib.mkForce (mkColor "base02");
+                toolbar_vertical_separator = lib.mkForce (mkColor "base02");
                 toolbar_bottom_separator = lib.mkForce (mkColor "base00");
 
                 # sidebar
@@ -65,8 +65,8 @@
                 sidebar_highlight_text = lib.mkForce (mkColor "base05");
 
                 # buttons
-                button_background_active = lib.mkForce (mkColor "base02");
-                button_background_hover = lib.mkForce (mkColor "base02");
+                button_background_active = lib.mkForce (mkColor "base00");
+                button_background_hover = lib.mkForce (mkColor "base00");
 
                 # icons
                 icons = lib.mkForce (mkColor "base05");
