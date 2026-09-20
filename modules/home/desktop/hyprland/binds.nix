@@ -18,7 +18,7 @@
         "SUPER, C, Clipboard, exec, lekker-menu-clipboard"
         "SUPER, B, Keybinds, exec, lekker-menu-keybinds"
         "SUPER, N, Notes, exec, lekker-notes"
-        "SUPER, M, Music, exec, spotify-player-wrapper"
+        "SUPER, M, Music, exec, spotify"
         "SUPER SHIFT, M, Toggle Mute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
         "SUPER, Space, Lekker Menu, exec, lekker-menu"
