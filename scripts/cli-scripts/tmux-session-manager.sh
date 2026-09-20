@@ -31,7 +31,7 @@ flags:
 \t                                  \t  session name must present in the config file. See '-c|--config'
 \t-h,--help:                        \t→ Display help message
 
-default config file can be found at: ~/.config/tmux/tmux.conf\
+default config file can be found at: ~/.config/tmux/tmux-session-manager.conf\
 "
 
 usage() {
