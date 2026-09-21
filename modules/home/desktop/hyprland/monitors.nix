@@ -6,7 +6,7 @@
       (lib.mkIf  (osConfig.networking.hostName == "hearth") {
         monitor = [
           "DP-1, 3440x1440@100, 0x0, 1"  # msi ultrawide
-          "HDMI-A-1, 1680x1050@60, -1050x300, 1, transform, 3" # apple cinema display
+          "HDMI-A-1, 1680x1050@60, auto-left, 1" # apple cinema display
         ];
 
         workspace = [
