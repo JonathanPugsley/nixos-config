@@ -1,6 +1,7 @@
 { config, lib, ... }: {
   imports = [
     ./gamemode.nix
+    ./obs-studio.nix
     ./qmk.nix
     ./steam.nix
   ];
@@ -9,6 +10,7 @@
 
   config.modules = {
     gamemode.enable = lib.mkDefault config.groups.applications.enable;
+    obs.enable = lib.mkDefault config.groups.applications.enable;
     qmk.enable = lib.mkDefault config.groups.applications.enable;
     steam.enable = lib.mkDefault config.groups.applications.enable;
   };

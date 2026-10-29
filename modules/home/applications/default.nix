@@ -2,8 +2,10 @@
   imports = [
     ./browsers/default.nix
     ./nvim/default.nix
+    ./davinci-resolve.nix
     ./libreoffice.nix
     ./nixcord.nix
+    ./obs-studio.nix
     ./prismlauncher.nix
     ./qmk.nix
     ./r2modman.nix
@@ -21,9 +23,11 @@
 
     modules = {
       nixvim.enable = lib.mkDefault config.groups.applications.enable;
+      davinci.enable = lib.mkDefault config.groups.applications.enable;
       libreoffice.enable = lib.mkDefault config.groups.applications.enable;
       librewolf.enable = lib.mkDefault config.groups.applications.enable;
       nixcord.enable = lib.mkDefault config.groups.applications.enable;
+      obs.enable = lib.mkDefault config.groups.applications.enable;
       prismlauncher.enable = lib.mkDefault config.groups.applications.enable;
       qmk.enable = lib.mkDefault config.groups.applications.enable;
       r2modman.enable = lib.mkDefault config.groups.applications.enable;
