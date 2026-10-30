@@ -5,7 +5,6 @@
     ./hyprpaper.nix
     ./hyprpicker.nix
     ./hyprpolkitagent.nix
-    ./hyprshot.nix
     ./hyprsunset.nix
   ];
 
@@ -17,7 +16,6 @@
     hyprpaper.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
     hyprpicker.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
     hyprpolkitagent.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprshot.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
     hyprsunset.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
   };
 }

@@ -16,15 +16,17 @@
         rofi-emoji
         rofi-nerdy
       ];
-      cycle = false;
-      location = "center";
-      modes = [ "drun" "window" "nerdy" "emoji" ];
-      extraConfig = {
-        fixed-num-lines = false;
-        disable-history = true;
-        sort = false;
-        case-sensitive = false;
-        scroll-method = 1;
+      settings = {
+        cycle = false;
+        location = 0;
+        modes = [ "drun" "window" "nerdy" "emoji" ];
+        extraConfig = {
+          fixed-num-lines = false;
+          disable-history = true;
+          sort = false;
+          case-sensitive = false;
+          scroll-method = 1;
+        };
       };
     };
   };

@@ -4,8 +4,13 @@
   config = lib.mkIf config.modules.waybar.enable {
     stylix.targets.waybar.enable = false;
     programs.waybar = {
-
       enable = true;
+
+      systemd = {
+        enable = true;
+        targets = [ "hyprland-session.target" ];
+      };
+
       style = pkgs.replaceVars ./style.css {
         foreground = "#${config.lib.stylix.colors.base05}";
         border-color = "#${config.lib.stylix.colors.base03}";
