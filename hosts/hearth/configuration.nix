@@ -1,26 +1,22 @@
-{ lib, pkgs, ... }: {
+{ lib, ... }: {
   imports = [
     ../../modules/system/default.nix
-    ../../modules/users/jonny.nix
     ../../scripts/default.nix
 
-    ./hardware-configuration.nix
-    ./boot.nix
+    ./networking.nix
+    ./storage.nix
   ];
 
   config = {
-    networking.hostName = "hearth";
     services.xserver.xkb.layout = "us";
 
     modules = {
-      # core
-      gpu-nvidia.enable = lib.mkForce true;
-      # desktop
-      stylix.scheme = "everforest";
+      hardware.cpu.intel.enable = lib.mkForce true;
+      hardware.gpu.nvidia.enable = lib.mkForce true;
     };
 
     # do not touch
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     system.stateVersion = "25.05";
   };
 }

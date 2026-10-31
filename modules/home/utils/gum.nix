@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
-  options.modules.gum.enable = lib.mkEnableOption "enable gum";
-
-  config = lib.mkIf config.modules.gum.enable {
+  config = lib.mkIf config.modules.utils.gum.enable {
     home = {
       packages = [ pkgs.gum ];
       sessionVariables = {

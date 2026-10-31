@@ -41,4 +41,4 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-hyprctl dispatch exec "[float; center; size $WINDOW_WIDTH $WINDOW_HEIGHT]" "$COMMAND" > /dev/null 2>&1
+hyprctl dispatch "hl.dsp.exec_cmd('$COMMAND', { float = true, center = true, size = { $WINDOW_WIDTH, $WINDOW_HEIGHT } })" > /dev/null 2>&1

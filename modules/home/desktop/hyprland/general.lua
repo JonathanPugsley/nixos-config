@@ -41,6 +41,12 @@ hl.config({
         drop_at_cursor = true,
     },
 
+    cursor = {
+        hide_on_key_press = true,
+        no_hardware_cursors = 1,
+        no_warps = true,
+    },
+
     misc = {
         bell_sound = "none",
         disable_hyprland_logo = true,

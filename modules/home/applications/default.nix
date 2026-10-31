@@ -1,39 +1,37 @@
-{ config, lib, osConfig, ... }: {
+{ config, lib, ... }: {
   imports = [
-    ./browsers/default.nix
-    ./nvim/default.nix
     ./davinci-resolve.nix
     ./libreoffice.nix
+    ./librewolf.nix
     ./nixcord.nix
     ./obs-studio.nix
-    ./prismlauncher.nix
     ./qmk.nix
-    ./r2modman.nix
-    ./spotify-player.nix
+    ./qutebrowser.nix
     ./spotify.nix
-    ./steam.nix
   ];
 
-  options.groups.applications.enable = lib.mkEnableOption "enable applications group";
+  options.modules.applications = {
+    enable = lib.mkEnableOption "enable applications";
 
-  config = {
-    groups = {
-      browsers.enable = lib.mkDefault config.groups.applications.enable;
-    };
+    librewolf.enable = lib.mkEnableOption "librewolf browser";
+    qutebrowser.enable = lib.mkEnableOption "qutebrowser";
+    davinci.enable = lib.mkEnableOption "davinci video editor";
+    libreoffice.enable = lib.mkEnableOption "libreoffice suite";
+    nixcord.enable = lib.mkEnableOption "nix discord client";
+    obs.enable = lib.mkEnableOption "obs screen capture";
+    qmk.enable = lib.mkEnableOption "qmk";
+    spotify.enable = lib.mkEnableOption "spotify music streaming";
 
-    modules = {
-      nixvim.enable = lib.mkDefault config.groups.applications.enable;
-      davinci.enable = lib.mkDefault config.groups.applications.enable;
-      libreoffice.enable = lib.mkDefault config.groups.applications.enable;
-      librewolf.enable = lib.mkDefault config.groups.applications.enable;
-      nixcord.enable = lib.mkDefault config.groups.applications.enable;
-      obs.enable = lib.mkDefault config.groups.applications.enable;
-      prismlauncher.enable = lib.mkDefault config.groups.applications.enable;
-      qmk.enable = lib.mkDefault config.groups.applications.enable;
-      r2modman.enable = lib.mkDefault config.groups.applications.enable;
-      spotify-player.enable = lib.mkDefault config.groups.applications.enable;
-      spotify.enable = lib.mkDefault config.groups.applications.enable;
-      steam.enable = lib.mkDefault (config.groups.applications.enable && osConfig.modules.steam.enable);
-    };
+  };
+
+  config.modules.applications = with config.modules; {
+    librewolf.enable = lib.mkDefault applications.enable;
+    qutebrowser.enable = lib.mkDefault applications.enable;
+    davinci.enable = lib.mkDefault applications.enable;
+    libreoffice.enable = lib.mkDefault applications.enable;
+    nixcord.enable = lib.mkDefault applications.enable;
+    obs.enable = lib.mkDefault applications.enable;
+    qmk.enable = lib.mkDefault applications.enable;
+    spotify.enable = lib.mkDefault applications.enable;
   };
 }

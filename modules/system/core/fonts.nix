@@ -1,6 +1,5 @@
 { pkgs, ... }: {
-  config = {
-    fonts.packages = with pkgs; [
+  config.fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       jetbrains-mono
       liberation_ttf
@@ -10,5 +9,4 @@
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
     ];
-  };
 }

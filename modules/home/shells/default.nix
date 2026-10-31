@@ -1,13 +1,18 @@
-{ config, lib, osConfig, ... }: {
+{ config, lib, ... }: {
   imports = [
-    ./bash/default.nix
-    ./zsh/default.nix
+    ./bash.nix
+    ./zsh.nix
   ];
 
-  options.groups.shells.enable = lib.mkEnableOption "enable home shells group";
+  options.modules.shells = {
+    enable = lib.mkEnableOption "enable home shells group";
 
-  config.modules = {
-    bash.enable = lib.mkDefault (config.groups.shells.enable && osConfig.modules.zsh.enable);
-    zsh.enable = lib.mkDefault (config.groups.shells.enable && osConfig.modules.zsh.enable);
+    bash.enable = lib.mkEnableOption "bash shell";
+    zsh.enable = lib.mkEnableOption "zsh";
+  };
+
+  config.modules.shells = with config.modules; {
+    bash.enable = lib.mkDefault shells.enable;
+    zsh.enable = lib.mkDefault shells.enable;
   };
 }

@@ -34,19 +34,11 @@
     nixosConfigurations = {
       cyrion = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/cyrion/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-        ];
+        modules = [ ./hosts/cyrion/configuration.nix ];
       };
       hearth = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/hearth/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-        ];
+        modules = [ ./hosts/hearth/configuration.nix ];
       };
     };
   };

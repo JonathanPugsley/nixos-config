@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
-  options.modules.brightnessctl.enable = lib.mkEnableOption "enable brightnessctl";
-
-  config = lib.mkIf config.modules.brightnessctl.enable {
+  config = lib.mkIf config.modules.utils.brightnessctl.enable {
     environment.systemPackages = [ pkgs.brightnessctl ];
   };
 }

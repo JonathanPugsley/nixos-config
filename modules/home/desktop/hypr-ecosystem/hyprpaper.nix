@@ -1,7 +1,5 @@
 { config, lib, ... }: {
-  options.modules.hyprpaper.enable = lib.mkEnableOption "enable hyprpaper";
-
-  config = lib.mkIf config.modules.hyprpaper.enable {
+  config = lib.mkIf config.modules.desktop.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
       settings = {

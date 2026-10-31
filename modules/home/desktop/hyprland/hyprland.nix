@@ -1,5 +1,5 @@
 { osConfig, config, lib, pkgs, inputs, ... }: {
-  config = lib.mkIf config.modules.hyprland.enable {
+  config = lib.mkIf config.modules.desktop.hyprland.enable {
     stylix.targets.hyprland.enable = false;
     wayland.windowManager.hyprland = {
       enable = true;

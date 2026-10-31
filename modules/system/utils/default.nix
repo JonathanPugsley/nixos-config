@@ -5,11 +5,17 @@
     ./udisks.nix
   ];
 
-  options.groups.utils.enable = lib.mkEnableOption "enable system utils group";
+  options.modules.utils = {
+    enable = lib.mkEnableOption "system utilities";
 
-  config.modules = {
-    brightnessctl.enable = lib.mkDefault config.groups.utils.enable;
-    cifs.enable = lib.mkDefault config.groups.utils.enable;
-    udisks.enable = lib.mkDefault config.groups.utils.enable;
+    brightnessctl.enable = lib.mkEnableOption "screen brightness control";
+    cifs.enable = lib.mkEnableOption "cifs";
+    udisks.enable = lib.mkEnableOption "udisks";
+  };
+
+  config.modules.utils = with config.modules; {
+    brightnessctl.enable = lib.mkDefault utils.enable;
+    cifs.enable = lib.mkDefault utils.enable;
+    udisks.enable = lib.mkDefault utils.enable;
   };
 }

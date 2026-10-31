@@ -20,7 +20,7 @@ confirm=$( printf "%s\n" "Yes,${power#* }" "Cancel" | lekker-launcher -l 2 -P "A
 sleep 0.5
 case "${power#*  }" in
     "Lock Screen") hyprlock ;;
-    "Logout") hyprctl dispatch exit ;;
+    "Logout") hyprctl dispatch exit ;; # change to hyprshutdown?
     "Suspend") systemctl suspend ;;
     "Reboot") cliphist wipe && systemctl reboot ;;
     "Shutdown") cliphist wipe && shutdown now ;;

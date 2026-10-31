@@ -1,7 +1,5 @@
 { config, lib, ... }: {
-  options.modules.hyprsunset.enable = lib.mkEnableOption "enable hyprsunset";
-
-  config = lib.mkIf config.modules.hyprsunset.enable {
+  config = lib.mkIf config.modules.desktop.hyprsunset.enable {
     services.hyprsunset = {
       enable = true;
       settings.profile = [

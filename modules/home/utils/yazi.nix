@@ -1,14 +1,13 @@
 { config, lib, ... }: {
-  options.modules.yazi.enable = lib.mkEnableOption "enable yazi";
-
-  config = lib.mkIf config.modules.yazi.enable {
-    # stylix.targets.yazi.enable = false;
+  config = lib.mkIf config.modules.utils.yazi.enable {
     programs.yazi = {
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
       shellWrapperName = "yy";
       settings = {
+        input.cursor_blink = true;
+
         mgr = {
           ratio = [ 1 3 3 ];
           sort_by = "natural"; # 1 -> 2 -> 10
@@ -33,8 +32,6 @@
           image_quality = 70;
         };
 
-        input.cursor_blink = true;
-
         which = {
           sort_by = "key";
           sort_sensitive = false;
@@ -54,7 +51,6 @@
             close= "";
           };
         };
-
       };
     };
   };

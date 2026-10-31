@@ -93,10 +93,8 @@ remove() {
 
 share() {
     local launch_cmd
-    launch_cmd="xdg-terminal-exec -e $SHELL -c '
-        nmcli device wifi show-password;
-        echo -n \"Press any key to exit... \" && read -sr -k 1 ;
-        exit'"
+
+    launch_cmd="xdg-terminal-exec -e $SHELL -c \"nmcli device wifi show-password; echo -n \\'Press any key to exit... \\' && read -sr -k 1 ; exit\""
     lekker-launch-floating-window "$launch_cmd" -W 375 -H 530
 }
 

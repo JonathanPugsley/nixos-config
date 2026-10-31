@@ -31,5 +31,5 @@ done
 [[ "$match" -eq 0 ]] && exit 0
 res="$selected_resolution@${hz[$index]}"
 
-hyprctl keyword monitor "$selected_monitor", "$res", "${pos[$index]}", "${scale[$index]}" >/dev/null 2>&1
+hyprctl eval "hl.monitor({ output = \"$selected_monitor\", mode = \"$res\", scale = \"${scale[$index]}\" })" >/dev/null 2>&1
 notify-send -a "lekker" "Resolution" "$selected_monitor resolution is now $selected_resolution"

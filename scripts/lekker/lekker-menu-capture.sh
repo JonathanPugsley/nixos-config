@@ -27,7 +27,7 @@ colourPicker() {
 
 themePalette() {
     local command
-    command="xdg-terminal-exec -e $SHELL -c 'palette; exit'"
+    command="xdg-terminal-exec -e $SHELL -c \'palette; exit\'"
     lekker-launch-floating-window "$command" -W 600 -H 600
 }
 

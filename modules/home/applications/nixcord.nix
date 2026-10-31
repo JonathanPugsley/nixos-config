@@ -1,7 +1,5 @@
 { config, lib, ... }: {
-  options.modules.nixcord.enable = lib.mkEnableOption "enable nixcord";
-
-  config = lib.mkIf config.modules.nixcord.enable {
+  config = lib.mkIf config.modules.applications.nixcord.enable {
     programs.nixcord = {
       enable = true;
       discord.vencord.enable = true;

@@ -8,14 +8,21 @@
     ./hyprsunset.nix
   ];
 
-  options.modules.hypr-ecosystem.enable = lib.mkEnableOption "enable hyprland ecosystem programs and services";
+  options.modules.desktop = {
+    cursor.enable = lib.mkEnableOption "cursor";
+    hyprlock.enable = lib.mkEnableOption "hyprlock screen locking";
+    hyprpaper.enable = lib.mkEnableOption "hyprpaper wallpaper";
+    hyprpicker.enable = lib.mkEnableOption "hyprpicker colour picker";
+    hyprpolkitagent.enable = lib.mkEnableOption "hyprpolkitagent";
+    hyprsunset.enable = lib.mkEnableOption "blue light filter";
+  };
 
-  config.modules = {
-    cursor.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprlock.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprpaper.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprpicker.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprpolkitagent.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
-    hyprsunset.enable = lib.mkDefault config.modules.hypr-ecosystem.enable;
+  config.modules.desktop = with config.modules; {
+    cursor.enable = lib.mkDefault desktop.enable;
+    hyprlock.enable = lib.mkDefault desktop.enable;
+    hyprpaper.enable = lib.mkDefault desktop.enable;
+    hyprpicker.enable = lib.mkDefault desktop.enable;
+    hyprpolkitagent.enable = lib.mkDefault desktop.enable;
+    hyprsunset.enable = lib.mkDefault desktop.enable;
   };
 }

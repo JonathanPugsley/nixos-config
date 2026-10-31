@@ -1,7 +1,5 @@
 { config, lib, ... }: {
-  options.modules.btop.enable = lib.mkEnableOption "enable btop";
-
-  config = lib.mkIf config.modules.btop.enable {
+  config = lib.mkIf config.modules.utils.btop.enable {
     stylix.targets.btop.enable = false;
     programs.btop = {
       enable = true;

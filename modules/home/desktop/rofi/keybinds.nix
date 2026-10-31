@@ -1,6 +1,6 @@
 { config, lib, ... }: {
-  config = lib.mkIf config.modules.rofi.enable {
-    programs.rofi.extraConfig = {
+  config = lib.mkIf config.modules.desktop.rofi.enable {
+    programs.rofi.settings = {
       # kb-primary-paste = ""; # Paste primary selection | Control+V,Shift+Insert (Default)
       kb-secondary-paste = "Control+p"; # Paste clipboard | Control+v,Insert (Default)
       kb-secondary-copy = "Control+y"; # Copy to clipboard | Control+c (Default)

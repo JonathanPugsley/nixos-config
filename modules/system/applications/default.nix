@@ -1,17 +1,15 @@
 { config, lib, ... }: {
   imports = [
-    ./gamemode.nix
     ./obs-studio.nix
-    ./qmk.nix
-    ./steam.nix
   ];
 
-  options.groups.applications.enable = lib.mkEnableOption "enable system applications group";
+  options.modules.applications = {
+    enable = lib.mkEnableOption "enable applications";
 
-  config.modules = {
-    gamemode.enable = lib.mkDefault config.groups.applications.enable;
-    obs.enable = lib.mkDefault config.groups.applications.enable;
-    qmk.enable = lib.mkDefault config.groups.applications.enable;
-    steam.enable = lib.mkDefault config.groups.applications.enable;
+    obs.enable = lib.mkEnableOption "obs screen capture app";
+  };
+
+  config.modules.applications = with config.modules; {
+    obs.enable = lib.mkDefault applications.enable;
   };
 }

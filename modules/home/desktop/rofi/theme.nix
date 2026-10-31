@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  config = lib.mkIf config.modules.rofi.enable {
+  config = lib.mkIf config.modules.desktop.rofi.enable {
     programs.rofi.theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
     in {

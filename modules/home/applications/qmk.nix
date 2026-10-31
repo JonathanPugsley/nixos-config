@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
-  options.modules.qmk.enable = lib.mkEnableOption "enable qmk";
-
-  config = lib.mkIf config.modules.qmk.enable {
+  config = lib.mkIf config.modules.applications.qmk.enable {
     home.packages = [ pkgs.qmk ];
   };
 }

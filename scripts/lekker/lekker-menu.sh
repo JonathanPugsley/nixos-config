@@ -4,12 +4,12 @@
 ENTRIES=( "  Apps" "  Capture" "  Timer" "  Toggle" "  Manage" "  Nixpkgs" "  Symbols" "  About" "  System" )
 
 about() {
-    abt_cmd="xdg-terminal-exec -e $SHELL -c 'fastfetch; echo -n \"Press any key to exit... \" && read -sr -k 1 ; exit'"
+    abt_cmd="xdg-terminal-exec -e $SHELL -c \"fastfetch; echo -n \\'Press any key to exit... \\' && read -sr -k 1 ; exit\""
     lekker-launch-floating-window "$abt_cmd" -W 980 -H 600
 }
 
 pkg_search() {
-    ns="nix-search-tv print | fzf -i --preview 'nix-search-tv preview {}' --scheme history --layout reverse"
+    ns="nix-search-tv print | fzf -i --preview \\'nix-search-tv preview {}\\' --scheme history --layout reverse"
     pkg_cmd="xdg-terminal-exec -e $SHELL -c \"$ns\""
     lekker-launch-floating-window "$pkg_cmd"
 }
@@ -23,7 +23,7 @@ case "${selection#*  }" in
     "Manage") lekker-menu-manage ;;
     "Nixpkgs") pkg_search ;;
     "Symbols") lekker-menu-symbols ;;
-    "About")  about ;;
+    "About") about ;;
     "System") lekker-menu-system ;;
     *) exit 1 ;;
 esac

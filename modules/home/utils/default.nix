@@ -1,49 +1,30 @@
 { config, lib, ... }: {
   imports = [
-    ./tmux/default.nix
     ./bluetui.nix
     ./btop.nix
     ./fastfetch.nix
-    ./fd.nix
-    ./fzf.nix
-    ./git.nix
     ./gum.nix
-    ./jq.nix
-    ./lazygit.nix
-    ./ncdu.nix
-    ./nix-search-tv.nix
-    ./openjdk.nix
-    ./playerctl.nix
-    ./qpwgraph.nix
-    ./ripgrep.nix
-    ./tree.nix
     ./udiskie.nix
-    ./wiremix.nix
     ./yazi.nix
   ];
 
-  options.groups.utils.enable = lib.mkEnableOption "enable home utils group";
+  options.modules.utils = {
+    enable = lib.mkEnableOption "home utils";
 
-  config.modules = {
-    bluetui.enable = lib.mkDefault config.groups.utils.enable;
-    btop.enable = lib.mkDefault config.groups.utils.enable;
-    fastfetch.enable = lib.mkDefault config.groups.utils.enable;
-    fd.enable = lib.mkDefault config.groups.utils.enable;
-    fzf.enable = lib.mkDefault config.groups.utils.enable;
-    git.enable = lib.mkDefault config.groups.utils.enable;
-    gum.enable = lib.mkDefault config.groups.utils.enable;
-    jq.enable = lib.mkDefault config.groups.utils.enable;
-    lazygit.enable = lib.mkDefault config.groups.utils.enable;
-    ncdu.enable = lib.mkDefault config.groups.utils.enable;
-    nix-search-tv.enable = lib.mkDefault config.groups.utils.enable;
-    openjdk.enable = lib.mkDefault config.groups.utils.enable;
-    playerctl.enable = lib.mkDefault config.groups.utils.enable;
-    qpwgraph.enable = lib.mkDefault config.groups.utils.enable;
-    ripgrep.enable = lib.mkDefault config.groups.utils.enable;
-    tmux.enable = lib.mkDefault config.groups.utils.enable;
-    tree.enable = lib.mkDefault config.groups.utils.enable;
-    udiskie.enable = lib.mkDefault config.groups.utils.enable;
-    wiremix.enable = lib.mkDefault config.groups.utils.enable;
-    yazi.enable = lib.mkDefault config.groups.utils.enable;
+    bluetui.enable = lib.mkEnableOption "tui bluetooth manager";
+    btop.enable = lib.mkEnableOption "btop";
+    fastfetch.enable = lib.mkEnableOption "fetch";
+    gum.enable = lib.mkEnableOption "gum";
+    udiskie.enable = lib.mkEnableOption "udiskie mounting util";
+    yazi.enable = lib.mkEnableOption "yazi file manager";
+  };
+
+  config.modules.utils = with config.modules; {
+    bluetui.enable = lib.mkDefault utils.enable;
+    btop.enable = lib.mkDefault utils.enable;
+    fastfetch.enable = lib.mkDefault utils.enable;
+    gum.enable = lib.mkDefault utils.enable;
+    udiskie.enable = lib.mkDefault utils.enable;
+    yazi.enable = lib.mkDefault utils.enable;
   };
 }

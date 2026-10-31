@@ -1,20 +1,18 @@
 { config, lib, ... }: {
   imports = [
-    ./bluetooth.nix
     ./hyprland.nix
     ./ly.nix
-    ./stylix.nix
   ];
 
-  options.groups.desktop.enable = lib.mkEnableOption "enable system desktop group";
+  options.modules.desktop = {
+    enable = lib.mkEnableOption "desktop environment";
 
-  config.modules = {
-    bluetooth = {
-      enable = lib.mkDefault config.groups.desktop.enable;
-      powerOnBoot.enable = lib.mkDefault config.modules.bluetooth.enable;
-    };
-    hyprland.enable = lib.mkDefault config.groups.desktop.enable;
-    ly.enable = lib.mkDefault config.groups.desktop.enable;
-    stylix.enable = lib.mkDefault config.groups.desktop.enable;
+    hyprland.enable = lib.mkEnableOption "hyprland wayland compositor and WM";
+    ly.enable = lib.mkEnableOption "ly display manager";
+  };
+
+  config.modules.desktop = with config.modules; {
+    hyprland.enable = lib.mkDefault desktop.enable;
+    ly.enable = lib.mkDefault desktop.enable;
   };
 }

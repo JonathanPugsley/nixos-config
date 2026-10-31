@@ -4,9 +4,7 @@
     ./keybinds.nix
   ];
 
-  options.modules.rofi.enable = lib.mkEnableOption "enable rofi";
-
-  config = lib.mkIf config.modules.rofi.enable {
+  config = lib.mkIf config.modules.desktop.rofi.enable {
     stylix.targets.rofi.enable = false;
 
     # settings

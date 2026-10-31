@@ -1,5 +1,3 @@
 { pkgs, ... }: {
-  config = {
-    environment.systemPackages = [ pkgs.vim ];
-  };
+  config.environment.systemPackages = [ pkgs.vim ];
 }

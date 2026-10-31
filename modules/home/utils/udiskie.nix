@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
-  options.modules.udiskie.enable = lib.mkEnableOption "enable udiskie";
-
-  config = lib.mkIf config.modules.udiskie.enable {
+  config = lib.mkIf config.modules.utils.udiskie.enable {
     home.packages = [ pkgs.udiskie ];
 
     services.udiskie = {

@@ -1,7 +1,5 @@
 { config, lib, ... }: {
-  options.modules.fastfetch.enable = lib.mkEnableOption "enable fastfetch";
-
-  config = lib.mkIf config.modules.fastfetch.enable {
+  config = lib.mkIf config.modules.utils.fastfetch.enable {
     programs.fastfetch = {
       enable = true;
       settings = {
