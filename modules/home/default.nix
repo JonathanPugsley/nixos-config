@@ -12,7 +12,12 @@
   config.modules = with osConfig.modules; {
     applications.enable = lib.mkDefault applications.enable;
     audio.enable = lib.mkDefault audio.enable;
-    desktop.enable = lib.mkDefault desktop.enable;
+
+    desktop = {
+      enable = lib.mkDefault desktop.enable;
+      monitors = desktop.monitors;
+    };
+
     development.enable = lib.mkDefault true;
     gaming.enable = lib.mkDefault gaming.enable;
     shells.enable = lib.mkDefault true;

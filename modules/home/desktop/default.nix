@@ -1,12 +1,13 @@
 { config, lib, ... }: {
   imports = [
     ./hypr-ecosystem/default.nix
-    ./hyprland/default.nix
     ./rofi/default.nix
     ./waybar/default.nix
 
     ./alacritty.nix
+    ./hyprland.nix
     ./mako.nix
+    ./options.nix
     ./wl-clipboard.nix
     ./xdg.nix
   ];

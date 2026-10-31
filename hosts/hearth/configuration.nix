@@ -3,6 +3,7 @@
     ../../modules/system/default.nix
     ../../scripts/default.nix
 
+    ./monitors.nix
     ./networking.nix
     ./storage.nix
   ];

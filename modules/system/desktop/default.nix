@@ -2,6 +2,7 @@
   imports = [
     ./hyprland.nix
     ./ly.nix
+    ./options.nix
   ];
 
   options.modules.desktop = {
