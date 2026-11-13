@@ -24,11 +24,15 @@
           librewolf = "${pkgs.librewolf}/bin/librewolf";
           rofi = "${pkgs.rofi}/bin/rofi";
           yazi = "${pkgs.yazi}/bin/yazi";
+          grim = "${pkgs.grim}/bin/grim";
+          slurp = "${pkgs.slurp}/bin/slurp";
+          wl_copy = "${pkgs.wl-clipboard}/bin/wl-copy";
         in ''
           browser = '${librewolf}'
           terminal = '${alacritty}'
           launcher = '${rofi} -show drun'
           fileManager = '${alacritty} -e ${yazi} $HOME'
+          screenshot_region = '${grim} -g "$(${slurp})" - | ${wl_copy}'
         '';
 
         "monitors.lua" = {

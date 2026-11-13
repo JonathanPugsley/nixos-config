@@ -6,6 +6,7 @@
     ./hyprpicker.nix
     ./hyprpolkitagent.nix
     ./hyprsunset.nix
+    ./screenshots.nix
   ];
 
   options.modules.desktop = {
@@ -15,6 +16,7 @@
     hyprpicker.enable = lib.mkEnableOption "hyprpicker colour picker";
     hyprpolkitagent.enable = lib.mkEnableOption "hyprpolkitagent";
     hyprsunset.enable = lib.mkEnableOption "blue light filter";
+    screenshots.enable = lib.mkEnableOption "screenshotting utilities";
   };
 
   config.modules.desktop = with config.modules; {
@@ -24,5 +26,6 @@
     hyprpicker.enable = lib.mkDefault desktop.enable;
     hyprpolkitagent.enable = lib.mkDefault desktop.enable;
     hyprsunset.enable = lib.mkDefault desktop.enable;
+    screenshots.enable = lib.mkDefault desktop.enable;
   };
 }

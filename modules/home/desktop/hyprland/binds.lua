@@ -10,6 +10,7 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd('lekker-menu-system'))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd('steam'))
+hl.bind(mainMod .. " + Shift + S", hl.dsp.exec_cmd(screenshot_region))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd('discord'))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + G", hl.dsp.window.float({ action = "toggle" }))
